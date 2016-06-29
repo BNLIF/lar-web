@@ -1,0 +1,67 @@
+body {
+    margin-bottom: 20px;
+    /*font-size: 16px;*/
+    /*position: relative;*/
+}
+h2 {
+    border-bottom: 1px solid #555;
+}
+i {
+    margin-right: 10px;
+}
+@media screen and (max-width: 960px), (max-device-width: 960px){
+    .affix {
+        position: static;
+    }
+}
+/*@media screen and (min-width: 960px) {
+    .affix {
+        position: fixed;
+    }
+}
+@media screen and (max-device-width: 960px){
+    .affix {
+        position: static;
+    }
+}*/
+
+section {
+    margin-bottom: 50px;
+}
+.well {
+    padding: 2px;
+}
+
+.row {
+    margin-bottom: 20px;
+}
+.input {
+    padding: 10px;
+    margin: 2px;
+    /*border: 1px solid red;*/
+    background-color: #dff0d8;
+}
+.plot {
+    display: none;
+}
+li.active {
+    background-color: #D2E2E3;;
+}
+table caption {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+td.caption {
+    color: #555;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.small {
+    color: #111;
+    font-size: 1.2em;
+    font-weight: normal;
+}

@@ -1,0 +1,861 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Everything You Need to Know About Liquid Argon Properties</title>
+  <link rel='shortcut icon' type='image/x-icon' href='img/favicon.ico' />
+  <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" />
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/app.css" media="screen" />
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+</head>
+
+<body data-spy="scroll" data-target="#leftCol" data-offset="200"><a name="top"></a>
+  <div class="container">
+    <div class="page-header">
+      <h1>
+        Everything You Need to Know About Liquid Argon Properties
+      </h1>
+    </div>
+  </div>
+
+  <div id="app" class="container">
+    <div class="row">
+      <div class="col-md-3" id="leftCol">
+        <div class="well affix" >
+          <ul class="nav nav-stacked" id="sidebar">
+            <li><a href="#basic-prop"><i class="fa fa-table fa-fw"></i> Basic Properties</a></li>
+            <li><a href="#e-trans"><i class="fa fa-battery-full fa-fw"></i> Electron Transportation</a></li>
+            <li><a href="#ion-trans"><i class="fa fa-circle-o-notch fa-fw"></i> Ion Transportation</a></li>
+            <li><a href="#elec-tpc"><i class="fa fa-code-fork fa-fw"></i> Electronics &amp; TPC</a></li>
+            <li><a href="#particle-pass"><i class="fa fa-car fa-fw"></i> Particle Passage</a></li>
+            <li><a href="#scint"><i class="fa fa-lightbulb-o fa-fw"></i> Scintillation</a></li>
+            <li><a href="#recon"><i class="fa fa-cogs"></i> LArTPC Reconstruction</a></li>
+            <li><a href="#ev-disp"><i class="fa fa-eye"></i> Event Display</a></li>
+            <li><a href="#refs"><i class="fa fa-book"></i> References</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-9">
+        <section id="basic-prop"><a name="basic-prop"></a>
+          <h2>Basic Properties</h2>
+          <p>
+            <span class="label label-info">Info</span>
+             All values are on the liquid-vapor saturation line and at E=500 V/cm unless otherwsie indcated.
+          </p>
+
+          <a name="Ar-comp"></a>
+          <table class="table table-bordered table-striped">
+            <caption>Isotopic composition and radiological purity</caption>
+            <thead>
+              <tr>
+                <th>Isotope</th>
+                <th>Relative Mass</th>
+                <th>Abundance</th>
+                <th>Decay Mode</th>
+                <th>Half Life</th>
+                <th>Q-value(MeV)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>$^{36}$Ar</td>
+                <td>35.96754628(27)</td>
+                <td>0.337(3)</td>
+                <td>stable</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>$^{37}$Ar</td>
+                <td></td>
+                <td>nil</td>
+                <td>EC,$\beta^+$</td>
+                <td>35.04d</td>
+                <td>0.8135(3)</td>
+              </tr>
+              <tr>
+                <td>$^{38}$Ar</td>
+                <td>37.9627322(5)</td>
+                <td>0.063(1)</td>
+                <td>stable</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>$^{39}$Ar</td>
+                <td></td>
+                <td>1.01(8)Bq/kg</td>
+                <td>$\beta^-$</td>
+                <td>269y</td>
+                <td>0.565(5)</td>
+              </tr>
+              <tr>
+                <td>$^{40}$Ar</td>
+                <td>39.962383123(3)</td>
+                <td>99.600(3)</td>
+                <td>stable</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>$^{41}$Ar</td>
+                <td></td>
+                <td>nil</td>
+                <td>$\beta^-$</td>
+                <td>109.34m</td>
+                <td>2.4916(7)</td>
+              </tr>
+              <tr>
+                <td>$^{42}$Ar</td>
+                <td></td>
+                <td>6$\times10^{-5}$ Bq/kg</td>
+                <td>$\beta^-$</td>
+                <td>32.9y</td>
+                <td>0.599(40)</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="table table-bordered table-striped">
+            <caption>Thermodynamic properties</caption>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Symbol</th>
+                <th>Value</th>
+                <th>Unit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Normal boiling point</td>
+                <td>$T_\text{NBP}$</td>
+                <td>87.303(2)</td>
+                <td>K</td>
+              </tr>
+              <tr>
+                <td>Density</td>
+                <td>$\rho_\text{NBP}$</td>
+                <td>1.396(1)</td>
+                <td>g/ml</td>
+              </tr>
+              <tr>
+                <td>Vapor/Liquid volume ratio</td>
+                <td>$V(g)/V(l)$</td>
+                <td>241.7</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>Normal freezing point</td>
+                <td>$T_\text{NFP}$</td>
+                <td>83.8(3)</td>
+                <td>K</td>
+              </tr>
+              <tr>
+                <td>Temperature at triple point</td>
+                <td>$T_\text{Triple}$</td>
+                <td>83.8058</td>
+                <td>K</td>
+              </tr>
+              <tr>
+                <td>Pressure at triple point</td>
+                <td>$P_\text{triple}$</td>
+                <td>0.68891(2)</td>
+                <td>bar</td>
+              </tr>
+              <tr>
+                <td>Density at triple point</td>
+                <td>$\rho_\text{Triple}$</td>
+                <td>1.417</td>
+                <td>g/cm$^3$</td>
+              </tr>
+              <tr>
+                <td>Temperature at critical point</td>
+                <td>$T_\text{C}$</td>
+                <td>150.687(15)</td>
+                <td>K</td>
+              </tr>
+              <tr>
+                <td>Pressure at critical point</td>
+                <td>$P_\text{C}$</td>
+                <td>48.63(3)</td>
+                <td>bar</td>
+              </tr>
+              <tr>
+                <td>Density at critical point</td>
+                <td>$\rho_\text{C}$</td>
+                <td>0.5356(10)</td>
+                <td>g/cm$^3$</td>
+              </tr>
+              <tr>
+                <td>Heat of vaporization</td>
+                <td>$\Delta H_\text{vap}$</td>
+                <td>161.14</td>
+                <td>kJ/kg</td>
+              </tr>
+              <tr>
+                <td>Heat capacity</td>
+                <td>$C_\text{p}$</td>
+                <td>1.117</td>
+                <td>kJ/kg/K</td>
+              </tr>
+              <tr>
+                <td>Thermal conductivity</td>
+                <td>$\rho_\text{NBP}$</td>
+                <td>0.1256</td>
+                <td>W/m/K</td>
+              </tr>
+              <tr>
+                <td>Viscosity</td>
+                <td>$\eta$</td>
+                <td>270.7</td>
+                <td>$\mu$Pas$\cdot$s</td>
+              </tr>
+              <tr>
+                <td>Speed of sound</td>
+                <td>$v_\text{s}$</td>
+                <td>838.3(1)</td>
+                <td>m/s</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="panel panel-primary">
+            <div class="panel-heading"><a name="phase-diagram"></a>
+              <h3 class="panel-title">LAr Phase Diagram and Vapor Pressure</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-8">
+                    <p>
+                    <strong>Boiling Line</strong> ($T_t\leq T\leq T_c$):
+               \[
+               p_b=p_c\times e^{\frac{T_c}{T}\left(a_1\phi+a_2\phi^{1.5}+a_3\phi^2+a_4\phi^{4.5}\right)}
+               \]
+               with
+                \[
+                  \phi=(1-T/T_c), \quad
+                  T_c = 150.687 \text{K}, \quad
+                  p_c = 4.863 \text{MPa}, \quad
+                  a_1 = -5.9409785, \\
+                  a_2 = 1.3553888, \quad
+                  a_3 = -0.46497607, \quad
+                  a_4 = -1.5399043
+                  \]
+              </p>
+              <p>
+               <strong>Melting Line</strong>:
+               \[
+               p_m=p_t\left(1+a_1\left[\left(\frac{T}{T_t}\right)^{1.05}-1\right]+a_2\left[\left(\frac{T}{T_t}\right)^{1.275}-1\right]\right)
+               \]
+              with
+                \[
+                  T_t = 83.8058 \text{K}, \quad
+                  p_t = 0.068891 \text{MPa}, \quad
+                  a_1 = -7476.2665, \quad
+                  a_2 = 9959.0613
+                  \]
+                  </p>
+                  <p>
+                <strong>Sublimation Line</strong>:
+                \[P_{sub}=P_t\times e^{\frac{T_t}{T}\left[a_1\left(1-\frac{T}{T_t}\right)+a_2\left(1-\frac{T}{T_t}\right)^{2.7}\right]}\]
+               with
+                \[
+                  T_t = 83.8058 \text{K}, \quad
+                  p_t = 0.068891 \text{MPa}, \quad
+                  a_1 = -11.391604, \quad
+                  a_2 = -0.39513431
+                  \]
+               </p>
+               <p>
+               <strong>LAr Density</strong> $(T_t\leq T \leq T_c)$:
+               \[
+               \rho_{liquid}=\rho_c\times e^{A\cdot t^{0.334}+B\cdot t^{2/3}+C \cdot t^{7/3}+D\cdot t^4}
+               \]
+               with
+               \[
+                  t=(1-T/T_c), \quad
+                  T_c = 150.687 \text{K}, \quad
+                  \rho_c = 0.5356 \text{g/cm}^3, \quad
+                  A = 1.5004262, \quad
+                  B = -0.31381290, \quad\\
+                  C = 0.086461622, \quad
+                  D = -0.041477525, \quad
+                  \]
+
+               </p>
+               <strong>Enthalpy</strong>:
+               Fit to enthalpy data from Reference[5], the enthalpy of
+               vaporization $\Delta H$ in kJ/mol as a function of temperature
+               $T$ for $T$: \[
+               \Delta H=\frac{A+B\cdot T}{1+C\cdot T}
+               \]
+                \[
+                  T_t = 83.8058 \text{K}, \quad
+                  p_t = 0.068891 \text{MPa}, \quad
+                  a_1 = -11.391604, \quad
+                  a_2 = -0.39513431
+                  \]
+               </p>
+
+                </div>
+                <div class="col-md-4">
+                  <img src="img/lar_phase.gif" alt="" width="100%">
+                  <img src="img/lar_vapor_pressure.png" alt="" width="100%">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="alert alert-info" role="alert">Editor: Yichen Li</div> -->
+          <div class="panel panel-primary">
+            <div class="panel-heading"><a name="LAr property table"></a>
+              <h3 class="panel-title">LAr Properties on Saturation Line</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+
+                <div class="col-md-12">
+                  <img src="img/LArProperties_1.gif" alt="" width="100%">
+              </div>
+            </div>
+          </div>
+
+
+          <!-- <div class="alert alert-info" role="alert">Editor: Yichen Li</div> -->
+          <hr>
+        </section>
+
+        <section id="e-trans"><a name="e-trans"></a>
+          <h2>Electron Transportation <a href="#top" style="float:right"><i class="fa fa-angle-double-up fa-fw"></i></a></h2>
+          <div class="row input">
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon">E field</span>
+                <input type="text" class="form-control" v-model="E">
+                <span class="input-group-addon">kV/cm</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon">Temperature</span>
+                <input type="text" class="form-control" v-model="T">
+                <span class="input-group-addon">K</span>
+              </div>
+            </div>
+          </div>
+          <table class="table table-bordered table-striped">
+            <caption>
+            </caption>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Symbol</th>
+                <th>Value</th>
+                <th>Unit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="#mu">Electron mobility</a></td>
+                <td>$\mu$</td>
+                <td>{{ mu | trunc }}</td>
+                <td>cm$^2$V$^{-1}$s$^{-1}$</td>
+              </tr>
+              <tr>
+                <td><a href="#v">Electron drift velocity</a></td>
+                <td>$v$</td>
+                <td>{{ v | trunc }}</td>
+                <td>cm/$\mu$s</td>
+              </tr>
+              <tr>
+                <td><a href="#eps_L">Effective longitudinal electron energy</a></td>
+                <td>$\epsilon_L$</td>
+                <td>{{ eps_L | trunc }}</td>
+                <td>eV</td>
+              </tr>
+              <tr>
+                <td><a href="#D_L">Longitudinal diffusion coefficients</a></td>
+                <td>$D_L$</td>
+                <td>{{ D_L | trunc }}</td>
+                <td>cm$^2$/s</td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <div class="panel panel-primary">
+            <div class="panel-heading"><a name="mu"></a>
+              <h3 class="panel-title">Electron mobility in LAr</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-8">
+                  The electron mobility data set used in our global data fit are from Ref. [29, 45–58] in Ref. <a href="#ref1">[1]</a>. LAr temperature
+                  used in this global fit is 89 K. The data reported in the references are all scaled to this temperature with
+                  the temperature dependence of $T^{−3/2}$ (Ref. [59] in Ref. <a href="#ref1">[1]</a>). The fitting function is a rational polynomial expressed as:
+                  \[
+                  \mu=\frac{a_0+a_1E+a_2E^{3/2}+a_3E^{5/2}}{1+(a_1/a_0)E+a_4E^2+a_5E^3}\left(\frac{T}{T_0}\right)^{-3/2},
+                  \]
+                  where $E$ is the electric field  in the unit of kV/cm and $a_0 = 551.6$cm$^2$/s is the electron mobility at zero field with temperature of $T_0$ = 89 K, $T$ is the LAr temperature. The fitting parameters are given bys
+                  \[
+                  a_0 = 551.6, \quad
+                  a_1 = 7953.7, \quad
+                  a_2 = 4440.43, \quad
+                  a_3 = 4.29, \quad
+                  a_4 = 43.63, \quad
+                  a_5 = 0.2053
+                  \]
+                </div>
+                <div class="col-md-4">
+                  <img src="img/lar_mob_data.gif" alt="" width="100%">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-primary">
+            <div class="panel-heading"><a name="v"></a>
+              <h3 class="panel-title">Electron drift velocity in LAr</h3>
+            </div>
+            <div class="panel-body">
+              Electron drift velocity is a product of electron mobility and the electric field.
+              \[
+                v = \mu E
+              \]
+            </div>
+          </div>
+
+          <div class="panel panel-primary">
+            <div class="panel-heading"><a name="eps_L"></a>
+              <h3 class="panel-title">Effective longitudinal electron energy</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-8">
+                  We introduce a parameterization of the effective electron energy for the convenience of application. Both the data in Ref. <a href="#ref1">[1]</a> and ICARUS's data at low field are included. The parameterization is also in a form of rational polynomial
+                  \[
+                  \epsilon_L=\frac{b_0+b_1E+b_2E^2}{1+(b_1/b_0)E+b_3E^2}\left(\frac{T}{T_1}\right)
+                  \]
+                  where $E$ is the electric field in the unit of kV/cm and $b_0=0.0075$ eV is the electron energy
+                  at $T_1$ = 87 K under zero field and $T$ is the LAr temperature. The parameterization can be applied to other
+                  temperatures with a linear temperature dependence of $T$.
+                  The fitting parameters are given bys
+                  \[
+                  b_0 = 0.0075, \quad
+                  b_1 = 742.9, \quad
+                  b_2 = 3269.6, \quad
+                  b_3 = 31678.2, \quad
+                  \]
+                </div>
+                <div class="col-md-4">
+                  <img src="img/lar_el_data.gif" alt="" width="100%">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-primary">
+            <div class="panel-heading"><a name="D_L"></a>
+              <h3 class="panel-title">Longitudinal diffusion coefficients</h3>
+            </div>
+            <div class="panel-body">
+              The longitudinal diffusion coefficients $D_L$ in the range of 0.1 to 1.5 kV/cm can be expressed as
+              defined by the Einstein relation
+              \[
+              D_L=\frac{\mu\epsilon_L}{e}=\left(\frac{a_0+a_1E+a_2E^{3/2}+a_3E^{5/2}}{1+(a_1/a_0)E+a_4E^2+a_5E^3}\right)\left(\frac{b_0+b_1E+b_2E^2}{1+(b_1/b_0)E+b_3E^2}\right)\left(\frac{T}{T_0}\right)^{-3/2}\left(\frac{T}{T_1}\right),
+              \]
+              with the parameters given previously.
+            </div>
+          </div>
+
+          <!-- <div class="alert alert-info" role="alert">Editor: Yichen Li</div> -->
+          <hr>
+        </section>
+
+        <section id="ion-trans"><a name="ion-trans"></a>
+          <h2>Ion Transportation <a href="#top" style="float:right"><i class="fa fa-angle-double-up fa-fw"></i></a></h2>
+          <!-- <div class="alert alert-info" role="alert">Editor: Michael Mooney</div> -->
+          <hr>
+        </section>
+
+        <section id="elec-tpc"><a name="elec-tpc"></a>
+          <h2>Electronics &amp; TPC<a href="#top" style="float:right"><i class="fa fa-angle-double-up fa-fw"></i></a></h2>
+
+          <div class="row input">
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon">E field</span>
+                <input type="text" class="form-control" v-model="E">
+                <span class="input-group-addon">kV/cm</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon">Temperature</span>
+                <input type="text" class="form-control" v-model="T">
+                <span class="input-group-addon">K</span>
+              </div>
+            </div>
+          </div>
+          <div class="row input">
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon">Wire Spacing</span>
+                <input type="text" class="form-control" v-model="wire_spacing">
+                <span class="input-group-addon">mm</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon">Wire diameter</span>
+                <input type="text" class="form-control" v-model="wire_diameter">
+                <span class="input-group-addon">mm</span>
+              </div>
+            </div>
+          </div>
+          <div class="row input">
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon">Wire Plane Gap</span>
+                <input type="text" class="form-control" v-model="plane_gap">
+                <span class="input-group-addon">mm</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon">Max Drift Distance</span>
+                <input type="text" class="form-control" v-model="drift_dist_max">
+                <span class="input-group-addon">m</span>
+              </div>
+            </div>
+          </div>
+          <div class="row input">
+            <div class="col-md-12">
+              <div class="input-group">
+                <span class="input-group-addon">E-field ratio between wire planes</span>
+                <input type="text" class="form-control" v-model="E_ratio">
+              </div>
+            </div>
+          </div>
+          <table class="table table-bordered table-striped">
+            <caption>
+            </caption>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Value</th>
+                <th>Unit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Min E-field ratio for 100% transparency</td>
+                <td>{{ E_ratio_trans | trunc }}</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Wire capacitance in air</td>
+                <td>{{ wire_c_air | trunc }}</td>
+                <td>pF/m</td>
+              </tr>
+              <tr>
+                <td>Wire capacitance in LAr</td>
+                <td>{{ wire_c_lar | trunc }}</td>
+                <td>pF/m</td>
+              </tr>
+              <tr>
+                <td>Cathode high voltage</td>
+                <td>{{ cathod_hv | trunc }}</td>
+                <td>kV</td>
+              </tr>
+              <tr>
+                <td>E fields (for 3 planes)</td>
+                <td>{{ E }}, &nbsp; {{ E2 | trunc }}, &nbsp; {{ E3 | trunc }}</td>
+                <td>kV/cm</td>
+              </tr>
+              <tr>
+                <td>Drift velocities (for 3 planes)</td>
+                <td>{{ v | trunc }}, &nbsp; {{ v2 | trunc }}, &nbsp; {{ v3 | trunc }}</td>
+                <td>cm/$\mu$s</td>
+              </tr>
+              <tr>
+                <td>Drift time (for 3 planes)</td>
+                <td>{{ t | trunc }}, &nbsp; {{ t2 | trunc }}, &nbsp; {{ t3 | trunc }}</td>
+                <td>$\mu$s</td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <!-- <div class="alert alert-info" role="alert">Editor: Brian Kirby, Jyoti Joshi</div> -->
+          <hr>
+        </section>
+
+        <section id="particle-pass"><a name="particle-pass"></a>
+          <h2>Particle Passage through LAr <a href="#top" style="float:right"><i class="fa fa-angle-double-up fa-fw"></i></a></h2>
+          <table class="table table-bordered table-striped">
+            <caption>Response to ionization radiation</caption>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Symbol</th>
+                <th>Value</th>
+                <th>Unit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>W-value for ionization</td>
+                <td>$W_\text{i}$</td>
+                <td>23.6(3)</td>
+                <td>eV/pair</td>
+              </tr>
+              <tr>
+                <td>Fano factor</td>
+                <td>$F$</td>
+                <td>0.107</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>Moliere radius</td>
+                <td>$R_\text{M}$</td>
+                <td>10.0</td>
+                <td>cm</td>
+              </tr>
+              <tr>
+                <td>Radiation length</td>
+                <td>$X_0$</td>
+                <td>14.0</td>
+                <td>cm</td>
+              </tr>
+              <tr>
+                <td>Nuclear interaction length</td>
+                <td>$\lambda_\text{i}$</td>
+                <td>85.7</td>
+                <td>cm</td>
+              </tr>
+              <tr>
+                <td>Critical energy</td>
+                <td>$E_\text{c}$</td>
+                <td>30.5</td>
+                <td>MeV</td>
+              </tr>
+              <tr>
+                <td>Mininum specific energy loss</td>
+                <td>$dE_\text{MIP}/dx$</td>
+                <td>2.12</td>
+                <td>MeV/cm</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="panel panel-primary">
+            <div class="panel-heading">Stopping power</div>
+            <div class="panel-body">
+              <p>
+                The mean rate of energy loss by moderately relativistic charged heavy particles is well-described by the "Bethe equation" ...
+              </p>
+              <p>
+                Click the following links to retrieve the relevent plots:
+              </p>
+              <div class="list-group">
+                <a href="" class="list-group-item list-group-item-success">dE/dx vs. Kinetic Energy for proton, kaon, pion, muon</a>
+                <div id="dedx-ke" class='plot'></div>
+                <a href="" class="list-group-item list-group-item-success">dE/dx vs. Residual Range for proton, kaon, pion, muon</a>
+                <div id="dedx-residual-range" class='plot'></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-primary">
+            <div class="panel-heading">Recombination</div>
+            <div class="panel-body">
+              <p>
+                The recombination factor $R_c$ describes the efficiency in converting $dE/dx$ into $dQ/dx$, the number of electrons collected. There are two models for the recombination effect.
+              </p>
+              <p>
+                <strong>Birks Model</strong>:
+                \[
+                  R_c = \frac{dQ/dx}{dE/dx} = \frac{A_{3t}}{1+k_{3t}/\varepsilon \times dE/dx}
+                \]
+                , where $A_{3t} = 0.8$, $k_{3t} = 0.0486 (g/MeV cm^2)(kV/cm)$ and $\varepsilon = E \rho$ is the product of electric field and density.
+              </p>
+              <p>
+                <strong>Modified Box model:</strong>
+                \[
+                  R_c = \frac{dQ/dx}{dE/dx} = \frac{\ln(A+B/\varepsilon \times dE/dx)}{B/\varepsilon \times dE/dx}
+                \]
+                , where $A = 0.930$, $B = 0.212 (g/MeV cm^2)(kV/cm)$ and $\varepsilon = E \rho$ is the product of electric field and density.
+              </p>
+              <p>
+                Click the following links to retrieve the relevent plots:
+              </p>
+              <div class="list-group">
+                <a href="" class="list-group-item list-group-item-success">Recombination vs. dE/dx for Birks model and Modified Box model</a>
+                <div id="rc-dedx" class='plot'></div>
+              </div>
+            </div>
+          </div>
+
+          <table class="table table-bordered table-striped">
+            <caption>Response to electromagnetic radiation</caption>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Symbol</th>
+                <th>Value</th>
+                <th>Unit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Dielectric constant</td>
+                <td>$\epsilon$</td>
+                <td>{{ dielec }}(3)</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>Index of refraction (at 128 nm)</td>
+                <td>$n$</td>
+                <td>1.38</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>Rayleigh scattering length (at 128 nm)</td>
+                <td>$L_\text{R}$</td>
+                <td>95</td>
+                <td>cm</td>
+              </tr>
+              <tr>
+                <td>Absorption length (> 128 nm)</td>
+                <td>$L_\text{A}$</td>
+                <td>>200</td>
+                <td>cm</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- <div class="alert alert-info" role="alert">Editor: Xin Qian</div> -->
+          <hr>
+        </section>
+
+        <section id="scint"><a name="scint"></a>
+          <h2>Scintillation <a href="#top" style="float:right"><i class="fa fa-angle-double-up fa-fw"></i></a></h2>
+          <table class="table table-bordered table-striped">
+            <caption>Scintillation Properties</caption>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Symbol</th>
+                <th>Value</th>
+                <th>Unit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>W-value for scintillation</td>
+                <td>$W_\text{s}$</td>
+                <td>19.5</td>
+                <td>eV/photon</td>
+              </tr>
+              <tr>
+                <td>W-value for Cerenkov radiation</td>
+                <td>$W_\text{c}$</td>
+                <td>2700</td>
+                <td>eV/photon</td>
+              </tr>
+              <tr>
+                <td>Scintillation emission peak</td>
+                <td>$\lambda_\text{scint}$</td>
+                <td>128(10)</td>
+                <td>nm</td>
+              </tr>
+              <tr>
+                <td>Decay time</td>
+                <td>$\tau_\text{scint}$</td>
+                <td>6(2), 1590(100)</td>
+                <td>ns</td>
+              </tr>
+           </tbody>
+          </table>
+          <!-- <div class="alert alert-info" role="alert">Editor: Yichen Li</div> -->
+          <hr>
+        </section>
+
+        <section id="recon"><a name="recon"></a>
+          <h2>LArTPC Reconstruction <a href="#top" style="float:right"><i class="fa fa-angle-double-up fa-fw"></i></a></h2>
+          <div class="row">
+            <div class="col-md-7">
+              <p>
+              Event reconstruction is one of the most challenging tasks in analyzing the data from current and future large liquid argon time projection chambers (LArTPCs). The performance of the event reconstruction holds the key to many potential future discoveries with the LArTPC technology including i) searching for new CP violation in the leptonic sector, ii) determining the neutrino mass hierarchy, and iii) searching for additional light (sterile) neutrino species.
+              </p>
+              <p>
+              <strong><a href="http://www.phy.bnl.gov/wire-cell/">Wire-Cell</a></strong> is a novel tomographic event reconstruction method, which is being developed aiming to solve the long-standing problem of automated 3D neutrino event reconstruction in LArTPC. Taking the simulation results from <a href="https://cdcvs.fnal.gov/redmine/projects/larsoftsvn/wiki">LArSoft</a>, the principle of Wire-Cell strictly follows the principle of LArTPC, that is, the same amount of ionization electrons are observed by all the wire-planes. Using both time and charge information, 3D image of the event topologies are firstly obtained. Further reconstruction steps including the clustering, tracking, and particle identifications (PID) are then directly applied to the 3D image.
+              </p>
+            </div>
+            <div class="col-md-5">
+              <img src="img/wirecell.png" alt="" width="100%">
+            </div>
+          </div>
+          <!-- <div class="alert alert-info" role="alert">Editor: Xin Qian</div> -->
+          <hr>
+        </section>
+
+        <section id="ev-disp"><a name="ev-disp"></a>
+          <h2>Event Display <a href="#top" style="float:right"><i class="fa fa-angle-double-up fa-fw"></i></a></h2>
+          <div class="row">
+            <div class="col-md-6">
+              <p>
+
+                A novel web-based event display "<strong><a href="http://www.phy.bnl.gov/wire-cell/bee/">Bee</a></strong>" is being developed to visualize different types of LArTPC events reconstructed by Wire-Cell and other algorithms. <span class="text-success">Bee</span> uses <a href="https://en.wikipedia.org/wiki/WebGL">WebGL</a> to draw interactive 3D graphics in the browser through the <a href="http://threejs.org/">three.js</a> JavaScript library. The list of compatible browsers can be found <a href="http://caniuse.com/#feat=webgl">here</a>.
+              </p>
+
+              <p>
+              With the <span class="text-success">Bee</span> event display, users can examine the details of event topology in the 3D space, compare the performance of different reconstruction results, show the true Monte-Carlo trajectories and particle types, enter the sliced mode to view the development of tomographic images, and explore many other features of the events.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <img src="img/bee-white.png" alt="" width="100%">
+            </div>
+          </div>
+          <!-- <div class="alert alert-info" role="alert">Editor: Chao Zhang</div> -->
+          <hr>
+        </section>
+
+        <section id="refs"><a name="refs"></a>
+          <h2>References <a href="#top" style="float:right"><i class="fa fa-angle-double-up fa-fw"></i></a></h2>
+          <div class="row">
+            <div class="col-md-12">
+              <ol>
+                <li><a name="ref1"></a> Y. Li, et al., "Measurement of Longitudinal Electron Diffusion in Liquid Argon", <a href="http://arxiv.org/abs/1508.07059">arXiv:1508.07059</a>.</li>
+                <li>C. Thorn, "Catalogue of Liquid Argon properties", <a href="http://microboone-docdb.fnal.gov:8080/cgi-bin/ShowDocument?docid=412">MicroBooNE doc:412</a></li>
+                <li>B. Baller, "LArTPC calculator", <a href="http://microboone-docdb.fnal.gov:8080/cgi-bin/ShowDocument?docid=3564">MicroBooNE doc:3564</a></li>
+              </ol>
+            </div>
+          </div>
+        </section>
+      <!-- div.col-md-9 ends -->
+      </div>
+    <!-- div.row ends -->
+    </div>
+  <!-- div.container ends   -->
+  </div>
+
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/highcharts/highcharts.js"></script>
+  <script src="js/highcharts/modules/exporting.js"></script>
+  <script src="js/vue.min.js"></script>
+  <script src="js/plot-dispacher.js"></script>
+  <script src="js/charts.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
