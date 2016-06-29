@@ -25,8 +25,8 @@ This website is constructed using the [Twitter Bootstrap](http://getbootstrap.co
 ## Download and Set Up a Webserver
 
 ```bash
-git clone https://github.com/czczc/LArProperties
-cd LArProperties
+git clone https://github.com/BNLIF/lar-web.git
+cd lar-web/properties
 python -m SimpleHTTPServer
 ```
 
