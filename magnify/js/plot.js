@@ -55,6 +55,7 @@ $.when(xhr_all).done(function(){
     $.extend(true, wfOptions, options);
     wf_chart = new Highcharts.Chart(wfOptions);
     $current_wire.val(vm.current_wire);
+    $('#loading-bar').hide();
 
     var heatmapOptions = {
         chart: {type: 'heatmap', renderTo: 'heatmap-orig'},
