@@ -193,6 +193,7 @@ $.when(xhr_all).done(function(){
     $('#btn-clean').click(function(){
         for (var i=0; i<data_names.length; i++) {
             heatmap_chart[data_names[i]].xAxis[0].removePlotLine('heatmap-line');
+            wf_chart.xAxis[0].removePlotLine('plot-line');
         }
         $statusbar.text('');
     })
