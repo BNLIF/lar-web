@@ -1,21 +1,13 @@
 var data_path = 'data/uboone-3493-1/0/'
-var wf_data = {
-    'orig' : [ [] ],
-    'nf' : [ [] ],
-    'decon' : [ [] ]
-};
-var heatmap_data = {
-    'orig' : [],
-    'nf' : [],
-    'decon' : []
-}
-var xhr = {
-    'orig' : null,
-    'nf' : null,
-    'decon' : null
-}
-var current_ch = 50;
+var data_names = ['orig', 'nf', 'decon']
+var wf_data = {};
+var heatmap_data = {};
+var xhr = {};
+var wf_chart = null;
+var heatmap_chart = {};
+var vm = null;
 
+init_data();
 load_data('orig');
 load_data('nf');
 load_data('decon');
@@ -24,6 +16,40 @@ var xhr_all = $.when(xhr.orig, xhr.nf, xhr.decon).done(function(){
     // console.log(wf_data, heatmap_data, xhr);
 })
 
+function init_data() {
+    var name = null;
+    for (var i=0; i<data_names.length; i++) {
+        name = data_names[i];
+        wf_data[name] = [ [] ];
+        heatmap_data[name] = [];
+        xhr[name] = null;
+        heatmap_chart[name] = null;
+    }
+    vm = new Vue({
+        el: '#app',
+        data: {
+            current_wire: 50
+        },
+        watch: {
+            current_wire: function(val, oldVal) {
+                // console.log('changed.');
+                for (var i=0; i<data_names.length; i++) {
+                    wf_chart.series[i].update({
+                        data: wf_data[data_names[i]][vm.current_wire],
+                    });
+                    heatmap_chart[data_names[i]].xAxis[0].removePlotLine('heatmap-line');
+                    heatmap_chart[data_names[i]].xAxis[0].addPlotLine({
+                        value: val,
+                        color: 'black',
+                        width: '1',
+                        zIndex: 10,
+                        id: 'heatmap-line'
+                    });
+                }
+            }
+        }
+    });
+}
 
 function load_data(name) {
     var isDecon = false;
