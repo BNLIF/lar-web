@@ -67,7 +67,7 @@ $.when(xhr_all).done(function(){
                 title: {text: 'Number of electrons (after deconvolution)', style: {color: '#d95f02', fontWeight: 'bold'}},
                 labels: {
                     formatter: function() {
-                        return '<b>' + this.value / scalingToADC[name] + '</b>';
+                        return '<b>' + this.value / scalingToADC['decon'] + '</b>';
                     },
                     style: {color: '#d95f02'}
                 }
