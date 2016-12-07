@@ -16,6 +16,14 @@ var options = {
     exporting: { enabled: false } // heatmap too large
 }
 
+// $('#frameScale').slider({
+//     min: 1, max: 3, step: 0.5, value: 0,
+//     slide: function(event, ui) {
+//         for (var i=0; i<data_names.length; i++) {
+//             heatmap_chart[data_names[i]].setSize(vm.nBinsX*ui.value, vm.nBinsY*ui.value);
+//         }
+//     }
+// }).slider("pips");
 
 
 $.when(xhr_all).done(function(){
@@ -72,7 +80,7 @@ $.when(xhr_all).done(function(){
                 color: 'black',
             }
         },
-        xAxis: {min: 0, max: 110,
+        xAxis: {min: 0, max: vm.nBinsX,
             title: {text: 'Wire number'},
             // crosshair: {zIndex: 3}, // interferes with click event
             events: {
@@ -87,7 +95,7 @@ $.when(xhr_all).done(function(){
                 }
             }
         },
-        yAxis: {title: {text: 'x3 microseconds'}, min: 0, max: 265,
+        yAxis: {title: {text: 'x3 microseconds'}, min: 0, max: vm.nBinsY,
             endOnTick: false,
             events: {
                 afterSetExtremes: function (e) {
@@ -106,7 +114,7 @@ $.when(xhr_all).done(function(){
             stops: [
                 [0, '#3060cf'],
                 [0.5, '#ffffff'],
-                [0.9, '#c4463a'],
+                [0.85, '#c4463a'],
                 [1, '#c4463a']
             ],
             min: -100, max: 100,
@@ -114,14 +122,14 @@ $.when(xhr_all).done(function(){
             endOnTick: false
         },
         legend: {
-            align: "right",
+            align: 'center',
         },
         plotOptions: {
             series: {animation: false,
                 point: {
                     events: {
                         mouseOver: function (e) {
-                            $statusbar.text(this.value + ' @(' + this.x + ', ' + this.y + ')');
+                            $statusbar.text(this.value.toFixed(2) + ' @(' + this.x + ', ' + this.y + ')');
                             wf_chart.xAxis[0].removePlotLine('plot-line');
                             wf_chart.xAxis[0].addPlotLine({
                                 value: this.y,

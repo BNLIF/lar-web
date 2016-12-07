@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../home/css/bootstrap.min.css" media="screen" />
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/ui-darkness/jquery-ui.css">
 </head>
 
 <body>
@@ -16,18 +17,38 @@
 
       <div class="row">
 
-        <div class="col-md-6" id="leftCol">
+        <div class="col-md-8" id="leftCol">
           <div class="btn-group">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"  title="Event List" id="btn-event-list">
+                <span class="glyphicon glyphicon-list"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="hash-link" href="#/event/uboone-3455-1">uboone-3455-1</a></li>
+                <li><a class="hash-link" href="#/event/uboone-3469-1">uboone-3469-1</a></li>
+                <li><a class="hash-link" href="#/event/uboone-3493-1">uboone-3493-1</a></li>
+              </ul>
+            </div>
             <button type="button" class="btn btn-default" id="btn-orig">Original</button>
             <button type="button" class="btn btn-default" id="btn-nf">After Noise Filter</button>
             <button type="button" class="btn btn-default" id="btn-decon">After Deconvolution</button>
-            <button type="button" class="btn btn-default" aria-label="Clean" id="btn-clean">
-              <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+            <button type="button" class="btn btn-default" title="Prev Plane" id="btn-prev-plane">
+              <span class="glyphicon glyphicon-menu-left"></span>
+            </button>
+            <button type="button" class="btn btn-default" title="Next Plane" id="btn-next-plane">
+              <span class="glyphicon glyphicon-menu-right"></span>
+            </button>
+            <button type="button" class="btn btn-default" title="Clean Charts" id="btn-clean">
+              <span class="glyphicon glyphicon-leaf"></span>
+            </button>
+            <button type="button" class="btn btn-default" title="Pin Waveform" id="btn-pin" v-on:click="toggleAffix">
+              <span class="glyphicon glyphicon-pushpin"></span>
             </button>
           </div>
+          <!-- <div id="frameScale" class="myslider"></div> -->
         </div>
 
-        <div class="col-md-6" id="leftCol">
+        <div class="col-md-4" id="leftCol">
           <h1 align="right">Magnify Online</h1>
         </div>
 
@@ -38,18 +59,22 @@
 
       <div class="col-md-4" id="leftCol">
         <div>
-          <span  class="label label-info" id="heatmap-label" style="float:left; display: inline-block;">After Noise Filter </span>
-          <span  class="label label-default" id="statusbar" style="float:right;"></span>
+          <span  class="label label-warning" id="event-label"></span>&nbsp;
+          <span  class="label label-info" id="heatmap-label">After Noise Filter </span>&nbsp;
+          <span  class="label label-default" id="statusbar"></span>
         </div>
-        <div id="heatmap-orig" style="display: none;width: 330px; height: 780px; margin: 0 auto; float: left"></div>
-        <div id="heatmap-nf" style="width: 330px; height: 780px; margin: 0 auto; float: left"></div>
-        <div id="heatmap-decon" style="display: none;width: 330px; height: 780px; margin: 0 auto; float: left"></div>
+
+        <div id="heatmap-orig" style="display: none;width:340px; height: {{300.*nBinsY/nBinsX}}px; margin: 0 auto; float: left"></div>
+        <div id="heatmap-nf" style="width: 340px; height: {{300.*nBinsY/nBinsX}}px; margin: 0 auto; float: left"></div>
+        <div id="heatmap-decon" style="display: none;width: 340px; height: {{300.*nBinsY/nBinsX}}px; margin: 0 auto; float: left"></div>
       </div>
 
       <div class="col-md-8" id="rightCol">
+      <div v-bind:class="{ 'affix' : affix }">
         <div style="text-align:center;" id="loading-bar"><img src="img/ajax-loader.gif" /></div>
-        <div id="waveforms" style="width: 100%; height: 400px; margin: 0;"></div>
-        <div class="col-md-4"></div>
+        <div id="waveforms"  style="width: 750px; height: 400px; margin: 0;"></div>
+        <div class="col-md-4">
+        </div>
         <div class="input-group col-md-4">
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" id="btn-prev">Prev Wire</button>
@@ -60,19 +85,23 @@
           </span>
         </div><!-- /input-group -->
       </div>
+      </div>
     </div>
 
   </div>
 
   </div>
 
-
+  <script src="js/director.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
   <script src="../properties/js/bootstrap.min.js"></script>
+
   <script src="../properties/js/highcharts/highcharts.js"></script>
   <script src="../properties/js/highcharts/modules/heatmap.js"></script>
   <script src="../properties/js/highcharts/modules/exporting.js"></script>
   <script src="../properties/js/vue.min.js"></script>
+  <script src="js/router.js"></script>
   <script src="js/data.js"></script>
   <script src="js/plot.js"></script>
   <!-- <script src="js/app.js"></script> -->

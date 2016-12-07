@@ -1,4 +1,4 @@
-var data_path = 'data/uboone-3493-1/0/'
+
 var data_names = ['orig', 'nf', 'decon']
 var wf_data = {};
 var heatmap_data = {};
@@ -28,7 +28,15 @@ function init_data() {
     vm = new Vue({
         el: '#app',
         data: {
-            current_wire: 50
+            current_wire: wireId, // this is initially set by the url
+            nBinsX: 110,
+            nBinsY: 265,
+            affix: false
+        },
+        methods: {
+            toggleAffix: function() {
+                this.affix = !(this.affix);
+            }
         },
         watch: {
             current_wire: function(val, oldVal) {
@@ -53,12 +61,11 @@ function init_data() {
 
 function load_data(name) {
     var isDecon = false;
-    var adcScale = 1;
-    if (name == 'decon') {
-        isDecon = true;
-        adcScale = 1./250;
-    }
+    var adcScale = 1.;
+    if (name == 'decon') { isDecon = true; }
+
     xhr[name] = $.getJSON(data_path+name+'.json', function(data){
+        adcScale = data.scalingToADC;
         var length = data.x.length;
 
         // set waveform data
@@ -71,20 +78,25 @@ function load_data(name) {
             }
             waveforms[ch].push([data.y[i], data.value[i]*adcScale]);
         }
+        vm.nBinsY = waveforms[0].length;
+        vm.nBinsX = waveforms.length;
 
         // set heatmap data
         var heatmap = heatmap_data[name];
-        if (isDecon) {
-            for (var i=0; i<length; i++) {
-                if (data.value[i]<0) { data.value[i] = 0; }
-                heatmap.push([data.x[i], data.y[i], data.value[i]*adcScale]);
-            }
+        for (var i=0; i<length; i++) {
+            heatmap.push([data.x[i], data.y[i], data.value[i]*adcScale]);
         }
-        else {
-            for (var i=0; i<length; i++) {
-                heatmap.push([data.x[i], data.y[i], data.value[i]]);
-            }
-        }
+        // if (isDecon) {
+        //     for (var i=0; i<length; i++) {
+        //         // if (data.value[i]<0) { data.value[i] = 0; }
+        //         heatmap.push([data.x[i], data.y[i], data.value[i]*adcScale]);
+        //     }
+        // }
+        // else {
+        //     for (var i=0; i<length; i++) {
+        //         heatmap.push([data.x[i], data.y[i], data.value[i]*adcScale]);
+        //     }
+        // }
 
     });
 }
