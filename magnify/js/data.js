@@ -5,6 +5,7 @@ var heatmap_data = {};
 var xhr = {};
 var wf_chart = null;
 var heatmap_chart = {};
+var scalingToADC = {};
 var vm = null;
 
 init_data();
@@ -24,6 +25,7 @@ function init_data() {
         heatmap_data[name] = [];
         xhr[name] = null;
         heatmap_chart[name] = null;
+        scalingToADC[name] = 1;
     }
     vm = new Vue({
         el: '#app',
@@ -66,6 +68,7 @@ function load_data(name) {
 
     xhr[name] = $.getJSON(data_path+name+'.json', function(data){
         adcScale = data.scalingToADC;
+        scalingToADC[name] = adcScale;
         var length = data.x.length;
 
         // set waveform data

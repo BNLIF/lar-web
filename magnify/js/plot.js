@@ -27,8 +27,10 @@ var options = {
 
 
 $.when(xhr_all).done(function(){
+    // console.log(scalingToADC);
     var wfOptions = {
         chart: {type: 'line', renderTo: 'waveforms'},
+        // tooltip: {enabled: false},
         series: [
             {
                 name: 'Original',
@@ -55,9 +57,22 @@ $.when(xhr_all).done(function(){
             min: 0,
             title: {text: "x3 microseconds", align: 'high'}
         },
-        yAxis: {gridLineWidth: 1, startOnTick: true, tickPosition: 'inside',
-            title: {text: "ADC"}
-        }
+        yAxis: [
+            { gridLineWidth: 1, startOnTick: true, tickPosition: 'inside',
+              title: {text: "ADC"}
+            },
+            {
+                linkedTo: 0,
+                opposite: true,
+                title: {text: 'Number of electrons (after deconvolution)', style: {color: '#d95f02', fontWeight: 'bold'}},
+                labels: {
+                    formatter: function() {
+                        return '<b>' + this.value / scalingToADC[name] + '</b>';
+                    },
+                    style: {color: '#d95f02'}
+                }
+            }
+        ]
     };
     // console.log(wfOptions);
     $.extend(true, wfOptions, options);
