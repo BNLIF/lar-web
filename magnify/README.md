@@ -17,20 +17,20 @@ data
 
 ```json
 {
-    "x"        : [0, 0, 0, 1, 1, 1],
-    "y"        : [0, 1, 2, 0, 1, 2],
-    "value"        : [3.0, 7.0, 4.5, 2.0 10.0, 15.0],
-    "scalingToADC"     : 0.004
+    "x"    : [0, 0, 0, 1, 1, 1],
+    "y"    : [0, 1, 2, 0, 1, 2],
+    "value": [3.0, 7.0, 4.5, 2.0, 10.0, 15.0],
+    "scalingToADC": 0.004
 }
 ```
 
 , where the descriptions of the variables are summerized below
 
-| Name | Description | comments |
+| Name | Description | Comments |
 | ---- | ----------- | -------- |
 | x | array of wire numbers | sorted, starting from 0 |
-| y | array of time bin number | sorted for fixed x, starting from 0 |
+| y | array of time bin numbers | sorted for fixed x, starting from 0 |
 | value | array of values at (x, y) | |
-| scalingToADC | scaling factor to convert the value to ADC | 1.0 for original and after noise filter |
+| scalingToADC | scaling factor to convert the value to ADC | 1.0 for the original and after noise filter waveforms |
 
-. Then, you can load the waveform display at `http://localhost/magnify/#/event/{eventId}/plane/{planeId}/wire/{wireId}` . If you omit parts of the url, and the default `eventId`, `planeId`, and `wireId` will be set to `uboone-3493-1`, `0`, and `40`, respectively.
+. Then, you can load the waveform display at `http://localhost/magnify/#/event/{eventId}/plane/{planeId}/wire/{wireId}` . You can omit parts of the url, and the default `eventId`, `planeId`, and `wireId` will be set to `uboone-3493-1`, `0`, and `40`, respectively.
