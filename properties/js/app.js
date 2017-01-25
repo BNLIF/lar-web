@@ -7,12 +7,15 @@ Vue.filter('trunc', function (value, precision) {
         console.log(e);
     }
 });
-
+// console.log('haha')
 var vm = new Vue({
     el: '#app',
     data: {
         E: 0.5,
         T: 87.0,
+        wl: 128.0,
+        T_c: 150.687,
+        rho_c: 0.5356, // g/cm^3
         T0: 89.0,
         T1: 87.0,
         a0: 551.6,
@@ -34,6 +37,29 @@ var vm = new Vue({
         E_ratio: 1.5
     },
     computed: {
+        density: function() {
+            var a = 1.5004262;
+            var b = -0.31381290;
+            var c = 0.086461622;
+            var d = -0.041477525;
+            var t = (1-this.T/this.T_c);
+            var rho = Math.log(this.rho_c) + a * Math.pow(t,0.334)
+              + b * Math.pow(t,2./3.)
+              + c * Math.pow(t,7./3.)
+              + d * Math.pow(t,4.);
+            return Math.exp(rho);
+        },
+        iof: function() {
+            // index of refraction
+            return this.iof_l(this.wl);
+        },
+        v_g: function() {
+            var y = this.iof;
+            var x = 1.*this.wl;
+            var dx = 0.01;
+            // // calculate numerical diferential
+            return 1/y + x/y/y*(this.iof_l(x+dx)-y)/dx;
+        },
         mu: function() {
             // return (this.a0 + this.a1*this.E + this.a2*Math.pow(this.E, 1.5) + this.a3*Math.pow(this.E, 2.5)) / (1 + this.a1/this.a0*this.E + this.a4*Math.pow(this.E, 2) + this.a5*Math.pow(this.E, 3)) * Math.pow(this.T/this.T0, -1.5);
             return this.mobility(this.E);
@@ -90,7 +116,29 @@ var vm = new Vue({
     methods: {
         mobility: function(E) {
             return (this.a0 + this.a1*E + this.a2*Math.pow(E, 1.5) + this.a3*Math.pow(E, 2.5)) / (1 + this.a1/this.a0*E + this.a4*Math.pow(E, 2) + this.a5*Math.pow(E, 3)) * Math.pow(this.T/this.T0, -1.5);
-        }
+        },
+        iof_g: function(lambda) {
+            // gas index of refraction
+            var c0 = 1.2055e-2;
+            var a1 = 0.2075;
+            var b1 = 91.012;
+            var a2 = 0.0415;
+            var b2 = 87.892;
+            var a3 = 4.3330;
+            var b3 = 214.02;
+            var lambda = lambda / 1000.;
+            return results = 1 + c0 *(a1/(b1-1./lambda/lambda)
+                          + a2/(b2-1./lambda/lambda)
+                          + a3/(b3-1./lambda/lambda));
+        },
+        iof_l: function(lambda) {
+            // liquid index of refraction
+            var nG = this.iof_g(lambda);
+            var rhoG = 1.0034*0.0017840;
+            var rhoL = this.density;
+            return Math.sqrt((2+nG*nG)*rhoG + 2*(-1+nG*nG)*rhoL)/
+              Math.sqrt((2+nG*nG)*rhoG+rhoL-nG*nG*rhoL);
+        },
     }
 });
 
