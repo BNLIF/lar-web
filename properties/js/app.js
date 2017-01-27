@@ -8,6 +8,8 @@ Vue.filter('trunc', function (value, precision) {
     }
 });
 // console.log('haha')
+var $plotEl = null;
+
 var vm = new Vue({
     el: '#app',
     data: {
@@ -54,11 +56,7 @@ var vm = new Vue({
             return this.iof_l(this.wl);
         },
         v_g: function() {
-            var y = this.iof;
-            var x = 1.*this.wl;
-            var dx = 0.01;
-            // // calculate numerical diferential
-            return 1/y + x/y/y*(this.iof_l(x+dx)-y)/dx;
+            return this._v_g(this.wl);
         },
         mu: function() {
             // return (this.a0 + this.a1*this.E + this.a2*Math.pow(this.E, 1.5) + this.a3*Math.pow(this.E, 2.5)) / (1 + this.a1/this.a0*this.E + this.a4*Math.pow(this.E, 2) + this.a5*Math.pow(this.E, 3)) * Math.pow(this.T/this.T0, -1.5);
@@ -139,7 +137,83 @@ var vm = new Vue({
             return Math.sqrt((2+nG*nG)*rhoG + 2*(-1+nG*nG)*rhoL)/
               Math.sqrt((2+nG*nG)*rhoG+rhoL-nG*nG*rhoL);
         },
+        _v_g: function(lambda) {
+            var y = this.iof_l(lambda);
+            var x = 1.*lambda;
+            var dx = 0.01;
+            // // calculate numerical diferential
+            return 1/y + x/y/y*(this.iof_l(x+dx)-y)/dx;
+        },
+        plot: function(options, target) {
+            // console.log($(target).parents('tr')[0]);
+            if($plotEl) {$plotEl.remove();}
+            $plotEl = $('<tr><td colspan="4"><div id="myPlot"></div></td></tr>').insertAfter(
+                $(target).parents('tr')[0]
+            );
+            $plotEl.on('dblclick', function(){
+                $plotEl.remove();
+            })
+            var myOptions = {
+                chart: {renderTo: 'myPlot'},
+                xAxis: {title: {text: options.xTitle}},
+                yAxis: {title: {text: options.yTitle}},
+                legend: {enabled: false},
+                series: [{
+                    // name: 'Test',
+                    data: options.data
+                }]
+            };
+            var chart = new Highcharts.Chart( myOptions );
+        },
+        plot_iof_l: function(event) {
+            var i, x, y;
+            var data = [];
+            for (i=120; i<300; i++) {
+                x = i*1.0
+                y = this.iof_l(x);
+                data.push([x,y]);
+            }
+            this.plot({
+                xTitle: 'Wavelength [nm]',
+                yTitle: 'Index of refraction',
+                data: data
+            }, event.target)
+        },
+        plot_v_g: function(event) {
+            var i, x, y;
+            var data = [];
+            for (i=120; i<300; i++) {
+                x = i*1.0;
+                y = this._v_g(x);
+                data.push([x,y]);
+            }
+            this.plot({
+                xTitle: 'Wavelength [nm]',
+                yTitle: 'Velocity (c)',
+                data: data
+            }, event.target)
+        }
     }
 });
+
+
+// $('[data-toggle=modal]').click(function(event) {
+//     event.preventDefault();
+//     console.log('haha');
+
+//     var highchartsOptions = {
+//         chart: {renderTo: 'myModal'},
+//         xAxis: {title: {text: 'Residual Range [cm]'}},
+//         yAxis: {title: {text: 'dE/dx [Mev/cm]'}},
+//         series: [{
+//             name: 'Tokyo',
+//             data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+//         }]
+//     };
+
+//     var chart = new Highcharts.Chart( highchartsOptions );
+//     $('#myModal').modal();
+// });
+
 
 

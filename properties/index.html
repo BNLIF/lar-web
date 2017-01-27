@@ -258,26 +258,28 @@
             </thead>
             <tbody>
               <tr>
-                <td><a href="#mu">Density</a></td>
+                <td>Density</td>
                 <td>$\rho$</td>
                 <td>{{ density | trunc  }}</td>
                 <td>g/cm$^{3}$</td>
               </tr>
               <tr>
-                <td><a href="#v">Index of refraction</a></td>
+                <td>Index of refraction <button class="btn btn-default" v-on:click="plot_iof_l">Plot</button></td>
                 <td>$n$</td>
                 <td>{{ iof | trunc }}</td>
                 <td></td>
               </tr>
+
               <tr>
-                <td><a href="#eps_L">Photon group velociy</a></td>
+                <td>Photon group velociy <button class="btn btn-default" v-on:click="plot_v_g">Plot</button></td>
                 <td>$v_g$</td>
                 <td>{{ v_g | trunc }}</td>
                 <td>$c$</td>
               </tr>
-
             </tbody>
           </table>
+
+
 
 
           <div class="panel panel-primary">
