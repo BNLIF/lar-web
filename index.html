@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 <div class="col-lg-12 owl-carousel owl-theme">
-                    <div class="item" style="width:200px"><img src="home/img/heading/01.png"></div>
+                    <div class="item" style="width:210px"><img src="home/img/heading/01.png"></div>
                     <div class="item" style="width:200px"><img src="home/img/heading/02.png"></div>
                     <div class="item" style="width:380px"><img src="home/img/heading/03.png"></div>
                     <div class="item" style="width:350px"><img src="home/img/heading/04.png"></div>
@@ -93,6 +93,8 @@
                     <div class="item" style="width:380px"><img src="home/img/heading/10.png"></div>
                     <div class="item" style="width:86px"><img src="home/img/heading/11.png"></div>
                     <div class="item" style="width:150px"><img src="home/img/heading/12.png"></div>
+                    <div class="item" style="width:218px"><img src="home/img/heading/13.png"></div>
+                    <div class="item" style="width:230px"><img src="home/img/heading/14.png"></div>
                 </div>
             </div>
 
@@ -109,9 +111,6 @@
     <div class="content-section-a"><a name="rd"></a>
         <div class="container">
             <div class="row">
-<!--                 <div class="col-lg-5 col-sm-6">
-                    <img class="img-responsive" src="home/img/signal.gif" alt="">
-                </div> -->
                 <div class="col-lg-12 col-sm-12">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
@@ -144,63 +143,61 @@
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Software &amp; Computing</h2>
                     <p class="lead">
+                        BNL is developing a broad suite of software related to LArTPC.  The
+                        suite includes
+                        <a href="http://github.com/wire-cell-sigproc/">excess noise filtering, signal processing</a>,
+                        electrostatic field response calculations
+                        (<a href="coming soon">2D</a>
+                        and
+                        <a href="http://github.com/brettviren/larf">3D</a>),
+                        and accurate  <a href="http://github.com/wire-cell-gen/">simulations</a>  covering electron drift and diffusion and detector and electronics response.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                 <div class="col-lg-7 col-sm-7">
 
-BNL is developing a broad suite of software related to LArTPC.  The
-suite includes 
-<a href="http://github.com/wire-cell-sigproc/">excess noise filtering, signal processing<a>,
-electrostatic field response calculations
-(<a href="coming soon">2D</a>
-and
-<a href="http://github.com/brettviren/larf">3D</a>),
-and accurate  <a href="http://github.com/wire-cell-gen/">simulations</a>  covering electron drift and diffusion and detector and electronics response.
-                    </p>
-                    <p>
-Whether data is simulated or from the real detectors, BNL is
-developing a novel tomographic 3D LArTPC activity imaging softaware called
-<a href="http://www.phy.bnl.gov/wire-cell/">Wire Cell</a>.  It
-reconstructs the amount of inoized electrons at their locations
-throughout the detector volume in a way that is free from trajectory
-assumptions and associated biases.
-                    </p>
-                    <p>
-
-The high level of complex information produced by LArTPC field calculations, simulations
-and reconstruction requires equally sophisticated visualization
-software.  BNL develops interactive web-based, interactive
-visualization software including the immersive 
-<a href="http://www.phy.bnl.gov/wire-cell/bee">Bee 3D event display</a>
-showing simulated "true" or Wire Cell reconstructed activity as well as the
-<a href="coming soon">Magnify</a> application which provides 2D views (wire vs
-time) of the data and the ability to explore innndividual waveforms in
-detail.  The field calculations can produce data for viewing in the 3D
-<a href="http://www.paraview.org/">ParaView</a> application
-                    </p>
-                    <p>
-Even modest sized LArTPC detectors such as the single-phase protoDUNE
-detector to be operated at CERN in 2018 can produce prodigious amount
-of data (2.5 PB over two months of running).  It is important to reduce the data to
-manageable size while retaining all important signal information.  BNL is developing a 
-<a href="http://docs.dunescience.org/cgi-bin/ShowDocument?docid=2089">data
-reduction</a> technique which can save all signal information while
-reducing the data volume by more than a factor of 400.  
-                    </p>
-<em>
-  fixme:
                     <p class="lead">
-                        <a href="http://www.phy.bnl.gov/wire-cell/">Wire Cell</a> is a new tomographic event reconstruction method, which is being developed aiming to solve the long-standing problem of automated 3D neutrino event reconstruction in LArTPC. The principle of Wire-Cell strictly follows the principle of LArTPC, that is, the same amount of ionization electrons are observed by all the wire-planes. Using both time and charge information, 3D image of the event topologies are firstly obtained. Further reconstruction steps including the clustering, tracking, and particle identifications (PID) are then directly applied to the 3D image.
+                    Whether data is simulated or from the real detectors, BNL is
+                    developing a novel tomographic 3D LArTPC activity imaging softaware called
+                    <a href="http://www.phy.bnl.gov/wire-cell/">Wire Cell</a>. The principle of Wire-Cell strictly follows the principle of LArTPC, that is, the same amount of ionization electrons are observed by all the wire-planes. Using both time and charge information, 3D image of the event topologies are firstly obtained. Further reconstruction steps including the clustering, tracking, and particle identifications (PID) are then directly applied to the 3D image.
                     </p>
                     <p class="lead">
-                        A novel web-based event display <a href="http://www.phy.bnl.gov/wire-cell/bee/">Bee</a> is being developed to visualize different types of LArTPC events reconstructed by Wire Cell or other 3D reconstruction methods. Bee uses <a href="WebGL">WebGL</a> to draw interactive 3D graphics in a <a href="http://caniuse.com/#feat=webgl">compatible web browser</a>.
+                    The high level of complex information produced by LArTPC field calculations, simulations
+                    and reconstruction requires equally sophisticated visualization
+                    software.  BNL develops interactive web-based, interactive
+                    visualization software including the immersive
+                    <a href="http://www.phy.bnl.gov/wire-cell/bee">Bee 3D event display</a>
+                    showing simulated "true" or Wire Cell reconstructed activity as well as the
+                    <a href="magnify">Magnify</a> application which provides 2D views (wire vs
+                    time) of the data and the ability to explore innndividual waveforms in
+                    detail.  The field calculations can produce data for viewing in the 3D
+                    <a href="http://www.paraview.org/">ParaView</a> application.
                     </p>
-</em>
+                </div>
+                <div class="col-lg-4 col-lg-offset-1 col-sm-5">
+                    <!-- <img class="img-responsive" src="home/img/sw/larf-upaths.png" alt="Electron drift paths passing through LArTPC wire planes."> -->
+                    <figure>
+                      <img class="img-responsive" src="home/img/sw/larf-vweight.png" alt="Shockley-Ramo weighting potential for an inner induction wire.">
+                      <figcaption>Shockley-Ramo weighting potential for an inner induction wire.</figcaption>
+                    </figure>
 
+                    <!-- <img class="img-responsive" src="home/img/sw/bee-reco-true.gif" alt="Bee 3D view of reconstructed and true activity from an electron neutrino interaction."> -->
+                    <!-- <img class="img-responsive" src="home/img/wirecell.png" alt=""> -->
                 </div>
-                <div class="col-lg-5 col-lg-offset-1 col-sm-6">
-                    <img class="img-responsive" src="home/img/sw/larf-upaths.png" alt="Electron drift paths passing through LArTPC wire planes.">
-                    <img class="img-responsive" src="home/img/sw/larf-vweight.png" alt="Shockley-Ramo weighting potential for an inner induction wire.">
-                    <img class="img-responsive" src="home/img/sw/bee-reco-true.gif" alt="Bee 3D view of reconstructed and true activity from an electron neutrino interaction.">
-                    <img class="img-responsive" src="home/img/wirecell.png" alt="">
-                </div>
+            </div>
+            <div class="row">
+                 <div class="col-lg-12 col-sm-12">
+                     <p class="lead">
+                     Even modest sized LArTPC detectors such as the single-phase protoDUNE
+                     detector to be operated at CERN in 2018 can produce prodigious amount
+                     of data (2.5 PB over two months of running).  It is important to reduce the data to
+                     manageable size while retaining all important signal information.  BNL is developing a
+                     <a href="http://docs.dunescience.org/cgi-bin/ShowDocument?docid=2089">data
+                     reduction</a> technique which can save all signal information while
+                     reducing the data volume by more than a factor of 400.
+                     </p>
+                 </div>
             </div>
         </div>
     </div>
