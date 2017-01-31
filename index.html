@@ -138,11 +138,54 @@
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Software &amp; Computing</h2>
                     <p class="lead">
-                    infrastructure, reconstruction, visualization, ...
+
+BNL is developing a broad suite of software related to LArTPC.  The
+suite includes 
+<a href="http://github.com/wire-cell-sigproc/">excess noise filtering, signal processing<a>,
+electrostatic field response calculations
+(<a href="coming soon">2D</a>
+and
+<a href="http://github.com/brettviren/larf">3D</a>),
+and accurate  <a href="http://github.com/wire-cell-gen/">simulations</a>  covering electron drift and diffusion and detector and electronics response.
+                    </p>
+                    <p>
+Whether data is simulated or from the real detectors, BNL is
+developing a novel tomographic 3D LArTPC activity imaging softaware called
+<a href="http://www.phy.bnl.gov/wire-cell/">Wire Cell</a>.  It
+reconstructs the amount of inoized electrons at their locations
+throughout the detector volume in a way that is free from trajectory
+assumptions and associated biases.
+                    </p>
+                    <p>
+
+The high level of complex information produced by LArTPC field calculations, simulations
+and reconstruction requires equally sophisticated visualization
+software.  BNL develops interactive web-based, interactive
+visualization software including the immersive 
+<a href="http://www.phy.bnl.gov/wire-cell/bee">Bee 3D event display</a>
+showing simulated "true" or Wire Cell reconstructed activity as well as the
+<a href="coming soon">Magnify</a> application which provides 2D views (wire vs
+time) of the data and the ability to explore innndividual waveforms in
+detail.  The field calculations can produce data for viewing in the 3D
+<a href="http://www.paraview.org/">ParaView</a> application
+                    </p>
+                    <p>
+Even modest sized LArTPC detectors such as the single-phase protoDUNE
+detector to be operated at CERN in 2018 can produce prodigious amount
+of data (2.5 PB over two months of running).  It is important to reduce the data to
+manageable size while retaining all important signal information.  BNL is developing a 
+<a href="http://docs.dunescience.org/cgi-bin/ShowDocument?docid=2089">data
+reduction</a> technique which can save all signal information while
+reducing the data volume by more than a factor of 400.  
+                      
+
+
                     </p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-1 col-sm-6">
-                    <img class="img-responsive" src="http://placehold.it/400x400" alt="">
+                    <img class="img-responsive" src="home/img/sw/larf-upaths.png" alt="Electron drift paths passing through LArTPC wire planes.">
+                    <img class="img-responsive" src="home/img/sw/larf-vweight.png" alt="Shockley-Ramo weighting potential for an inner induction wire.">
+                    <img class="img-responsive" src="home/img/sw/bee-reco-true.gif" alt="Bee 3D view of reconstructed and true activity from an electron neutrino interaction.">
                 </div>
             </div>
         </div>
