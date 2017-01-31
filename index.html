@@ -116,7 +116,7 @@
                     <h2 class="section-heading">LAr R&amp;D</h2>
                     <p class="lead">
                         BNL has a long history in developing LAr detector technology, starting in 1974 with
-                        pioneering work of Radeka and Willis. Since then, the research and technical efforts have led to series
+                        pioneering work of <a href="http://www.sciencedirect.com/science/article/pii/0029554X74900391">Radeka and Willis</a>. Since then, the research and technical efforts have led to series
                         of successful detectors employing LAr technology: R806, Helios, D0, and NA48, and most recently
                         ATLAS and MicroBooNE. BNL is currently responsible for the design of the TPC and low-noise cold
                         electronics for the major future LArTPC experiments in the U.S, such as SBN, ProtoDUNE and DUNE.
@@ -125,6 +125,10 @@
                     <p  class="lead">
                         The commonly referred BNL "cold electronics" is a custom designed complementary metal-oxide-semiconductor (CMOS) analog front-end cold application-specfic integrated circuit (ASIC) operated in the LAr to amplify and shape the induced current from each wire from LArTPC. Compared to the warm electronics, the cold electronics has the advantage to be placed at the wire in order to minimize the overall capacitance. In addition, the noise level measured in equivalent noise charge is much lower for the CMOS technology at the low temperature. Due to lack of amplification of electrons inside LAr, the low noise with the cold electronics is essential to reliable extract ionization electron signal from both the collection and induction wire planes in a single-phase LArTPC. The current development of the cold electronics lies on the cold ADC and cold signal multiplexing.  The integration of these capabilities in the cold LAr would minimize the signal penetrations on the 10 kt LArTPC cryostat designed for DUNE.
                     </p>
+
+                    <p class="lead">
+                       Presice knowledge of the <a href="properties">liquid argon properties</a> is essential to any LAr experiments.
+                    </p>
                 </div>
             </div>
         </div>
@@ -132,8 +136,8 @@
 
     <div class="content-section-b"><a name="sc"></a>
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-sm-6">
+           <div class="row">
+                <div class="col-lg-12 col-sm-12">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Software &amp; Computing</h2>
@@ -177,15 +181,23 @@ manageable size while retaining all important signal information.  BNL is develo
 <a href="http://docs.dunescience.org/cgi-bin/ShowDocument?docid=2089">data
 reduction</a> technique which can save all signal information while
 reducing the data volume by more than a factor of 400.  
-                      
-
-
                     </p>
+<em>
+  fixme:
+                    <p class="lead">
+                        <a href="http://www.phy.bnl.gov/wire-cell/">Wire Cell</a> is a novel tomographic event reconstruction method, which is being developed aiming to solve the long-standing problem of automated 3D neutrino event reconstruction in LArTPC. The principle of Wire-Cell strictly follows the principle of LArTPC, that is, the same amount of ionization electrons are observed by all the wire-planes. Using both time and charge information, 3D image of the event topologies are firstly obtained. Further reconstruction steps including the clustering, tracking, and particle identifications (PID) are then directly applied to the 3D image.
+                    </p>
+                    <p class="lead">
+                        A novel web-based event display <a href="http://www.phy.bnl.gov/wire-cell/bee/">Bee</a> is being developed to visualize different types of LArTPC events reconstructed by Wire Cell or other 3D reconstruction methods. Bee uses <a href="WebGL">WebGL</a> to draw interactive 3D graphics in a <a href="http://caniuse.com/#feat=webgl">compatible web browser</a>.
+                    </p>
+</em>
+
                 </div>
                 <div class="col-lg-5 col-lg-offset-1 col-sm-6">
                     <img class="img-responsive" src="home/img/sw/larf-upaths.png" alt="Electron drift paths passing through LArTPC wire planes.">
                     <img class="img-responsive" src="home/img/sw/larf-vweight.png" alt="Shockley-Ramo weighting potential for an inner induction wire.">
                     <img class="img-responsive" src="home/img/sw/bee-reco-true.gif" alt="Bee 3D view of reconstructed and true activity from an electron neutrino interaction.">
+                    <img class="img-responsive" src="home/img/wirecell.png" alt="">
                 </div>
             </div>
         </div>
@@ -199,19 +211,18 @@ reducing the data volume by more than a factor of 400.
                     <div class="clearfix"></div>
                     <h2 class="section-heading">LArTPC Experiments</h2>
                     <p class="lead">
-                        The BNL group are currently participlating various major LArTPC experiments including MicroBooNE, SBN, protoDUNE, and DUNE.
+                        The BNL group are currently participlating various major LArTPC experiments including MicroBooNE, SBN, and DUNE.
                     </p>
                     <p class="lead">
-                        The MicroBooNE detector is a recently built LArTPC designed to observe interactions of neutrinos from the on-axis Booster and off-axis NuMI beams at the Fermi National Accelerator Laboratory in Batavia, IL. The physics motivation of MicroBooNE includes i) study the nature of low-energy excess observed by MiniBooNE, ii) study the neutrino-Argon interaction cross section at 800 MeV range, iii) development of LArTPC technology. The detector consists of a 2.56m x 2.3m x 10.4m TPC for charge detection, and an array of 32 PMTs that detect scintillation light for triggering, timing, and other purposes. The active mass of the detector is 86 t of LAr. The TPC is housed in a foam-insulated evacuable cryostat vessel with a 2.56m drift distance bounded on one end by the cathode plane and the other by three parallel anode wire readout planes. In the drift direction, these planes are labeled “U”, “V”, and “Y”. The U and V planes each contain 2400 wires and the Y plane contains 3256. Wires are spaced apart by 3 mm both within and between planes. The wires making up the Y plane run vertically and the wires in the V and U planes are oriented 60° with respect to vertical.
+                        <img src="home/img/uboone.jpg" alt="" width="150" align="left"> The <a href="http://www-microboone.fnal.gov/">MicroBooNE</a> detector is a recently built LArTPC designed to observe interactions of neutrinos from the on-axis Booster and off-axis NuMI beams at the Fermi National Accelerator Laboratory in Batavia, IL. The physics motivation of MicroBooNE includes studing the nature of low-energy excess observed by MiniBooNE, studying the neutrino-Argon interaction cross section at 800 MeV range, and development of the LArTPC technology. The detector consists of a 2.56 m x 2.3 m x 10.4 m TPC for charge detection, and an array of 32 PMTs that detect scintillation light for triggering, timing, and other purposes. The active mass of the detector is 86 t of LAr. The TPC is housed in a foam-insulated evacuable cryostat vessel with a 2.56m drift distance bounded on one end by the cathode plane and the other by three parallel anode wire readout planes. In the drift direction, these planes are labeled “U”, “V”, and “Y”. The U and V planes each contain 2400 wires and the Y plane contains 3256. Wires are spaced apart by 3 mm both within and between planes. The wires making up the Y plane run vertically and the wires in the V and U planes are oriented 60° with respect to vertical.
                     </p>
 
                     <p class="lead">
-                        The Short-Baseline Near Detector (SBND) will be one of three liquid argon neutrino detectors sitting in the Booster Neutrino Beam (BNB) at Fermilab as part of the Short-Baseline Neutrino Program. MicroBooNE and the ICARUS-T600 are the intermediate and far detectors in the program, respectively. SBND is a 112 ton active volume liquid argon time projection chamber (LArTPC) to be located only 110 m from the BNB neutrino source. The detector is currently in the design phase and is anticipated to begin operation in 2018. SBND will record over a million neutrino interactions per year. By providing such a high statistics measurement of the un-oscillated content of the booster neutrino beam, SBND is a critical element in performing searches for neutrino oscillations at the Fermilab Short-Baseline Program. The large data sample will also allow studies of neutrino-argon interactions in the GeV energy range with unprecedented precision. The physics of these interactions is an important element of the long-baseline Deep Underground Neutrino Experiment (DUNE).
+                        <img src="home/img/sbnd.jpg" alt="" width="80" align="left"> The <a href="http://sbn-nd.fnal.gov/">Short-Baseline Near Detector</a> (SBND) will be one of three liquid argon neutrino detectors sitting in the Booster Neutrino Beam (BNB) at Fermilab as part of the Short-Baseline Neutrino Program. MicroBooNE and the ICARUS-T600 are the intermediate and far detectors in the program, respectively. SBND is a 112 ton active volume liquid argon time projection chamber (LArTPC) to be located only 110 m from the BNB neutrino source. The detector is currently in the design phase and is anticipated to begin operation in 2018. SBND will record over a million neutrino interactions per year. By providing such a high statistics measurement of the un-oscillated content of the booster neutrino beam, SBND is a critical element in performing searches for neutrino oscillations at the Fermilab Short-Baseline Program. The large data sample will also allow studies of neutrino-argon interactions in the GeV energy range with unprecedented precision. The physics of these interactions is an important element of the long-baseline Deep Underground Neutrino Experiment (DUNE).
                     </p>
 
                     <p  class="lead">
-                        The Deep Underground Neutrino Experiment (DUNE) is the first mega science program to be hosted in the US. DUNE is designed to i) precisely measure the parameter govern the muon (anti)neutrino to electron (anti)neutrino oscillations, including the CP phase delta, the neutrino mass hierarchy (sign of Delta m^2_{32}) and the third mixing angle theta_13, ii) search for proton decays, and iii) detect neutrinos from supernova explosions. By placing four 10 kt LArTPC detectors at a baseline of 1300 km, DUNE will measure muon (anti)neutrino to electron (anti)neutrino oscillations.
-                           DUNE is in the process of finalizing and validating the LArTPC design through the construction of a set of prototype detectors (35-ton, 1x1x3 m^3 dual phase detector, protoDUNE single phase LArTPC, and protoDUNE dual phase LArTPC).
+                        <img src="home/img/dune.jpg" alt="" width="240" align="left"> The <a href="(http://www.dunescience.org/">Deep Underground Neutrino Experiment</a> (DUNE) is the first mega science program to be hosted in the US. DUNE is designed to precisely measure the parameter govern the muon (anti)neutrino to electron (anti)neutrino oscillations, which includes the CP violating phase, the neutrino mass hierarchy, and other neutrino mixing parameters, by placing four 10 kt LArTPC detectors at a baseline of 1300 km. It will also search for proton decays, and detect neutrinos from supernova explosions. DUNE is in the process of finalizing and validating the LArTPC design through the construction of a set of prototype detectors (35-ton single phase detector, 1 m x 1 m x 3 m dual phase detector, protoDUNE single phase LArTPC, and protoDUNE dual phase LArTPC).
                     </p>
                 </div>
 <!--                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
@@ -291,12 +302,11 @@ reducing the data volume by more than a factor of 400.
                 600:{
                     items:3
                 },
-                1000:{
-                    items:5
+                960:{
+                    items:4
                 }
             }
         });
-        console.log('haha')
     </script>
 
 </body>
