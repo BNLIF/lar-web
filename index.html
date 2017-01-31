@@ -77,7 +77,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
-                        <h1>The Liquid Argon Techonlogy @BNL</h1>
+                        <h1>The Liquid Argon Technology @BNL</h1>
                     </div>
                 </div>
                 <div class="col-lg-12 owl-carousel owl-theme">
@@ -94,7 +94,7 @@
                     <div class="item" style="width:86px"><img src="home/img/heading/11.png" title="2-liter LAr Test Stand"></div>
                     <div class="item" style="width:150px"><img src="home/img/heading/12.png" title="20-liter LAr Test Stand"></div>
                     <div class="item" style="width:218px"><img src="home/img/heading/13.png" title="Electron drift paths passing through LArTPC wire planes"></div>
-                    <div class="item" style="width:230px"><img src="home/img/heading/14.png" title="Image before and after signal deconvolution"></div>
+                    <!-- <div class="item" style="width:230px"><img src="home/img/heading/14.png" title="Image before and after signal deconvolution"></div> -->
                 </div>
             </div>
 
@@ -190,6 +190,21 @@
                     detail.  The field calculations can produce data for viewing in the 3D
                     <a href="http://www.paraview.org/">ParaView</a> application.
                     </p>
+
+                    <p class="lead">
+                        The goal of the TPC signal processing is to convert the raw digitized TPC waveform to the number of ionized electrons passing through the wire plane at a given time. The proper recovery of the number of ionized electrons from both induction and collection anode wire planes is important to the success of the subsequent reconstruction algorithms. Owing to the ultra-low noise with the cold electronics inside LAr, we successfully extract the ionization from the induction wire planes with the 2D deconvolution as well as the Region of Interest (ROI) selection techniques in the MicroBooNE experiment.
+                    </p>
+
+                    <p class="lead">
+                    Even modest sized LArTPC detectors such as the single-phase protoDUNE
+                    detector to be operated at CERN in 2018 can produce prodigious amount
+                    of data (2.5 PB over two months of running).  It is important to reduce the data to
+                    manageable size while retaining all important signal information.  BNL is developing a
+                    <a href="http://docs.dunescience.org/cgi-bin/ShowDocument?docid=2089">data
+                    reduction</a> technique which can save all signal information while
+                    reducing the data volume by more than a factor of 400.
+                    </p>
+
                 </div>
                 <div class="col-lg-4 col-lg-offset-1 col-sm-5">
                     <!-- <img class="img-responsive" src="home/img/sw/larf-upaths.png" alt="Electron drift paths passing through LArTPC wire planes."> -->
@@ -197,24 +212,20 @@
                       <img class="img-responsive" src="home/img/sw/larf-vweight.png" alt="Shockley-Ramo weighting potential for an inner induction wire.">
                       <figcaption>Shockley-Ramo weighting potential for an inner induction wire.</figcaption>
                     </figure>
+                    <figure>
+                      <img class="img-responsive" src="home/img/sigproc.png">
+                      <figcaption>An example neutrino event from MicroBooNE viewed from the first induction wire plane. The two images are before and after signal deconvolution, respectively.</figcaption>
+                    </figure>
 
                     <!-- <img class="img-responsive" src="home/img/sw/bee-reco-true.gif" alt="Bee 3D view of reconstructed and true activity from an electron neutrino interaction."> -->
                     <!-- <img class="img-responsive" src="home/img/wirecell.png" alt=""> -->
                 </div>
             </div>
-            <div class="row">
+<!--             <div class="row">
                  <div class="col-lg-12 col-sm-12">
-                     <p class="lead">
-                     Even modest sized LArTPC detectors such as the single-phase protoDUNE
-                     detector to be operated at CERN in 2018 can produce prodigious amount
-                     of data (2.5 PB over two months of running).  It is important to reduce the data to
-                     manageable size while retaining all important signal information.  BNL is developing a
-                     <a href="http://docs.dunescience.org/cgi-bin/ShowDocument?docid=2089">data
-                     reduction</a> technique which can save all signal information while
-                     reducing the data volume by more than a factor of 400.
-                     </p>
+
                  </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
