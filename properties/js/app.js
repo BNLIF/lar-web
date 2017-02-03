@@ -215,5 +215,21 @@ var vm = new Vue({
 //     $('#myModal').modal();
 // });
 
+$('.fold').click(function(e){
+    e.preventDefault();
+    $(this).parent().next('.section').slideToggle();
+})
 
+var showall = true;
+var $allsections = $('.section');
+$('#foldall').click(function(e){
+    e.preventDefault();
+    if (showall) {
+        $allsections.slideUp();
+    }
+    else {
+        $allsections.slideDown();
+    }
+    showall = !showall;
+})
 
