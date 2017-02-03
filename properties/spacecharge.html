@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Notes on Space Charge</title>
+  <link rel='shortcut icon' type='image/x-icon' href='img/favicon.ico' />
+  <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" />
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/app.css" media="screen" />
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+</head>
+
+<body>
+
+<div class="container" style="margin-top: 20px;">
+<div class="row">
+<div class="col-md-12">
+
+  <div class="panel panel-primary">
+    <div class="panel-heading"><a name="phase-diagram"></a>
+      <h3 class="panel-title">Space Charge Effect in LAr</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-8">
+            <p>
+            When the ionized electrons are drifting toward the anode plane, the positive argon ion would drift towards the cathode plane. The drifting speed o the positive ion is much slower, about five orders of magnitude smaller than that of ionized electron. For LArTPC operating on the surface, the continuous flow of cosmic muons would lead to a large amount of positive ions accumulated inside the drift volume of LArTPC. Such charge accumulation is commonly referred to as the space charge, and would lead to a distortion of the electric field lines inside LArTPC. Space charge is common for Gaseous TPC.
+            </p>
+
+            <p>
+            Since the diffusion of electrons inside LAr is small, the ionized electrons essentially travel along the electric field line. Therefore, space charge would lead to distortion in the reconstructed image from LArTPC. Since the space charge would also change the magnitude of electric field, it would also have an impact on the energy reconstruction through altering the electron-ion recombination. The impact of the space scaled with $L^3$ with L being the drift distance and $E^{-1.7}$ with E being the electric field. The number -1.7 (instead of -2) is due to more electron-ion recombination at low electric field.
+            A summary of impact of space charge can be found at Ref [1].
+            </p>
+
+            <p>
+              The space charge effect has been clearly observed in the MicroBooNE experiment (Ref [2]).  The calibration of the space charge effect is still an active area of research.
+            </p>
+
+        </div>
+        <div class="col-md-4">
+          <img src="img/sc.png" alt="" width="100%">
+          <img src="img/sc-uboone.png" alt="" width="100%">
+        </div>
+      </div>
+    </div>
+  </div>
+
+        <section id="refs"><a name="refs"></a>
+          <h2>References <a href="#" class="fold" style="float:right"><i class="fa fa-angle-down fa-fw"></i></a></h2>
+<div class="section">
+          <div class="row">
+            <div class="col-md-12">
+              <ol>
+                <li><a name="ref1"></a> M. Mooney, "The MicroBooNE Experiment and the Impact of Space Charge Effects",
+                  <a href="https://arxiv.org/abs/1511.01563">arXiv:1511.01563</a>.
+                <li>MicroBooNE Collaboration, "Study of Space Charge Effects in MicroBooNE", <a href="http://www-microboone.fnal.gov/publications/publicnotes/MICROBOONE-NOTE-1018-PUB.pdf">MICROBOONE-NOTE-1018-PUB</a></li>
+              </ol>
+            </div>
+          </div>
+</div>
+        </section>
+
+</div>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/highcharts/highcharts.js"></script>
+<script src="js/highcharts/modules/exporting.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="js/plot-dispacher.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+
+</html>
