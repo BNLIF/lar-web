@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Notes on Electronics</title>
+  <link rel='shortcut icon' type='image/x-icon' href='img/favicon.ico' />
+  <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" />
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/app.css" media="screen" />
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+</head>
+
+<body>
+
+<div class="container" style="margin-top: 20px;">
+<div class="row">
+<div class="col-md-12">
+
+  <div class="panel panel-primary">
+    <div class="panel-heading"><a name="phase-diagram"></a>
+      <h3 class="panel-title">Electronics in LAr</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-8">
+            <p>
+            The commonly referred BNL "cold electronics" is a custom designed complementary metal-oxide-semiconductor (CMOS) analog front-end cold application-specfic integrated circuit (ASIC) operated in the LAr to amplify and shape the induced current from each wire from LArTPC. Compared to the warm electronics, the cold electronics has the advantage to be placed at the wire in order to minimize the overall capacitance. In addition, the noise level measured in equivalent noise charge is much lower for the CMOS technology at the low temperature. Due to lack of amplification of electrons inside LAr, the low noise with the cold electronics is essential to reliable extract ionization electron signal from both the collection and induction wire planes in a single-phase LArTPC. The current development of the cold electronics lies on the cold ADC and cold signal multiplexing.  The integration of these capabilities in the cold LAr would minimize the signal penetrations on the 10 kt LArTPC cryostat designed for DUNE.
+            </p>
+
+            <p>
+              The level of noise from the entire electronic readout
+              chain is expressed as the Equivalent Noise Charge
+              (ENC) measured in units of number of electrons.
+              The ENC is defined as the
+              number of instantaneously collected electrons required so that their peak ADC count
+              is equal to the root mean square (RMS) value of the noise measured also in ADC.
+              The ENC from the noise sources listed above can be approximated by a simple
+              formula
+              \[
+              {ENC}^2 \approx {\frac{1}{2} {A_1} \frac{{e^2_n}{C^2_{in}}} {t_p}} +  {A_2 \pi C_{in}^2 A_f} +
+              {A_3 \left(q_e I_o + \frac {2 k_B T} {R_b}\right) t_p}
+              \label{eq:ENC}
+              \]
+
+
+              The first two terms represent the
+              input transistor noise  (white and $1/f$ series).  Here $C_{in}$ is the total capacitance at the
+              input of the ASIC which includes that of the sense wire, the leads, their
+              connections to the ASIC and the input transistor gate capacitance.  The
+              $e_n$ is the white series noise spectral density in the unit of V/Hz.
+              The series $1/f$ noise spectral density in V/Hz
+              is given by $\sqrt{A_f/f}$. Both $e_n$ and $A_f$ are
+              determined from the ASIC's input  p-channel metal-oxide
+              semiconductor (pMOS) transistor measurements and depend on
+              the transistor technology and transistor design. The two components in the third term represent white
+              parallel noise, arising from the ASIC bias current, $I_o$ (shot noise)
+              and the wire bias resistor (thermal noise), where $k_B$ is the
+              Boltzman constant, $q_e$ is electron charge, $T$ is temperature and
+              $R_b$ is the wire bias resistor.  The $t_p$
+              is the peaking time of the anti-aliasing filter.
+
+            </p>
+
+
+        </div>
+        <div class="col-md-4">
+          <img src="img/enc.png" alt="" width="100%">
+          <img src="img/signal.png" alt="" width="100%">
+        </div>
+      </div>
+    </div>
+  </div>
+
+        <section id="refs"><a name="refs"></a>
+          <h2>References <a href="#" class="fold" style="float:right"><i class="fa fa-angle-down fa-fw"></i></a></h2>
+<div class="section">
+          <div class="row">
+            <div class="col-md-12">
+              <ol>
+                <li><a name="ref1"></a> Veljko Radeka et al. "Cold electronics for Giant Liquid Argon Time Projection Chambers", J. Phys.
+Conf. Ser., 308:012021, 2011..
+              </ol>
+            </div>
+          </div>
+</div>
+        </section>
+
+</div>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/highcharts/highcharts.js"></script>
+<script src="js/highcharts/modules/exporting.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="js/plot-dispacher.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+
+</html>
