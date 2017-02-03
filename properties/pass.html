@@ -25,8 +25,10 @@
 <div class="panel panel-primary">
   <div class="panel-heading">Stopping power</div>
   <div class="panel-body">
+  <div class="row">
+    <div class="col-md-8">
     <p>
-      The mean rate of energy loss by moderately relativistic charged heavy particles is well-described by the "Bethe equation" ...
+          When a charged particle goes through LAr, it takes about 23.6 eV energy to ionize an electron in average. For minimal ionizing particle (heavy ionizing particle), the expected energy loss is about 2.1 (25) MeV/cm leading to about 100 (10) nm average separation between two adjacent ions. The mean rate of energy loss by moderately relativistic charged heavy particles is well-described by the <a href="https://en.wikipedia.org/wiki/Bethe_formula">Bethe formula</a>. The observed most probable energy loss in a thin detector slice can be quite a bit smaller. The distribution can have very long tails as characterized by Landau distribution shown in the right.
     </p>
     <p>
       Click the following links to retrieve the relevent plots:
@@ -37,14 +39,23 @@
       <a href="" class="list-group-item list-group-item-success">dE/dx vs. Residual Range for proton, kaon, pion, muon</a>
       <div id="dedx-residual-range" class='plot'></div>
     </div>
+    </div>
+    <div class="col-md-4">
+      <img src="img/eloss.png" alt="" width="100%">
+    </div>
   </div>
+</div>
 </div>
 
 <div class="panel panel-primary">
   <div class="panel-heading">Recombination</div>
   <div class="panel-body">
     <p>
-      The recombination factor $R_c$ describes the efficiency in converting $dE/dx$ into $dQ/dx$, the number of electrons collected. There are two models for the recombination effect.
+      The recombination factor $R_c$ describes the efficiency in converting $dE/dx$ into $dQ/dx$, the number of electrons collected.
+      The ionized electron has about 5 eV energy with a distance about 0.5 nm from the ion. In about 2 ns, the ionized electron would go through 10,000 collisions before reaching thermal energy (~0.01 eV). At this point, the average separation distance is about 2.5 $\mu$m [1,2].
+    </p>
+    <p>
+      There are two common methods to model the recombination effect.
     </p>
     <p>
       <strong>Birks Model</strong>:
@@ -67,8 +78,27 @@
       <a href="" class="list-group-item list-group-item-success">Recombination vs. dE/dx for Birks model and Modified Box model</a>
       <div id="rc-dedx" class='plot'></div>
     </div>
+    <p>
+      There are three microscopic theories describing the recombination: Germinate, Bulk, and Columnar. In particular, the prediction from Columnar theory suggests that the recombination has a dependence on the track angle with respect to the drift direction. Such an effect has been studied in ArgoNeuT [3].  While there are some hints regarding the angular dependence, the effect seems to be much smaller than that predicted by Columnar theory (see Fig. 9 from Ref [3]).
+    </p>
   </div>
 </div>
+
+        <section id="refs"><a name="refs"></a>
+          <h2>References <a href="#" class="fold" style="float:right"><i class="fa fa-angle-down fa-fw"></i></a></h2>
+<div class="section">
+          <div class="row">
+            <div class="col-md-12">
+              <ol>
+                <li><a name="ref1"></a> Michal Jaskolski and Mariusz Wojcik, "Electron Recombination in Ionized Liquid Argon: A Computational Approach Based on Realistic Models of Electron Transport and Reactions",
+                  <a href="http://pubs.acs.org/doi/abs/10.1021/jp201149w">J. Phys. Chem. A, 2011, 115 (17), pp 4317–4325</a>.
+                <li>Ulrich Sowada, John M. Warman, and Matthijs P. de Haas, "Hot-electron thermalization in solid and liquid argon, krypton, and xenon", <a href="http://journals.aps.org/prb/abstract/10.1103/PhysRevB.25.3434">Phys. Rev. B 25, 3434(R)</a></li>
+                <li>R. Acciarri et al, "A study of electron recombination using highly ionizing particles in the ArgoNeuT Liquid Argon TPC", <a href="http://iopscience.iop.org/article/10.1088/1748-0221/8/08/P08005/meta">Journal of Instrumentation, Volume 8, August 2013</a></li>
+              </ol>
+            </div>
+          </div>
+</div>
+        </section>
 
 </div>
 </div>
