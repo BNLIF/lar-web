@@ -32,7 +32,7 @@
           <ul class="nav nav-stacked" id="sidebar">
             <li><a href="#basic-prop"><i class="fa fa-table fa-fw"></i> Basic Properties</a></li>
             <li><a href="#e-trans"><i class="fa fa-battery-full fa-fw"></i> Electron Transportation</a></li>
-            <li><a href="#ion-trans"><i class="fa fa-circle-o-notch fa-fw"></i> Space Charge</a></li>
+            <li><a href="#space-charge"><i class="fa fa-circle-o-notch fa-fw"></i> Space Charge</a></li>
             <li><a href="#particle-pass"><i class="fa fa-car fa-fw"></i> Particle Passage</a></li>
             <li><a href="#scint"><i class="fa fa-lightbulb-o fa-fw"></i> Scintillation</a></li>
             <li><a href="#elec-tpc"><i class="fa fa-code-fork fa-fw"></i> Electronics &amp; TPC</a></li>
@@ -332,7 +332,7 @@
           <hr>
         </section>
 
-        <section id="ion-trans"><a name="ion-trans"></a>
+        <section id="space-charge"><a name="space-charge"></a>
           <h2>Space Charge <a href="#top" style="float:right"><i class="fa fa-angle-double-up fa-fw"></i></a></h2>
           <!-- <div class="alert alert-info" role="alert">Editor: Michael Mooney</div> -->
           <hr>
@@ -390,59 +390,13 @@
               </tr>
               <tr>
                 <td>Mininum specific energy loss</td>
-                <td>$dE_\text{MIP}/dx$</td>
+                <td>$(dE/dx)_\text{MIP}$</td>
                 <td>2.12</td>
                 <td>MeV/cm</td>
               </tr>
             </tbody>
           </table>
-          <div class="panel panel-primary">
-            <div class="panel-heading">Stopping power</div>
-            <div class="panel-body">
-              <p>
-                The mean rate of energy loss by moderately relativistic charged heavy particles is well-described by the "Bethe equation" ...
-              </p>
-              <p>
-                Click the following links to retrieve the relevent plots:
-              </p>
-              <div class="list-group">
-                <a href="" class="list-group-item list-group-item-success">dE/dx vs. Kinetic Energy for proton, kaon, pion, muon</a>
-                <div id="dedx-ke" class='plot'></div>
-                <a href="" class="list-group-item list-group-item-success">dE/dx vs. Residual Range for proton, kaon, pion, muon</a>
-                <div id="dedx-residual-range" class='plot'></div>
-              </div>
-            </div>
-          </div>
 
-          <div class="panel panel-primary">
-            <div class="panel-heading">Recombination</div>
-            <div class="panel-body">
-              <p>
-                The recombination factor $R_c$ describes the efficiency in converting $dE/dx$ into $dQ/dx$, the number of electrons collected. There are two models for the recombination effect.
-              </p>
-              <p>
-                <strong>Birks Model</strong>:
-                \[
-                  R_c = \frac{dQ/dx}{dE/dx} = \frac{A_{3t}}{1+k_{3t}/\varepsilon \times dE/dx}
-                \]
-                , where $A_{3t} = 0.8$, $k_{3t} = 0.0486 (g/MeV cm^2)(kV/cm)$ and $\varepsilon = E \rho$ is the product of electric field and density.
-              </p>
-              <p>
-                <strong>Modified Box model:</strong>
-                \[
-                  R_c = \frac{dQ/dx}{dE/dx} = \frac{\ln(A+B/\varepsilon \times dE/dx)}{B/\varepsilon \times dE/dx}
-                \]
-                , where $A = 0.930$, $B = 0.212 (g/MeV cm^2)(kV/cm)$ and $\varepsilon = E \rho$ is the product of electric field and density.
-              </p>
-              <p>
-                Click the following links to retrieve the relevent plots:
-              </p>
-              <div class="list-group">
-                <a href="" class="list-group-item list-group-item-success">Recombination vs. dE/dx for Birks model and Modified Box model</a>
-                <div id="rc-dedx" class='plot'></div>
-              </div>
-            </div>
-          </div>
 
           <table class="table table-bordered table-striped">
             <caption>Response to electromagnetic radiation</caption>
@@ -482,9 +436,9 @@
             </tbody>
           </table>
 
-          <!-- <div class="alert alert-info" role="alert">Editor: Xin Qian</div> -->
+          <div class="alert alert-warning" role="alert">Discover <a href="pass.html" class="alert-link">more information</a> about particle passage in LAr.</div>
           <hr>
-        </section>
+          </section>
 
         <section id="scint"><a name="scint"></a>
           <h2>Scintillation <a href="#top" style="float:right"><i class="fa fa-angle-double-up fa-fw"></i></a></h2>
@@ -687,43 +641,6 @@
           <hr>
         </section>
 
-<!--         <section id="recon"><a name="recon"></a>
-          <h2>LArTPC Reconstruction <a href="#top" style="float:right"><i class="fa fa-angle-double-up fa-fw"></i></a></h2>
-          <div class="row">
-            <div class="col-md-7">
-              <p>
-              Event reconstruction is one of the most challenging tasks in analyzing the data from current and future large liquid argon time projection chambers (LArTPCs). The performance of the event reconstruction holds the key to many potential future discoveries with the LArTPC technology including i) searching for new CP violation in the leptonic sector, ii) determining the neutrino mass hierarchy, and iii) searching for additional light (sterile) neutrino species.
-              </p>
-              <p>
-              <strong><a href="http://www.phy.bnl.gov/wire-cell/">Wire-Cell</a></strong> is a novel tomographic event reconstruction method, which is being developed aiming to solve the long-standing problem of automated 3D neutrino event reconstruction in LArTPC. Taking the simulation results from <a href="https://cdcvs.fnal.gov/redmine/projects/larsoftsvn/wiki">LArSoft</a>, the principle of Wire-Cell strictly follows the principle of LArTPC, that is, the same amount of ionization electrons are observed by all the wire-planes. Using both time and charge information, 3D image of the event topologies are firstly obtained. Further reconstruction steps including the clustering, tracking, and particle identifications (PID) are then directly applied to the 3D image.
-              </p>
-            </div>
-            <div class="col-md-5">
-              <img src="img/wirecell.png" alt="" width="100%">
-            </div>
-          </div>
-          <hr>
-        </section> -->
-
-<!--         <section id="ev-disp"><a name="ev-disp"></a>
-          <h2>Event Display <a href="#top" style="float:right"><i class="fa fa-angle-double-up fa-fw"></i></a></h2>
-          <div class="row">
-            <div class="col-md-6">
-              <p>
-
-                A novel web-based event display "<strong><a href="http://www.phy.bnl.gov/wire-cell/bee/">Bee</a></strong>" is being developed to visualize different types of LArTPC events reconstructed by Wire-Cell and other algorithms. <span class="text-success">Bee</span> uses <a href="https://en.wikipedia.org/wiki/WebGL">WebGL</a> to draw interactive 3D graphics in the browser through the <a href="http://threejs.org/">three.js</a> JavaScript library. The list of compatible browsers can be found <a href="http://caniuse.com/#feat=webgl">here</a>.
-              </p>
-
-              <p>
-              With the <span class="text-success">Bee</span> event display, users can examine the details of event topology in the 3D space, compare the performance of different reconstruction results, show the true Monte-Carlo trajectories and particle types, enter the sliced mode to view the development of tomographic images, and explore many other features of the events.
-              </p>
-            </div>
-            <div class="col-md-6">
-              <img src="img/bee-white.png" alt="" width="100%">
-            </div>
-          </div>
-          <hr>
-        </section> -->
 
         <section id="refs"><a name="refs"></a>
           <h2>References <a href="#top" style="float:right"><i class="fa fa-angle-double-up fa-fw"></i></a></h2>

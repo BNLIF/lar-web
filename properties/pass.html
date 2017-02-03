@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Notes on Particle Passage</title>
+  <link rel='shortcut icon' type='image/x-icon' href='img/favicon.ico' />
+  <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" />
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/app.css" media="screen" />
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+</head>
+
+<body>
+
+<div class="container" style="margin-top: 20px;">
+<div class="row">
+<div class="col-md-12">
+
+<div class="panel panel-primary">
+  <div class="panel-heading">Stopping power</div>
+  <div class="panel-body">
+    <p>
+      The mean rate of energy loss by moderately relativistic charged heavy particles is well-described by the "Bethe equation" ...
+    </p>
+    <p>
+      Click the following links to retrieve the relevent plots:
+    </p>
+    <div class="list-group">
+      <a href="" class="list-group-item list-group-item-success">dE/dx vs. Kinetic Energy for proton, kaon, pion, muon</a>
+      <div id="dedx-ke" class='plot'></div>
+      <a href="" class="list-group-item list-group-item-success">dE/dx vs. Residual Range for proton, kaon, pion, muon</a>
+      <div id="dedx-residual-range" class='plot'></div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">Recombination</div>
+  <div class="panel-body">
+    <p>
+      The recombination factor $R_c$ describes the efficiency in converting $dE/dx$ into $dQ/dx$, the number of electrons collected. There are two models for the recombination effect.
+    </p>
+    <p>
+      <strong>Birks Model</strong>:
+      \[
+        R_c = \frac{dQ/dx}{dE/dx} = \frac{A_{3t}}{1+k_{3t}/\varepsilon \times dE/dx}
+      \]
+      , where $A_{3t} = 0.8$, $k_{3t} = 0.0486 (g/MeV cm^2)(kV/cm)$ and $\varepsilon = E \rho$ is the product of electric field and density.
+    </p>
+    <p>
+      <strong>Modified Box model:</strong>
+      \[
+        R_c = \frac{dQ/dx}{dE/dx} = \frac{\ln(A+B/\varepsilon \times dE/dx)}{B/\varepsilon \times dE/dx}
+      \]
+      , where $A = 0.930$, $B = 0.212 (g/MeV cm^2)(kV/cm)$ and $\varepsilon = E \rho$ is the product of electric field and density.
+    </p>
+    <p>
+      Click the following links to retrieve the relevent plots:
+    </p>
+    <div class="list-group">
+      <a href="" class="list-group-item list-group-item-success">Recombination vs. dE/dx for Birks model and Modified Box model</a>
+      <div id="rc-dedx" class='plot'></div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/highcharts/highcharts.js"></script>
+<script src="js/highcharts/modules/exporting.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="js/plot-dispacher.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+
+</html>
