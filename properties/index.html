@@ -567,7 +567,7 @@
           <div class="row input">
             <div class="col-md-12">
               <div class="input-group">
-                <span class="input-group-addon">E-field ratio between wire planes</span>
+                <span class="input-group-addon">E field between wire planes (relative to the bulk)</span>
                 <input type="text" class="form-control" v-model="E_ratio">
               </div>
             </div>
@@ -604,18 +604,18 @@
                 <td>kV</td>
               </tr>
               <tr>
-                <td>E fields (for 3 planes)</td>
-                <td>{{ E }}, &nbsp; {{ E2 | trunc }}, &nbsp; {{ E3 | trunc }}</td>
+                <td>E fields (bulk, between planes)</td>
+                <td>{{ E }}, &nbsp; {{ E2 | trunc }}</td>
                 <td>kV/cm</td>
               </tr>
               <tr>
-                <td>Drift velocities (for 3 planes)</td>
-                <td>{{ v | trunc }}, &nbsp; {{ v2 | trunc }}, &nbsp; {{ v3 | trunc }}</td>
+                <td>Drift velocities (bulk, between planes)</td>
+                <td>{{ v | trunc }}, &nbsp; {{ v2 | trunc }}</td>
                 <td>cm/$\mu$s</td>
               </tr>
               <tr>
-                <td>Drift time (for 3 planes)</td>
-                <td>{{ t | trunc }}, &nbsp; {{ t2 | trunc }}, &nbsp; {{ t3 | trunc }}</td>
+                <td>Drift time (bulk, between planes)</td>
+                <td>{{ t | trunc }}, &nbsp; {{ t2 | trunc }}</td>
                 <td>$\mu$s</td>
               </tr>
             </tbody>
