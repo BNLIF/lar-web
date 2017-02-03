@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Summary of Liquid Argon Properties</title>
+  <title>Liquid Argon Properties (Tables and Calculators)</title>
   <link rel='shortcut icon' type='image/x-icon' href='img/favicon.ico' />
   <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" />
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -20,7 +20,7 @@
   <div class="container">
     <div class="page-header">
       <h1>
-        Summary of Liquid Argon Properties
+        Liquid Argon Properties (Tables and Calculators)
       </h1>
     </div>
   </div>
@@ -46,10 +46,6 @@
       <div class="col-md-9">
         <section id="basic-prop"><a name="basic-prop"></a>
           <h2>Basic Properties</h2>
-          <p>
-            <span class="label label-info">Info</span>
-             All values are on the liquid-vapor saturation line and at E=500 V/cm unless otherwsie indcated.
-          </p>
 
           <a name="Ar-comp"></a>
           <table class="table table-bordered table-striped">
@@ -124,6 +120,10 @@
             </tbody>
           </table>
 
+          <p>
+            <span class="label label-info">Info</span>
+             All values are on the liquid-vapor saturation line and at electric field of 500 V/cm unless otherwsie indcated.
+          </p>
           <table class="table table-bordered table-striped">
             <caption>Thermodynamic properties</caption>
             <thead>
@@ -280,108 +280,7 @@
           </table>
 
 
-
-
-          <div class="panel panel-primary">
-            <div class="panel-heading"><a name="phase-diagram"></a>
-              <h3 class="panel-title">LAr Phase Diagram and Vapor Pressure</h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-8">
-                    <p>
-                    <strong>Boiling Line</strong> ($T_t\leq T\leq T_c$):
-               \[
-               p_b=p_c\times e^{\frac{T_c}{T}\left(a_1\phi+a_2\phi^{1.5}+a_3\phi^2+a_4\phi^{4.5}\right)}
-               \]
-               with
-                \[
-                  \phi=(1-T/T_c), \quad
-                  T_c = 150.687 \text{K}, \quad
-                  p_c = 4.863 \text{MPa}, \quad
-                  a_1 = -5.9409785, \\
-                  a_2 = 1.3553888, \quad
-                  a_3 = -0.46497607, \quad
-                  a_4 = -1.5399043
-                  \]
-              </p>
-              <p>
-               <strong>Melting Line</strong>:
-               \[
-               p_m=p_t\left(1+a_1\left[\left(\frac{T}{T_t}\right)^{1.05}-1\right]+a_2\left[\left(\frac{T}{T_t}\right)^{1.275}-1\right]\right)
-               \]
-              with
-                \[
-                  T_t = 83.8058 \text{K}, \quad
-                  p_t = 0.068891 \text{MPa}, \quad
-                  a_1 = -7476.2665, \quad
-                  a_2 = 9959.0613
-                  \]
-                  </p>
-                  <p>
-                <strong>Sublimation Line</strong>:
-                \[P_{sub}=P_t\times e^{\frac{T_t}{T}\left[a_1\left(1-\frac{T}{T_t}\right)+a_2\left(1-\frac{T}{T_t}\right)^{2.7}\right]}\]
-               with
-                \[
-                  T_t = 83.8058 \text{K}, \quad
-                  p_t = 0.068891 \text{MPa}, \quad
-                  a_1 = -11.391604, \quad
-                  a_2 = -0.39513431
-                  \]
-               </p>
-               <p>
-               <strong>LAr Density</strong> $(T_t\leq T \leq T_c)$:
-               \[
-               \rho_{liquid}=\rho_c\times e^{A\cdot t^{0.334}+B\cdot t^{2/3}+C \cdot t^{7/3}+D\cdot t^4}
-               \]
-               with
-               \[
-                  t=(1-T/T_c), \quad
-                  T_c = 150.687 \text{K}, \quad
-                  \rho_c = 0.5356 \text{g/cm}^3, \quad
-                  A = 1.5004262, \quad
-                  B = -0.31381290, \quad\\
-                  C = 0.086461622, \quad
-                  D = -0.041477525, \quad
-                  \]
-
-               </p>
-               <strong>Enthalpy</strong>:
-               Fit to enthalpy data from Reference[5], the enthalpy of
-               vaporization $\Delta H$ in kJ/mol as a function of temperature
-               $T$ for $T$: \[
-               \Delta H=\frac{A+B\cdot T}{1+C\cdot T}
-               \]
-                \[
-                  T_t = 83.8058 \text{K}, \quad
-                  p_t = 0.068891 \text{MPa}, \quad
-                  a_1 = -11.391604, \quad
-                  a_2 = -0.39513431
-                  \]
-               </p>
-
-                </div>
-                <div class="col-md-4">
-                  <img src="img/lar_phase.gif" alt="" width="100%">
-                  <img src="img/lar_vapor_pressure.png" alt="" width="100%">
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- <div class="alert alert-info" role="alert">Editor: Yichen Li</div> -->
-          <div class="panel panel-primary">
-            <div class="panel-heading"><a name="LAr property table"></a>
-              <h3 class="panel-title">LAr Properties on Saturation Line</h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-
-                <div class="col-md-12">
-                  <img src="img/LArProperties_1.gif" alt="" width="100%">
-              </div>
-            </div>
-          </div>
+          <div class="alert alert-warning" role="alert">Discover <a href="basic.html" class="alert-link">more information</a> about basic properties.</div>
 
 
           <!-- <div class="alert alert-info" role="alert">Editor: Yichen Li</div> -->
