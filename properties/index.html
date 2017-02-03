@@ -33,9 +33,10 @@
             <li><a href="#basic-prop"><i class="fa fa-table fa-fw"></i> Basic Properties</a></li>
             <li><a href="#e-trans"><i class="fa fa-battery-full fa-fw"></i> Electron Transportation</a></li>
             <li><a href="#ion-trans"><i class="fa fa-circle-o-notch fa-fw"></i> Space Charge</a></li>
-            <li><a href="#elec-tpc"><i class="fa fa-code-fork fa-fw"></i> Electronics &amp; TPC</a></li>
             <li><a href="#particle-pass"><i class="fa fa-car fa-fw"></i> Particle Passage</a></li>
             <li><a href="#scint"><i class="fa fa-lightbulb-o fa-fw"></i> Scintillation</a></li>
+            <li><a href="#elec-tpc"><i class="fa fa-code-fork fa-fw"></i> Electronics &amp; TPC</a></li>
+
             <!-- <li><a href="#recon"><i class="fa fa-cogs"></i> LArTPC Reconstruction</a></li> -->
             <!-- <li><a href="#ev-disp"><i class="fa fa-eye"></i> Event Display</a></li> -->
             <li><a href="#refs"><i class="fa fa-book"></i> References</a></li>
@@ -73,8 +74,8 @@
                 <td>$^{37}$Ar</td>
                 <td></td>
                 <td>nil</td>
-                <td>EC,$\beta^+$</td>
-                <td>35.04d</td>
+                <td>EC, $\beta^+$</td>
+                <td>35.04 d</td>
                 <td>0.8135(3)</td>
               </tr>
               <tr>
@@ -88,9 +89,9 @@
               <tr>
                 <td>$^{39}$Ar</td>
                 <td></td>
-                <td>1.01(8)Bq/kg</td>
+                <td>1.01(8) Bq/kg</td>
                 <td>$\beta^-$</td>
-                <td>269y</td>
+                <td>269 y</td>
                 <td>0.565(5)</td>
               </tr>
               <tr>
@@ -106,7 +107,7 @@
                 <td></td>
                 <td>nil</td>
                 <td>$\beta^-$</td>
-                <td>109.34m</td>
+                <td>109.34 m</td>
                 <td>2.4916(7)</td>
               </tr>
               <tr>
@@ -114,7 +115,7 @@
                 <td></td>
                 <td>6$\times10^{-5}$ Bq/kg</td>
                 <td>$\beta^-$</td>
-                <td>32.9y</td>
+                <td>32.9 y</td>
                 <td>0.599(40)</td>
               </tr>
             </tbody>
@@ -236,13 +237,13 @@
                 <span class="input-group-addon">K</span>
               </div>
             </div>
-            <div class="col-md-6">
+<!--             <div class="col-md-6">
               <div class="input-group">
                 <span class="input-group-addon">Wavelength</span>
                 <input type="text" class="form-control" v-model="wl">
                 <span class="input-group-addon">nm</span>
               </div>
-            </div>
+            </div> -->
           </div>
 
           <table class="table table-bordered table-striped">
@@ -263,27 +264,10 @@
                 <td>{{ density | trunc  }}</td>
                 <td>g/cm$^{3}$</td>
               </tr>
-              <tr>
-                <td>Index of refraction <button class="btn btn-default" v-on:click="plot_iof_l">Plot</button></td>
-                <td>$n$</td>
-                <td>{{ iof | trunc }}</td>
-                <td></td>
-              </tr>
-
-              <tr>
-                <td>Photon group velociy <button class="btn btn-default" v-on:click="plot_v_g">Plot</button></td>
-                <td>$v_g$</td>
-                <td>{{ v_g | trunc }}</td>
-                <td>$c$</td>
-              </tr>
             </tbody>
           </table>
 
-
           <div class="alert alert-warning" role="alert">Discover <a href="basic.html" class="alert-link">more information</a> about basic properties.</div>
-
-
-          <!-- <div class="alert alert-info" role="alert">Editor: Yichen Li</div> -->
           <hr>
         </section>
 
@@ -344,93 +328,7 @@
             </tbody>
           </table>
 
-
-          <div class="panel panel-primary">
-            <div class="panel-heading"><a name="mu"></a>
-              <h3 class="panel-title">Electron mobility in LAr</h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-8">
-                  The electron mobility data set used in our global data fit are from Ref. [29, 45–58] in Ref. <a href="#ref1">[1]</a>. LAr temperature
-                  used in this global fit is 89 K. The data reported in the references are all scaled to this temperature with
-                  the temperature dependence of $T^{−3/2}$ (Ref. [59] in Ref. <a href="#ref1">[1]</a>). The fitting function is a rational polynomial expressed as:
-                  \[
-                  \mu=\frac{a_0+a_1E+a_2E^{3/2}+a_3E^{5/2}}{1+(a_1/a_0)E+a_4E^2+a_5E^3}\left(\frac{T}{T_0}\right)^{-3/2},
-                  \]
-                  where $E$ is the electric field  in the unit of kV/cm and $a_0 = 551.6$cm$^2$/s is the electron mobility at zero field with temperature of $T_0$ = 89 K, $T$ is the LAr temperature. The fitting parameters are given bys
-                  \[
-                  a_0 = 551.6, \quad
-                  a_1 = 7953.7, \quad
-                  a_2 = 4440.43, \quad
-                  a_3 = 4.29, \quad
-                  a_4 = 43.63, \quad
-                  a_5 = 0.2053
-                  \]
-                </div>
-                <div class="col-md-4">
-                  <img src="img/lar_mob_data.gif" alt="" width="100%">
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="panel panel-primary">
-            <div class="panel-heading"><a name="v"></a>
-              <h3 class="panel-title">Electron drift velocity in LAr</h3>
-            </div>
-            <div class="panel-body">
-              Electron drift velocity is a product of electron mobility and the electric field.
-              \[
-                v = \mu E
-              \]
-            </div>
-          </div>
-
-          <div class="panel panel-primary">
-            <div class="panel-heading"><a name="eps_L"></a>
-              <h3 class="panel-title">Effective longitudinal electron energy</h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-8">
-                  We introduce a parameterization of the effective electron energy for the convenience of application. Both the data in Ref. <a href="#ref1">[1]</a> and ICARUS's data at low field are included. The parameterization is also in a form of rational polynomial
-                  \[
-                  \epsilon_L=\frac{b_0+b_1E+b_2E^2}{1+(b_1/b_0)E+b_3E^2}\left(\frac{T}{T_1}\right)
-                  \]
-                  where $E$ is the electric field in the unit of kV/cm and $b_0=0.0075$ eV is the electron energy
-                  at $T_1$ = 87 K under zero field and $T$ is the LAr temperature. The parameterization can be applied to other
-                  temperatures with a linear temperature dependence of $T$.
-                  The fitting parameters are given bys
-                  \[
-                  b_0 = 0.0075, \quad
-                  b_1 = 742.9, \quad
-                  b_2 = 3269.6, \quad
-                  b_3 = 31678.2, \quad
-                  \]
-                </div>
-                <div class="col-md-4">
-                  <img src="img/lar_el_data.gif" alt="" width="100%">
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="panel panel-primary">
-            <div class="panel-heading"><a name="D_L"></a>
-              <h3 class="panel-title">Longitudinal diffusion coefficients</h3>
-            </div>
-            <div class="panel-body">
-              The longitudinal diffusion coefficients $D_L$ in the range of 0.1 to 1.5 kV/cm can be expressed as
-              defined by the Einstein relation
-              \[
-              D_L=\frac{\mu\epsilon_L}{e}=\left(\frac{a_0+a_1E+a_2E^{3/2}+a_3E^{5/2}}{1+(a_1/a_0)E+a_4E^2+a_5E^3}\right)\left(\frac{b_0+b_1E+b_2E^2}{1+(b_1/b_0)E+b_3E^2}\right)\left(\frac{T}{T_0}\right)^{-3/2}\left(\frac{T}{T_1}\right),
-              \]
-              with the parameters given previously.
-            </div>
-          </div>
-
-          <!-- <div class="alert alert-info" role="alert">Editor: Yichen Li</div> -->
+          <div class="alert alert-warning" role="alert">Discover <a href="trans.html" class="alert-link">more information</a> about electron transportation.</div>
           <hr>
         </section>
 
@@ -440,118 +338,6 @@
           <hr>
         </section>
 
-        <section id="elec-tpc"><a name="elec-tpc"></a>
-          <h2>Electronics &amp; TPC<a href="#top" style="float:right"><i class="fa fa-angle-double-up fa-fw"></i></a></h2>
-
-          <div class="row input">
-            <div class="col-md-6">
-              <div class="input-group">
-                <span class="input-group-addon">E field</span>
-                <input type="text" class="form-control" v-model="E">
-                <span class="input-group-addon">kV/cm</span>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="input-group">
-                <span class="input-group-addon">Temperature</span>
-                <input type="text" class="form-control" v-model="T">
-                <span class="input-group-addon">K</span>
-              </div>
-            </div>
-          </div>
-          <div class="row input">
-            <div class="col-md-6">
-              <div class="input-group">
-                <span class="input-group-addon">Wire Spacing</span>
-                <input type="text" class="form-control" v-model="wire_spacing">
-                <span class="input-group-addon">mm</span>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="input-group">
-                <span class="input-group-addon">Wire diameter</span>
-                <input type="text" class="form-control" v-model="wire_diameter">
-                <span class="input-group-addon">mm</span>
-              </div>
-            </div>
-          </div>
-          <div class="row input">
-            <div class="col-md-6">
-              <div class="input-group">
-                <span class="input-group-addon">Wire Plane Gap</span>
-                <input type="text" class="form-control" v-model="plane_gap">
-                <span class="input-group-addon">mm</span>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="input-group">
-                <span class="input-group-addon">Max Drift Distance</span>
-                <input type="text" class="form-control" v-model="drift_dist_max">
-                <span class="input-group-addon">m</span>
-              </div>
-            </div>
-          </div>
-          <div class="row input">
-            <div class="col-md-12">
-              <div class="input-group">
-                <span class="input-group-addon">E-field ratio between wire planes</span>
-                <input type="text" class="form-control" v-model="E_ratio">
-              </div>
-            </div>
-          </div>
-          <table class="table table-bordered table-striped">
-            <caption>
-            </caption>
-            <thead>
-              <tr>
-                <th>Property</th>
-                <th>Value</th>
-                <th>Unit</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Min E-field ratio for 100% transparency</td>
-                <td>{{ E_ratio_trans | trunc }}</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Wire capacitance in air</td>
-                <td>{{ wire_c_air | trunc }}</td>
-                <td>pF/m</td>
-              </tr>
-              <tr>
-                <td>Wire capacitance in LAr</td>
-                <td>{{ wire_c_lar | trunc }}</td>
-                <td>pF/m</td>
-              </tr>
-              <tr>
-                <td>Cathode high voltage</td>
-                <td>{{ cathod_hv | trunc }}</td>
-                <td>kV</td>
-              </tr>
-              <tr>
-                <td>E fields (for 3 planes)</td>
-                <td>{{ E }}, &nbsp; {{ E2 | trunc }}, &nbsp; {{ E3 | trunc }}</td>
-                <td>kV/cm</td>
-              </tr>
-              <tr>
-                <td>Drift velocities (for 3 planes)</td>
-                <td>{{ v | trunc }}, &nbsp; {{ v2 | trunc }}, &nbsp; {{ v3 | trunc }}</td>
-                <td>cm/$\mu$s</td>
-              </tr>
-              <tr>
-                <td>Drift time (for 3 planes)</td>
-                <td>{{ t | trunc }}, &nbsp; {{ t2 | trunc }}, &nbsp; {{ t3 | trunc }}</td>
-                <td>$\mu$s</td>
-              </tr>
-            </tbody>
-          </table>
-
-
-          <!-- <div class="alert alert-info" role="alert">Editor: Brian Kirby, Jyoti Joshi</div> -->
-          <hr>
-        </section>
 
         <section id="particle-pass"><a name="particle-pass"></a>
           <h2>Particle Passage through LAr <a href="#top" style="float:right"><i class="fa fa-angle-double-up fa-fw"></i></a></h2>
@@ -739,7 +525,165 @@
               </tr>
            </tbody>
           </table>
+
+          <div class="row input">
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon">Wavelength</span>
+                <input type="text" class="form-control" v-model="wl">
+                <span class="input-group-addon">nm</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon">Temperature</span>
+                <input type="text" class="form-control" v-model="T">
+                <span class="input-group-addon">K</span>
+              </div>
+            </div>
+          </div>
+
+          <table class="table table-bordered table-striped">
+            <caption>
+            </caption>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Symbol</th>
+                <th>Value</th>
+                <th>Unit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Index of refraction <button class="btn btn-default" v-on:click="plot_iof_l">Plot</button></td>
+                <td>$n$</td>
+                <td>{{ iof | trunc }}</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Photon group velociy <button class="btn btn-default" v-on:click="plot_v_g">Plot</button></td>
+                <td>$v_g$</td>
+                <td>{{ v_g | trunc }}</td>
+                <td>$c$</td>
+              </tr>
+            </tbody>
+          </table>
           <!-- <div class="alert alert-info" role="alert">Editor: Yichen Li</div> -->
+          <hr>
+        </section>
+
+        <section id="elec-tpc"><a name="elec-tpc"></a>
+          <h2>Electronics &amp; TPC<a href="#top" style="float:right"><i class="fa fa-angle-double-up fa-fw"></i></a></h2>
+
+          <div class="row input">
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon">E field</span>
+                <input type="text" class="form-control" v-model="E">
+                <span class="input-group-addon">kV/cm</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon">Temperature</span>
+                <input type="text" class="form-control" v-model="T">
+                <span class="input-group-addon">K</span>
+              </div>
+            </div>
+          </div>
+          <div class="row input">
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon">Wire Spacing</span>
+                <input type="text" class="form-control" v-model="wire_spacing">
+                <span class="input-group-addon">mm</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon">Wire diameter</span>
+                <input type="text" class="form-control" v-model="wire_diameter">
+                <span class="input-group-addon">mm</span>
+              </div>
+            </div>
+          </div>
+          <div class="row input">
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon">Wire Plane Gap</span>
+                <input type="text" class="form-control" v-model="plane_gap">
+                <span class="input-group-addon">mm</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon">Max Drift Distance</span>
+                <input type="text" class="form-control" v-model="drift_dist_max">
+                <span class="input-group-addon">m</span>
+              </div>
+            </div>
+          </div>
+          <div class="row input">
+            <div class="col-md-12">
+              <div class="input-group">
+                <span class="input-group-addon">E-field ratio between wire planes</span>
+                <input type="text" class="form-control" v-model="E_ratio">
+              </div>
+            </div>
+          </div>
+          <table class="table table-bordered table-striped">
+            <caption>
+            </caption>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Value</th>
+                <th>Unit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Min E-field ratio for 100% transparency</td>
+                <td>{{ E_ratio_trans | trunc }}</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Wire capacitance in air</td>
+                <td>{{ wire_c_air | trunc }}</td>
+                <td>pF/m</td>
+              </tr>
+              <tr>
+                <td>Wire capacitance in LAr</td>
+                <td>{{ wire_c_lar | trunc }}</td>
+                <td>pF/m</td>
+              </tr>
+              <tr>
+                <td>Cathode high voltage</td>
+                <td>{{ cathod_hv | trunc }}</td>
+                <td>kV</td>
+              </tr>
+              <tr>
+                <td>E fields (for 3 planes)</td>
+                <td>{{ E }}, &nbsp; {{ E2 | trunc }}, &nbsp; {{ E3 | trunc }}</td>
+                <td>kV/cm</td>
+              </tr>
+              <tr>
+                <td>Drift velocities (for 3 planes)</td>
+                <td>{{ v | trunc }}, &nbsp; {{ v2 | trunc }}, &nbsp; {{ v3 | trunc }}</td>
+                <td>cm/$\mu$s</td>
+              </tr>
+              <tr>
+                <td>Drift time (for 3 planes)</td>
+                <td>{{ t | trunc }}, &nbsp; {{ t2 | trunc }}, &nbsp; {{ t3 | trunc }}</td>
+                <td>$\mu$s</td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <!-- <div class="alert alert-info" role="alert">Editor: Brian Kirby, Jyoti Joshi</div> -->
           <hr>
         </section>
 

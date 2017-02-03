@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Notes on Electron Transportation</title>
+  <link rel='shortcut icon' type='image/x-icon' href='img/favicon.ico' />
+  <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" />
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/app.css" media="screen" />
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+</head>
+
+<body>
+
+<div class="container" style="margin-top: 20px;">
+<div class="row">
+<div class="col-md-12">
+
+<div class="panel panel-primary">
+  <div class="panel-heading"><a name="mu"></a>
+    <h3 class="panel-title">Electron mobility in LAr</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-8">
+        The electron mobility data set used in our global data fit are from Ref. [29, 45–58] in Ref. <a href="#ref1">[1]</a>. LAr temperature
+        used in this global fit is 89 K. The data reported in the references are all scaled to this temperature with
+        the temperature dependence of $T^{−3/2}$ (Ref. [59] in Ref. <a href="#ref1">[1]</a>). The fitting function is a rational polynomial expressed as:
+        \[
+        \mu=\frac{a_0+a_1E+a_2E^{3/2}+a_3E^{5/2}}{1+(a_1/a_0)E+a_4E^2+a_5E^3}\left(\frac{T}{T_0}\right)^{-3/2},
+        \]
+        where $E$ is the electric field  in the unit of kV/cm and $a_0 = 551.6$cm$^2$/s is the electron mobility at zero field with temperature of $T_0$ = 89 K, $T$ is the LAr temperature. The fitting parameters are given bys
+        \[
+        a_0 = 551.6, \quad
+        a_1 = 7953.7, \quad
+        a_2 = 4440.43, \quad
+        a_3 = 4.29, \quad
+        a_4 = 43.63, \quad
+        a_5 = 0.2053
+        \]
+      </div>
+      <div class="col-md-4">
+        <img src="img/lar_mob_data.gif" alt="" width="100%">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading"><a name="v"></a>
+    <h3 class="panel-title">Electron drift velocity in LAr</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-8">
+      Electron drift velocity is a product of electron mobility and the electric field.
+      \[
+        v = \mu E
+      \]
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading"><a name="eps_L"></a>
+    <h3 class="panel-title">Effective longitudinal electron energy</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-8">
+        We introduce a parameterization of the effective electron energy for the convenience of application. Both the data in Ref. <a href="#ref1">[1]</a> and ICARUS's data at low field are included. The parameterization is also in a form of rational polynomial
+        \[
+        \epsilon_L=\frac{b_0+b_1E+b_2E^2}{1+(b_1/b_0)E+b_3E^2}\left(\frac{T}{T_1}\right)
+        \]
+        where $E$ is the electric field in the unit of kV/cm and $b_0=0.0075$ eV is the electron energy
+        at $T_1$ = 87 K under zero field and $T$ is the LAr temperature. The parameterization can be applied to other
+        temperatures with a linear temperature dependence of $T$.
+        The fitting parameters are given bys
+        \[
+        b_0 = 0.0075, \quad
+        b_1 = 742.9, \quad
+        b_2 = 3269.6, \quad
+        b_3 = 31678.2, \quad
+        \]
+      </div>
+      <div class="col-md-4">
+        <img src="img/lar_el_data.gif" alt="" width="100%">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading"><a name="D_L"></a>
+    <h3 class="panel-title">Longitudinal diffusion coefficients</h3>
+  </div>
+  <div class="panel-body">
+  <div class="row">
+    <div class="col-md-8">
+    The longitudinal diffusion coefficients $D_L$ in the range of 0.1 to 1.5 kV/cm can be expressed as
+    defined by the Einstein relation
+    \[
+    D_L=\frac{\mu\epsilon_L}{e}=\left(\frac{a_0+a_1E+a_2E^{3/2}+a_3E^{5/2}}{1+(a_1/a_0)E+a_4E^2+a_5E^3}\right)\left(\frac{b_0+b_1E+b_2E^2}{1+(b_1/b_0)E+b_3E^2}\right)\left(\frac{T}{T_0}\right)^{-3/2}\left(\frac{T}{T_1}\right),
+    \]
+    with the parameters given previously.
+    </div>
+  </div>
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/highcharts/highcharts.js"></script>
+<script src="js/highcharts/modules/exporting.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="js/plot-dispacher.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+
+</html>
