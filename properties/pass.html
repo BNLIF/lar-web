@@ -51,6 +51,36 @@
 </div>
 </div>
 
+<div class="panel panel-primary"><a name="fanofactor"></a>
+    <div class="panel-heading">
+        <h3 class="panel-title">Fano Factor</h3>
+    </div>
+    <div class="panel-body">
+        <p>
+        When the total energy of an ionizing particle, $E_0$, is absorbed in the detector medium, the number of the <strong>ion pairs</strong> $N_i$ is given as $E_0/W$, where W is an average energy required to form an ion pair (called $W$-value). The r.m.s. fluctuation of the number of ion pairs can be calculated to be $\sqrt{FN_i}$, where $F$ is the so-called "Fano-Factor" [1].
+        </p>
+        <p>
+        Considering the excitation (requiring $W_e$) and ionization (requiring $W_i$) in the atom, we have
+        \[
+            E_0 = N_i \cdot W = N_i \cdot W_i + N_e \cdot W_e.
+        \]
+        Due to the actual much smaller $W_e$ than $W_i$, every "collision" will most likely cause excitation while the ionization must be combined with the excitation to dissipate precisely the total energy. Define $\sigma_x = \sigma(N_x)$ and $\sigma_e = \sqrt{N_e}$ ($N_e$ can be well approximated by a Poisson distribution), it can be derived that
+        \[
+            \sigma_i \cdot W_i = \sigma_e \cdot W_e = \sqrt{N_e} \cdot W_e
+        \]
+        The fano factor then can be expressed as the last term in the following formula, 
+        \[
+            \sigma_i = \sqrt{N_i} \cdot \sqrt{\frac{W_e}{W_i}(\frac{W}{W_i}-1)}.
+        \]
+        In reality, three impacts are involved in the estimation of fano factor, which are ionization, excitation, and nuclear scattering, respectively. The contribution of nuclear scattering can be neglected.
+        </p>
+        <p>
+        The ultimate number of ionization electrons has to consider the recombination (discussed below) to the ions which serves as the survival probabilty of the ionization electrons liberated from the atoms. The excitation and recombination will contribute to the scintillation photons of liquid argon.
+        </p>
+    </div>
+</div>
+
+
 <div class="panel panel-primary"><a name="recombination"></a>
   <div class="panel-heading">
     <h3 class="panel-title">Recombination</h3>
@@ -58,7 +88,7 @@
   <div class="panel-body">
     <p>
       The recombination factor $R_c$ describes the efficiency in converting $dE/dx$ into $dQ/dx$, the visible energy available to be collected by the sense wires before attenuation.
-      The ionized electron has about 5 eV energy with a distance about 0.5 nm from the ion. In about 2 ns, the ionized electron would go through 10,000 collisions before reaching thermal energy (~0.01 eV). At this point, the average separation distance is about 2.5 $\mu$m [1,2].
+      The ionized electron has about 5 eV energy with a distance about 0.5 nm from the ion. In about 2 ns, the ionized electron would go through 10,000 collisions before reaching thermal energy (~0.01 eV). At this point, the average separation distance is about 2.5 $\mu$m [2,3].
     </p>
     <p>
       There are two common methods to model the recombination effect.
@@ -85,10 +115,11 @@
       <div id="rc-dedx" class='plot'></div>
     </div>
     <p>
-      There are three microscopic theories describing the recombination: Germinate, Bulk, and Columnar. In particular, the prediction from Columnar theory suggests that the recombination has a dependence on the track angle with respect to the drift direction. Such an effect has been studied in ArgoNeuT [3].  While there are some hints regarding the angular dependence, the effect seems to be much smaller than that predicted by Columnar theory (see Fig. 9 from Ref [3]).
+      There are three microscopic theories describing the recombination: Germinate, Bulk, and Columnar. In particular, the prediction from Columnar theory suggests that the recombination has a dependence on the track angle with respect to the drift direction. Such an effect has been studied in ArgoNeuT [3].  While there are some hints regarding the angular dependence, the effect seems to be much smaller than that predicted by Columnar theory (see Fig. 9 from Ref [4]).
     </p>
   </div>
 </div>
+
 
         <section id="refs"><a name="refs"></a>
           <h2>References <a href="#" class="fold" style="float:right"><i class="fa fa-angle-down fa-fw"></i></a></h2>
@@ -96,8 +127,8 @@
           <div class="row">
             <div class="col-md-12">
               <ol>
-                <li><a name="ref1"></a> Michal Jaskolski and Mariusz Wojcik, "Electron Recombination in Ionized Liquid Argon: A Computational Approach Based on Realistic Models of Electron Transport and Reactions",
-                  <a href="http://pubs.acs.org/doi/abs/10.1021/jp201149w">J. Phys. Chem. A, 2011, 115 (17), pp 4317–4325</a>.
+                  <li><a name="ref1"></a> T. Doke, A. Hitachi, et al., "Estimation of fano factors in liquid argon, krypton, xenon and xenon-doped liquid argon", <a href="https://doi.org/10.1016/0029-554X(76)90292-5">Nuclear Instruments and Methods, Volume 134, Issue 2, 15 April 1976</a></li>
+                <li>Michal Jaskolski and Mariusz Wojcik, "Electron Recombination in Ionized Liquid Argon: A Computational Approach Based on Realistic Models of Electron Transport and Reactions", <a href="http://pubs.acs.org/doi/abs/10.1021/jp201149w">J. Phys. Chem. A, 2011, 115 (17), pp 4317–4325</a>.
                 <li>Ulrich Sowada, John M. Warman, and Matthijs P. de Haas, "Hot-electron thermalization in solid and liquid argon, krypton, and xenon", <a href="http://journals.aps.org/prb/abstract/10.1103/PhysRevB.25.3434">Phys. Rev. B 25, 3434(R)</a></li>
                 <li>R. Acciarri et al, "A study of electron recombination using highly ionizing particles in the ArgoNeuT Liquid Argon TPC", <a href="http://iopscience.iop.org/article/10.1088/1748-0221/8/08/P08005/meta">Journal of Instrumentation, Volume 8, August 2013</a></li>
               </ol>
