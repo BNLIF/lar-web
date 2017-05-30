@@ -32,7 +32,26 @@
   <div class="row">
     <div class="col-md-8">
     <p>
-          When a charged particle goes through LAr, it takes about 23.6 eV energy to ionize an electron in average. For minimal ionizing particle (heavy ionizing particle), the expected energy loss is about 2.1 (25) MeV/cm leading to about 100 (10) nm average separation between two adjacent ions. The mean rate of energy loss by moderately relativistic charged heavy particles is well-described by the <a href="https://en.wikipedia.org/wiki/Bethe_formula">Bethe formula</a>. The observed most probable energy loss in a thin detector slice can be quite a bit smaller. The distribution can have very long tails as characterized by Landau distribution shown in the right.
+          When a charged particle goes through liquid argon (LAr), it takes about 23.6 eV energy to ionize an electron in average. For minimal ionizing particle (heavy ionizing particle), the mean energy loss is about 2.1 (25) MeV/cm leading to about 100 (10) nm average separation between two adjacent ions.
+    </p>
+    <p>
+    The <strong>mean rate</strong> of energy loss by moderately relativistic charged heavy particles is well-described by the <a href="https://en.wikipedia.org/wiki/Bethe_formula">Bethe formula</a>. Considering the actual energy transfers might be restricted to $T \le T_{cut} \le T_{max}$, this formula can be expressed in a unified way,
+   \[
+   -&lt \frac{dE}{dx} &gt = Kz^2 \frac{Z}{A}\frac{1}{\beta^2}[\frac{1}{2}ln\frac{2m_ec^2\beta^2\gamma^2T_{cut}}{I^2}-\frac{\beta^2}{2}(1+\frac{T_{cut}}{T_{max}})-\frac{\delta(\beta\gamma)}{2}].
+   \]
+   Details of the parameters can be seen in <a href="http://pdg.lbl.gov/2016/reviews/rpp2016-rev-passage-particles-matter.pdf">PDG</a>. 
+   Note that the mean $dE/dx$ has no dependency on the thickness of the absorbers. Calculations regarding the LAr are shown in the lower pannel of the right plot (from Milind Diwan). 
+    </p>
+    <p>
+    The flucatuations in enegy loss can be adequately described by the highly-skewed Landau or Landau-Vavilov distribution (see the upper pannel of the right plot), though the Landau distribution fails to describe energy loss in thin absorbers.  
+    The <strong>most probable energy loss</strong> can be calculated with the equation,
+    \[
+    \Delta_p = {\xi} [ln\frac{2mc^2\beta^2\gamma^2}{I} + ln\frac{{\xi}}{I} +j -\beta^2 - \delta(\beta\gamma)],
+    \]
+    where $\xi = (K/2)&lt Z/A &gt(x/\beta^2)$ MeV for a detector with a thickness $x$ in $g~cm^{-2}$. Details can be seen in Ref. [1], especailly the density effect $\delta$ which was not included in Landau's or Vavilov's work. Note that the most probable energy loss is generally smaller than the mean value and do have dependency on the thickness of the absorbers as indicated by $\xi$. Specific calculations are shown in the lower pannel of the right plot.
+    </p>
+    <p>
+    <strong>Useful numbers for liquid argon</strong>: LAr density 1.40 g/cm$^3$ at 87 K. The minimum ionizing muon (about 260 MeV kinetic energy) has the mean energy loss of 2.1 MeV/cm and 5 GeV $\mu$ in 1 (0.03) cm LAr corresponds to a most probable (MPV) energy loss of 1.8 (1.5) MeV/cm.  
     </p>
     <p>
       Click the following links to retrieve the relevent plots:
@@ -45,7 +64,8 @@
     </div>
     </div>
     <div class="col-md-4">
-      <img src="img/eloss.png" alt="" width="100%">
+      <img src="img/Landau.png" alt="" width="100%">
+      <img src="img/MPV-mean.png" alt="" width="95%">
     </div>
   </div>
 </div>
@@ -57,7 +77,7 @@
     </div>
     <div class="panel-body">
         <p>
-        When the total energy of an ionizing particle, $E_0$, is absorbed in the detector medium, the number of the <strong>ion pairs</strong> $N_i$ is given as $E_0/W$, where W is an average energy required to form an ion pair (called $W$-value). The r.m.s. fluctuation of the number of ion pairs can be calculated to be $\sqrt{FN_i}$, where $F$ is the so-called "Fano-Factor" [1].
+        When the total energy of an ionizing particle, $E_0$, is absorbed in the detector medium, the number of the <strong>ion pairs</strong> $N_i$ is given as $E_0/W$, where W is an average energy required to form an ion pair (called $W$-value). The r.m.s. fluctuation of the number of ion pairs can be calculated to be $\sqrt{FN_i}$, where $F$ is the so-called "Fano-Factor" [2].
         </p>
         <p>
         Considering the excitation (requiring $W_e$) and ionization (requiring $W_i$) in the atom, we have
@@ -88,7 +108,7 @@
   <div class="panel-body">
     <p>
       The recombination factor $R_c$ describes the efficiency in converting $dE/dx$ into $dQ/dx$, the visible energy available to be collected by the sense wires before attenuation.
-      The ionized electron has about 5 eV energy with a distance about 0.5 nm from the ion. In about 2 ns, the ionized electron would go through 10,000 collisions before reaching thermal energy (~0.01 eV). At this point, the average separation distance is about 2.5 $\mu$m [2,3].
+      The ionized electron has about 5 eV energy with a distance about 0.5 nm from the ion. In about 2 ns, the ionized electron would go through 10,000 collisions before reaching thermal energy (~0.01 eV). At this point, the average separation distance is about 2.5 $\mu$m [3,4].
     </p>
     <p>
       There are two common methods to model the recombination effect.
@@ -115,7 +135,7 @@
       <div id="rc-dedx" class='plot'></div>
     </div>
     <p>
-      There are three microscopic theories describing the recombination: Germinate, Bulk, and Columnar. In particular, the prediction from Columnar theory suggests that the recombination has a dependence on the track angle with respect to the drift direction. Such an effect has been studied in ArgoNeuT [3].  While there are some hints regarding the angular dependence, the effect seems to be much smaller than that predicted by Columnar theory (see Fig. 9 from Ref [4]).
+      There are three microscopic theories describing the recombination: Germinate, Bulk, and Columnar. In particular, the prediction from Columnar theory suggests that the recombination has a dependence on the track angle with respect to the drift direction. Such an effect has been studied in ArgoNeuT [3].  While there are some hints regarding the angular dependence, the effect seems to be much smaller than that predicted by Columnar theory (see Fig. 9 from Ref [5]).
     </p>
   </div>
 </div>
@@ -127,7 +147,9 @@
           <div class="row">
             <div class="col-md-12">
               <ol>
-                  <li><a name="ref1"></a> T. Doke, A. Hitachi, et al., "Estimation of fano factors in liquid argon, krypton, xenon and xenon-doped liquid argon", <a href="https://doi.org/10.1016/0029-554X(76)90292-5">Nuclear Instruments and Methods, Volume 134, Issue 2, 15 April 1976</a></li>
+
+                <li><a name="ref1"></a> H. Bichsel, "The Density Effect for the Ionization Loss in Various Materials", <a href="https://doi.org/10.1103/PhysRev.88.851">Rev. Mod. Phys. 60, 663 (1988)</a></li>
+                <li> T. Doke, A. Hitachi, et al., "Estimation of fano factors in liquid argon, krypton, xenon and xenon-doped liquid argon", <a href="https://doi.org/10.1016/0029-554X(76)90292-5">Nuclear Instruments and Methods, Volume 134, Issue 2, 15 April 1976</a></li>
                 <li>Michal Jaskolski and Mariusz Wojcik, "Electron Recombination in Ionized Liquid Argon: A Computational Approach Based on Realistic Models of Electron Transport and Reactions", <a href="http://pubs.acs.org/doi/abs/10.1021/jp201149w">J. Phys. Chem. A, 2011, 115 (17), pp 4317–4325</a>.
                 <li>Ulrich Sowada, John M. Warman, and Matthijs P. de Haas, "Hot-electron thermalization in solid and liquid argon, krypton, and xenon", <a href="http://journals.aps.org/prb/abstract/10.1103/PhysRevB.25.3434">Phys. Rev. B 25, 3434(R)</a></li>
                 <li>R. Acciarri et al, "A study of electron recombination using highly ionizing particles in the ArgoNeuT Liquid Argon TPC", <a href="http://iopscience.iop.org/article/10.1088/1748-0221/8/08/P08005/meta">Journal of Instrumentation, Volume 8, August 2013</a></li>
