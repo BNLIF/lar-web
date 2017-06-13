@@ -1,0 +1,247 @@
+[
+    {
+        "date": "2017-06-22",
+        "author": "Jyoti Joshi",
+        "title": "MicroBooNE",
+        "docid": "NA",
+        "lunch": "Hanyu Wei"
+    },
+    {
+        "date": "2017-06-15",
+        "author": "Milind Diwan",
+        "title": "Neutrino Detectors",
+        "docid": "133",
+        "lunch": "Hanyu Wei"
+    },
+    {
+        "date": "2016-08-05",
+        "author": "Milind Diwan",
+        "title": "Neutrino Oscillations",
+        "docid": "139",
+        "lunch": "NA"
+    },
+    {
+        "date": "2016-07-29",
+        "author": "Milind Diwan",
+        "title": "Neutrino Sources",
+        "docid": "159",
+        "lunch": "NA"
+    },
+    {
+        "date": "2016-07-15",
+        "author": "Milind Diwan",
+        "title": "Neutrino Interactions",
+        "docid": "158",
+        "lunch": "NA"
+    },
+    {
+        "date": "2016-07-08",
+        "author": "Bob Hackenburg",
+        "title": "Particle Oscillations: Mass Differences and Uncertainty",
+        "docid": "134",
+        "lunch": "NA"
+    },
+    {
+        "date": "2016-07-01",
+        "author": "Milind Diwan",
+        "title": "Neutrino Detectors",
+        "docid": "133",
+        "lunch": "NA"
+    },
+    {
+        "date": "2016-06-24",
+        "author": "Chao Zhang",
+        "title": "History of Neutrino Physics at BNL",
+        "docid": "131",
+        "lunch": "NA"
+    },
+    {
+        "date": "2016-06-17",
+        "author": "Bill Morse",
+        "title": "Introduction to Particle Physics",
+        "docid": "NA",
+        "lunch": "NA"
+    },
+    {
+        "date": "2015-09-17",
+        "author": "Mary Bishai",
+        "title": "PTOLEMY: Detecting Big Bang Neutrinos",
+        "docid": "NA",
+        "lunch": "Caroline Zhang"
+    },
+    {
+        "date": "2015-07-23",
+        "author": "Elizabeth Worcester",
+        "title": "Introduction to DUNE",
+        "docid": 77,
+        "lunch": "Caroline Zhang"
+    },
+    {
+        "date": "2015-07-16",
+        "author": "Lindsey Bignell",
+        "title": "Introduction to Liquid Scintillator and Water-based LS",
+        "docid": "NA",
+        "lunch": "Caroline Zhang"
+    },
+    {
+        "date": "2015-07-09",
+        "author": "Wei Tang",
+        "title": "Introduction to Daya Bay",
+        "docid": "NA",
+        "lunch": "Caroline Zhang"
+    },
+    {
+        "date": "2015-07-02",
+        "author": "Xin Qian",
+        "title": "Introduction to Statistics in High Energy Physics",
+        "docid": 71,
+        "lunch": "Caroline Zhang"
+    },
+    {
+        "date": "2015-06-25",
+        "author": "Michael Mooney",
+        "title": "Introduction to MicroBooNE",
+        "docid": "NA",
+        "lunch": "Caroline Zhang"
+    },
+    {
+        "date": "2015-06-18",
+        "author": "Chao Zhang",
+        "title": "Highlights of Neutrino Physics at BNL (1955 - 2012)",
+        "docid": 68,
+        "lunch": "Caroline Zhang"
+    },
+    {
+        "date": "2014-06-11",
+        "author": "Jason Crnkovic",
+        "title": "An Introduction to Muon Physics",
+        "docid": "NA",
+        "lunch": "Caroline Zhang"
+    },
+    {
+        "date": "2015-06-04",
+        "author": "Bill Morse",
+        "title": "Introduction to Particle Physics",
+        "docid": "NA",
+        "lunch": "Caroline Zhang"
+    },
+    {
+        "date": "2015-05-07",
+        "author": "Yuri Fisyak",
+        "title": "TPC track reconstruction at STAR",
+        "docid": 66,
+        "lunch": "Caroline Zhang"
+    },
+    {
+        "date": "2015-04-30",
+        "author": "Alfredo Luccio",
+        "title": "Spin Polarimetry by Synchrotron Radiation",
+        "docid": "NA",
+        "lunch": "Wei Tang"
+    },
+    {
+        "date": "2015-04-23",
+        "author": "David Jaffe",
+        "title": "NaI(TI) Quenching and DAMA/LIBRA (arXiv:1503.07212)",
+        "docid": 58,
+        "lunch": "Wei Tang"
+    },
+    {
+        "date": "2015-04-09",
+        "author": "Hucheng Chen",
+        "title": "LAr TPC Pad readout",
+        "docid": 56,
+        "lunch": "Wei Tang"
+    },
+    {
+        "date": "2015-04-02",
+        "author": "Brian Kirby",
+        "title": "Review of Waveform Sampling ASICs in HEP",
+        "docid": 59,
+        "lunch": "Wei Tang"
+    },
+    {
+        "date": "2015-03-26",
+        "author": "Elizabeth Worchester",
+        "title": "Probing New Physics with Kaon Decay",
+        "docid": 52,
+        "lunch": "Wei Tang"
+    },
+    {
+        "date": "2015-02-12",
+        "author": "Elke-Caroline Aschenauer",
+        "title": "eRHIC",
+        "docid": 34,
+        "lunch": "Wei Tang"
+    },
+    {
+        "date": "2015-01-29",
+        "author": "Peter Yamin",
+        "title": "mu2e",
+        "docid": 33,
+        "lunch": "Wei Tang"
+    },
+    {
+        "date": "2014-12-04",
+        "author": "Clark McGrew",
+        "title": "Search for nu_e Disappearance at the T2K Near Detector",
+        "docid": 32,
+        "lunch": "Michael Mooney"
+    },
+    {
+        "date": "2014-11-20",
+        "author": "Alfredo Luccio",
+        "title": "proton EDM",
+        "docid": 31,
+        "lunch": "Wei Tang"
+    },
+    {
+        "date": "2014-11-13",
+        "author": "Michael Mooney",
+        "title": "Higgs Searches at CMS",
+        "docid": 30,
+        "lunch": "Jyoti Joshi"
+    },
+    {
+        "date": "2014-11-06",
+        "author": "Chao Zhang",
+        "title": "First Dark Matter Results from PandaX",
+        "docid": 29,
+        "lunch": "Michael Mooney"
+    },
+    {
+        "date": "2014-10-16",
+        "author": "Xin Qian",
+        "title": "Single-Spin Asymmetry Measurement with Polarized 3He",
+        "docid": 28,
+        "lunch": "Wei Tang"
+    },
+    {
+        "date": "2014-10-02",
+        "author": "Mary Bishai",
+        "title": "nnbar Oscillation",
+        "docid": 27,
+        "lunch": "Wei Tang"
+    },
+    {
+        "date": "2014-09-18",
+        "author": "Wei Tang",
+        "title": "Reactor Antineutrino Spectrum",
+        "docid": 26,
+        "lunch": "Wei Tang"
+    },
+    {
+        "date": "2014-09-11",
+        "author": "Jason Crnkovic",
+        "title": "Muon g-2",
+        "docid": 25,
+        "lunch": "Wei Tang"
+    },
+    {
+        "date": "2014-09-04",
+        "author": "Xin Qian",
+        "title": "Introduction to Neutrino Oscillation",
+        "docid": 10,
+        "lunch": "Wei Tang"
+    }
+]
