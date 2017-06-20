@@ -31,7 +31,6 @@ function initRoutes(event, plane, wire) {
     var exp = eventId.split('-')[0];
     if (exp == 'uboone') {
         $('#event-logo').empty().append('<img src="img/uboone-logo.png" alt="" style="width: 200px;" />');
-        console.log($('#event-logo'))
     }
     // console.log(data_path);
 }
