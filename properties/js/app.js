@@ -19,9 +19,11 @@ var vm = new Vue({
         T_c: 150.687,
         rho_c: 0.5356, // g/cm^3
         dEdx: 2.1,  // MeV/cm
-        particle_mom: 5,  // momemtum, GeV/c
+        particle_mom: 0.3,  // momemtum, GeV/c
         particle_mass: 105, // MeV
         pass_thickness: 0.3, // cm
+        particle_tcut: null, // MeV
+        particle_tmax: 0., // Maximum delta ray, MeV
         T0: 89.0,
         T1: 87.0,
         a0: 551.6,
@@ -149,7 +151,54 @@ var vm = new Vue({
             }
             coef -= delta;
             return psi * coef/this.pass_thickness;
-        }
+        },
+        eloss: function() {
+            var       fZ = 18;                ///< Ar atomic number
+            var       fA = 39.948;            ///< Ar atomic mass (g/mol)
+            var       fI = 188.00;            ///< Ar mean excitation energy (eV)
+            var      fSa = 0.1956;            ///< Ar Sternheimer parameter a
+            var      fSk = 3.0000;            ///< Ar Sternheimer parameter k
+            var      fSx0 = 0.2000;            ///< Ar Sternheimer parameter x0
+            var     fSx1 = 3.0000;            ///< Ar Sternheimer parameter x1
+            var    fScbar = 5.2146;            ///< Ar Sternheimer parameter Cbar
+
+            var K = 0.307075;     // 4 pi N_A r_e^2 m_e c^2 (MeV cm^2/mol).
+            var me = 0.510998918; // Electron mass (MeV/c^2).
+
+            // Calculate kinematic quantities.
+            var bg = this.particle_mom * 1000. / this.particle_mass;           // beta*gamma.
+            var gamma = Math.sqrt(1. + bg*bg);  // gamma.
+            var beta = bg / gamma;         // beta (velocity).
+            // console.log(Math.sqrt(this.particle_mom*this.particle_mom*1e6 - this.particle_mass*this.particle_mass))
+            var mer = 0.001 * me / this.particle_mass;   // electron mass / mass of incident particle.
+            var tmax = 2.*me* bg*bg / (1. + 2.*gamma*mer + mer*mer);  // Maximum delta ray energy (MeV).
+            this.particle_tmax = tmax;
+
+            // Make sure particle_tcut does not exceed tmax.
+            var tcut = this.particle_tcut;
+            if(tcut < 1e-3 || tcut > tmax) { tcut = tmax; }
+
+            // Calculate density effect correction (delta).
+            var x = Math.log10(bg);
+            var delta = 0.;
+
+            if(x >= fSx0) {
+              delta = 2. * Math.log(10.) * x - fScbar;
+              if(x < fSx1) {
+                  delta += fSa * Math.pow(fSx1 - x, fSk);
+              }
+            }
+
+            // Calculate stopping number.
+            var B = 0.5 * Math.log(2.*me*bg*bg*tcut / (1.e-12 * fI*fI))
+                - 0.5 * beta*beta * (1. + tcut / tmax) - 0.5 * delta;
+            // Don't let the stopping number become negative.
+            if(B < 1.) B = 1.;
+
+            // Calculate dE/dx.
+            return this.density * K*fZ*B / (fA * beta*beta);
+      }
+
     },
     methods: {
         mobility: function(E) {

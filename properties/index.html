@@ -479,25 +479,34 @@
           </table>
 
           <div class="row input">
-            <div class="col-md-4">
+            <div class="col-md-6">
               <div class="input-group">
                 <span class="input-group-addon">Momemtum</span>
                 <input type="text" class="form-control" v-model="particle_mom">
                 <span class="input-group-addon">GeV/c</span>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
               <div class="input-group">
                 <span class="input-group-addon">Mass</span>
                 <input type="text" class="form-control" v-model="particle_mass">
-                <span class="input-group-addon">MeV</span>
+                <span class="input-group-addon">MeV </span>
               </div>
             </div>
-            <div class="col-md-4">
+          </div>
+          <div class="row input">
+            <div class="col-md-6">
               <div class="input-group">
                 <span class="input-group-addon">Thickness</span>
                 <input type="text" class="form-control" v-model="pass_thickness">
                 <span class="input-group-addon">cm</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon">Tcut</span>
+                <input type="text" class="form-control" v-model="particle_tcut">
+                <span class="input-group-addon">MeV < ($T_\text{max}$={{particle_tmax | trunc 2}}) MeV $\delta$-ray</span>
               </div>
             </div>
           </div>
@@ -517,6 +526,12 @@
                 <td>Most probable energy loss</td>
                 <td>$(dE/dx)_\text{MPV}$</td>
                 <td>{{ mpv | trunc }}</td>
+                <td>MeV/cm</td>
+              </tr>
+              <tr>
+                <td>Mean energy loss</td>
+                <td>$(dE/dx)_\text{mean}$</td>
+                <td>{{ eloss | trunc }}</td>
                 <td>MeV/cm</td>
               </tr>
             </tbody>
