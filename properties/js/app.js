@@ -19,6 +19,9 @@ var vm = new Vue({
         T_c: 150.687,
         rho_c: 0.5356, // g/cm^3
         dEdx: 2.1,  // MeV/cm
+        particle_mom: 5,  // momemtum, GeV/c
+        particle_mass: 105, // MeV
+        pass_thickness: 0.3, // cm
         T0: 89.0,
         T1: 87.0,
         a0: 551.6,
@@ -117,6 +120,35 @@ var vm = new Vue({
         Rc_box: function() {
             var x = 0.212 / this.E / this.density * this.dEdx;
             return Math.log(0.93+x) / x;
+        },
+        mpv: function() {
+            var       fZ = 18;                ///< Ar atomic number
+            var       fA = 39.948;            ///< Ar atomic mass (g/mol)
+            var       fI = 188.00;            ///< Ar mean excitation energy (eV)
+            var      fSa = 0.1956;            ///< Ar Sternheimer parameter a
+            var      fSk = 3.0000;            ///< Ar Sternheimer parameter k
+            var      fSx0 = 0.2000;            ///< Ar Sternheimer parameter x0
+            var     fSx1 = 3.0000;            ///< Ar Sternheimer parameter x1
+            var    fScbar = 5.2146;            ///< Ar Sternheimer parameter Cbar
+            var K = 0.307075;     // 4 pi N_A r_e^2 m_e c^2 (MeV cm^2/mol).
+            var me = 0.510998918; // Electron mass (MeV/c^2).
+
+            var bg = this.particle_mom * 1000. / this.particle_mass;           // beta*gamma.
+            var gamma = Math.sqrt(1. + bg*bg);  // gamma.
+            var beta = bg / gamma;         // beta (velocity).
+
+            var psi = K/2.*fZ/fA/beta/beta * this.density * this.pass_thickness;
+            var coef = Math.log(2*me*1e6*bg*bg/fI) + Math.log(psi*1e6/fI) + 0.2 - beta*beta;
+            var x = Math.log10(bg);
+            var delta = 0.;
+            if(x >= fSx0) {
+                delta = 2. * Math.log(10.) * x - fScbar;
+                if(x < fSx1) {
+                    delta += fSa * Math.pow(fSx1 - x, fSk);
+                }
+            }
+            coef -= delta;
+            return psi * coef/this.pass_thickness;
         }
     },
     methods: {

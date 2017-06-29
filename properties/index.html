@@ -478,6 +478,50 @@
             </tbody>
           </table>
 
+          <div class="row input">
+            <div class="col-md-4">
+              <div class="input-group">
+                <span class="input-group-addon">Momemtum</span>
+                <input type="text" class="form-control" v-model="particle_mom">
+                <span class="input-group-addon">GeV/c</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group">
+                <span class="input-group-addon">Mass</span>
+                <input type="text" class="form-control" v-model="particle_mass">
+                <span class="input-group-addon">MeV</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group">
+                <span class="input-group-addon">Thickness</span>
+                <input type="text" class="form-control" v-model="pass_thickness">
+                <span class="input-group-addon">cm</span>
+              </div>
+            </div>
+          </div>
+          <table class="table table-bordered table-striped">
+            <caption>
+            </caption>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Symbol</th>
+                <th>value</th>
+                <th>unit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Most probable energy loss</td>
+                <td>$(dE/dx)_\text{MPV}$</td>
+                <td>{{ mpv | trunc }}</td>
+                <td>MeV/cm</td>
+              </tr>
+            </tbody>
+          </table>
+
           <div class="alert alert-warning" role="alert">Learn <a href="pass.html" class="alert-link">more information</a> about particle passage in LAr.</div>
           <hr>
 </div>
