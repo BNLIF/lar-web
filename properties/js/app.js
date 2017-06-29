@@ -18,6 +18,7 @@ var vm = new Vue({
         wl: 128.0,
         T_c: 150.687,
         rho_c: 0.5356, // g/cm^3
+        dEdx: 2.1,  // MeV/cm
         T0: 89.0,
         T1: 87.0,
         a0: 551.6,
@@ -109,6 +110,13 @@ var vm = new Vue({
         },
         t3: function() {
             return this.plane_gap * 0.1 / this.v3;
+        },
+        Rc_birks: function() {
+            return 0.8 / ( 1 + 0.0486 * this.dEdx / this.E / this.density );
+        },
+        Rc_box: function() {
+            var x = 0.212 / this.E / this.density * this.dEdx;
+            return Math.log(0.93+x) / x;
         }
     },
     methods: {

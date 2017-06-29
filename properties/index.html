@@ -12,8 +12,8 @@
     MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
   </script>
   <script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
 </head>
 
 <body data-spy="scroll" data-target="#leftCol" data-offset="200"><a name="top"></a>
@@ -430,6 +430,50 @@
                 <td>$(dE/dx)_\text{MIP}$</td>
                 <td>2.12</td>
                 <td>MeV/cm</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="row input">
+            <div class="col-md-4">
+              <div class="input-group">
+                <span class="input-group-addon">E field</span>
+                <input type="text" class="form-control" v-model="E">
+                <span class="input-group-addon">kV/cm</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group">
+                <span class="input-group-addon">dE/dx</span>
+                <input type="text" class="form-control" v-model="dEdx">
+                <span class="input-group-addon">MeV/cm</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group">
+                <span class="input-group-addon">Temperature</span>
+                <input type="text" class="form-control" v-model="T">
+                <span class="input-group-addon">K</span>
+              </div>
+            </div>
+          </div>
+          <table class="table table-bordered table-striped">
+            <caption>
+            </caption>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Symbol</th>
+                <th>Birks Model</th>
+                <th>Box Model</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Recombination Factor</td>
+                <td>$R_c$</td>
+                <td>{{ Rc_birks | trunc }}</td>
+                <td>{{ Rc_box | trunc }}</td>
               </tr>
             </tbody>
           </table>
