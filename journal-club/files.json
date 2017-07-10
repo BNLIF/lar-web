@@ -1,5 +1,12 @@
 [
     {
+        "date": "2017-07-20",
+        "author": "Bill Morse",
+        "title": "TBD",
+        "docid": "NA",
+        "lunch": "Arbin Timilsina"
+    },
+    {
         "date": "2017-07-13",
         "author": "Brian Kirby",
         "title": "About Cold Electronics",
@@ -10,7 +17,7 @@
         "date": "2017-07-06",
         "author": "Milind Diwan",
         "title": "Basic Mathematics of Random Noise",
-        "docid": "NA",
+        "docid": "184",
         "lunch": "Arbin Timilsina"
     },
     {
