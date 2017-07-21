@@ -64,7 +64,7 @@ $.when(xhr_all).done(function(){
             {
                 linkedTo: 0,
                 opposite: true,
-                title: {text: 'Number of electrons (after deconvolution)', style: {color: '#d95f02', fontWeight: 'bold'}},
+                title: {text: 'Arbitrary Unit (after deconvolution)', style: {color: '#d95f02', fontWeight: 'bold'}},
                 labels: {
                     formatter: function() {
                         return '<b>' + this.value / scalingToADC['decon'] + '</b>';

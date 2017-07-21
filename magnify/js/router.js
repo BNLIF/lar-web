@@ -27,7 +27,12 @@ function initRoutes(event, plane, wire) {
     if (isNaN(planeId)) { planeId = 0; }
     if (isNaN(wireId)) { wireId = 40; }
     data_path = get_data_path(eventId, planeId);
-    $('#event-label').text(eventId + ', Plane ' + planeId);
+    // $('#event-label').text(eventId + ', Plane ' + planeId);
+    $('#event-label').text('Plane ' + planeId);
+    var a = eventId.split('-');
+    $('#runno').text(a[1]);
+    $('#eventno').text(a[2]);
+
     var exp = eventId.split('-')[0];
     if (exp == 'uboone') {
         $('#event-logo').empty().append('<img src="img/uboone-logo.png" alt="" style="width: 200px;" />');

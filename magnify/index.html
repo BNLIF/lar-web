@@ -70,7 +70,14 @@
       </div>
 
       <div class="col-md-8" id="rightCol">
-      <div id='event-logo'></div>
+      <div class="row">
+        <div class="col-md-4" id='event-logo'></div>
+        <div class="col-md-8">
+          <h3>Run <span id="runno"></span>, Event <span id="eventno"></span></h3>
+        </div>
+      </div>
+
+
       <div v-bind:class="{ 'affix' : affix }">
         <div style="text-align:center;" id="loading-bar"><img src="img/ajax-loader.gif" /></div>
         <div id="waveforms"  style="width: 750px; height: 400px; margin: 0;"></div>
