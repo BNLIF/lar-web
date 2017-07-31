@@ -14,8 +14,13 @@ var router = Router(routes).configure({
 });
 router.init('/');
 
-$('.hash-link').click(function(){
+$('.hash-link').click(function(e){
+    e.preventDefault();
+    // console.log(window.location)
+    // console.log(this);
+    window.location.replace($(this).attr('href'));
     window.location.reload();
+    // window.location.reload(true);
 })
 
 
