@@ -456,6 +456,22 @@
               </div>
             </div>
           </div>
+          <div class="row input">
+            <div class="col-md-4">
+              <div class="input-group">
+                <span class="input-group-addon">Electron lifetime</span>
+                <input type="text" class="form-control" v-model="tlife">
+                <span class="input-group-addon">ms</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group">
+                <span class="input-group-addon">Drift distance</span>
+                <input type="text" class="form-control" v-model="drift_dist_max">
+                <span class="input-group-addon">m</span>
+              </div>
+            </div>
+          </div>
           <table class="table table-bordered table-striped">
             <caption>
             </caption>
@@ -463,16 +479,34 @@
               <tr>
                 <th>Property</th>
                 <th>Symbol</th>
-                <th>Birks Model</th>
-                <th>Box Model</th>
+                <th>value</th>
+                <th>unit</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Recombination Factor</td>
+                <td>Recombination factor</td>
                 <td>$R_c$</td>
-                <td>{{ Rc_birks | trunc }}</td>
-                <td>{{ Rc_box | trunc }}</td>
+                <td>{{ Rc_birks | trunc }} (Birks Model)</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Attachment factor</td>
+                <td>$R_a$</td>
+                <td>{{ atten | trunc }}</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Total electron reduction factor</td>
+                <td>$R_c * R_a$</td>
+                <td>{{ atten * Rc_birks | trunc }}</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Light recombination factor</td>
+                <td>$R_L$</td>
+                <td>{{ R_L | trunc }}</td>
+                <td></td>
               </tr>
             </tbody>
           </table>

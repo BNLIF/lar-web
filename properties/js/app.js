@@ -42,7 +42,8 @@ var vm = new Vue({
         plane_gap: 3,
         perm_free_space: 8.85,
         dielec: 1.505,
-        E_ratio: 1.5
+        E_ratio: 1.5,
+        tlife: 10, // ms
     },
     computed: {
         density: function() {
@@ -122,6 +123,12 @@ var vm = new Vue({
         Rc_box: function() {
             var x = 0.212 / this.E / this.density * this.dEdx;
             return Math.log(0.93+x) / x;
+        },
+        atten: function() {
+            return Math.exp(-this.drift_dist_max/this.v *0.1 / this.tlife);
+        },
+        R_L: function() { // light recombination
+            return 1 - 0.803* this.Rc_birks;
         },
         mpv: function() {
             var       fZ = 18;                ///< Ar atomic number
