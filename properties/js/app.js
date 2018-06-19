@@ -78,7 +78,7 @@ var vm = new Vue({
         D_T: function() {
             // D_L/D_T = 1+ E/mu*(dmu/dE)
             var dmu_dE = (this.mobility(this.E*1.001) - this.mu)/(0.001*this.E);
-            console.log(dmu_dE, this.E/this.mu)
+            // console.log(dmu_dE, this.E/this.mu)
             return this.D_L/(1+this.E/this.mu*dmu_dE);
         },
         v: function() {

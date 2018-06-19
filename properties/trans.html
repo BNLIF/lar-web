@@ -101,7 +101,7 @@
 
 <div class="panel panel-primary"><a name="diffusion-l"></a>
   <div class="panel-heading">
-    <h3 class="panel-title">Longitudinal diffusion coefficients</h3>
+    <h3 class="panel-title">Longitudinal and transverse diffusion coefficients</h3>
   </div>
   <div class="panel-body">
   <div class="row">
@@ -112,6 +112,15 @@
     D_L=\frac{\mu\epsilon_L}{e}=\left(\frac{a_0+a_1E+a_2E^{3/2}+a_3E^{5/2}}{1+(a_1/a_0)E+a_4E^2+a_5E^3}\right)\left(\frac{b_0+b_1E+b_2E^2}{1+(b_1/b_0)E+b_3E^2}\right)\left(\frac{T}{T_0}\right)^{-3/2}\left(\frac{T}{T_1}\right),
     \]
     with the parameters given previously.
+    </div>
+    <div class="col-md-8">
+    The transverse diffusion coefficients $D_T$ is related to $D_L$ as:
+    \[
+    \frac{D_L}{D_T} = 1+ \frac{E}{\mu}\frac{\partial \mu}{\partial E}
+    \]
+<!--     \[
+    \frac{\sigma}{T} = \sqrt{2 \frac{D}{T}  t}
+    \] -->
     </div>
   </div>
   </div>
