@@ -163,14 +163,18 @@
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Software &amp; Computing</h2>
                     <p class="lead">
-                        BNL is developing a broad suite of software related to LArTPC.  The
-                        suite includes
-                        <a href="http://github.com/wire-cell-sigproc/">excess noise filtering, signal processing</a>,
-                        electrostatic field response calculations
-                        (<a href="coming soon">2D</a>
-                        and
-                        <a href="http://github.com/brettviren/larf">3D</a>),
-                        and accurate  <a href="http://github.com/wire-cell-gen/">simulations</a>  covering electron drift and diffusion and detector and electronics response.
+                      BNL is developing a broad suite of software related to LArTPC.
+                      New ideas are incubated in the <a href="https://github.com/bnlif/wire-cell">prototype code base</a>.
+                      Code is then optimized and improved for production use and long term support by the Wire-Cell team by porting it into the <a href="https://wirecell.github.io/">Wire-Cell Toolkit</a>.  The toolkit currently includes support for 
+                        <a href="http://github.com/wirecell/wire-cell-gen/">signal and noise simulation</a>,
+                        <a href="http://github.com/wirecell/wire-cell-sigproc/">excess noise filtering, signal processing</a> and
+                        <a href="http://github.com/wirecell/wire-cell-img/">3D
+                        ionization charge imaging</a>.  A critical
+                        input is accurate electrostatic field response
+                        calculations which is performed with a 2D
+                        model of the wires using a finite-element calculation based on <a href="http://garfield.web.cern.ch/garfield/">Garfield</a>
+                        with some work on a 
+                        <a href="http://github.com/brettviren/larf">3D boundary-element calculation</a>.
                     </p>
                 </div>
             </div>
@@ -180,7 +184,16 @@
                     <p class="lead">
                     Whether data is simulated or from the real detectors, BNL is
                     developing a novel tomographic 3D LArTPC activity imaging softaware called
-                    <a href="http://www.phy.bnl.gov/wire-cell/">Wire Cell</a>. The principle of Wire-Cell strictly follows the principle of LArTPC, that is, the same amount of ionization electrons are observed by all the wire-planes. Using both time and charge information, 3D image of the event topologies are firstly obtained. Further reconstruction steps including the clustering, tracking, and particle identifications (PID) are then directly applied to the 3D image.
+                    <a href="wire-cell/">Wire-Cell</a> from which the
+                    software gets its name. The principle of Wire-Cell
+                    strictly follows the principle of LArTPC, that is,
+                    the same amount of ionization electrons are
+                    observed by all the wire-planes. Using both time
+                    and charge information, 3D image of the event
+                    topologies are firstly obtained. Further
+                    reconstruction steps including the clustering,
+                    tracking, and particle identifications (PID) are
+                    then directly applied to the 3D image.
                     </p>
                     <p class="lead">
                     The high level of complex information produced by LArTPC field calculations, simulations
