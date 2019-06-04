@@ -18,13 +18,15 @@
     <link href="../home/css/landing-page.css" rel="stylesheet">
     <style>
       .intro-header {
-          padding-top: 50px;  If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content!
-                              padding-bottom: 50px;
+          padding-top: 50px;
+          padding-bottom: 50px;
           text-align: center;
           color: #f8f8f8;
           background: url(../home/img/intro-bg.jpg) no-repeat center center;
           background-size: cover;
           background-color: black;
+/*          background-color: rgba(238, 238, 238, 0.1);
+          background-blend-mode: color;*/
       }
       .intro-message {
           position: relative;
@@ -94,19 +96,46 @@
                 <div class="col-lg-12">
                     <div class="intro-message">
                         <h1>Wire-Cell</h1>
-                        <h2>Software for Liquid Argon TPC</h2>
-                        <h3>Simulation, Signal Processing Reconstruction and Visualization</h3>
+                        <h2>Software Package for Liquid Argon TPC</h2>
+                        <h3>Simulation, Signal Processing, Reconstruction and Visualization</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
-                            <li>
-                                <a href="http://www.phy.bnl.gov/wire-cell/bee/" class="btn btn-default btn-lg"><i class="fa fa-eye fa-fw"></i> <span class="network-name">Bee Display</span></a>
-                            </li>
-                            <li>
-                                <a href="http://wirecell.github.io/" class="btn btn-default btn-lg"><i class="fa fa-book fa-fw"></i> <span class="network-name">Documentation</span></a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/wirecell/" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                            </li>
+                            <li><div class="btn-group">
+                              <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-eye fa-fw"></i> <span class="network-name">Bee Display</span>
+                                <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="http://www.phy.bnl.gov/wire-cell/bee/">Main</a></li>
+                                <li><a href="https://www.phy.bnl.gov/twister/bee/">Mirror (on twister)</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="https://www.phy.bnl.gov/twister/bee/set/protodune/gallery/event/list/">ProtoDUNE-SP Gallery</a></li>
+                              </ul>
+                            </div></li>
+                            <li><div class="btn-group">
+                              <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-book fa-fw"></i> <span class="network-name">Documentation</span>
+                                <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="https://wirecell.github.io/manual.html">Manual</a></li>
+                                <li><a href="https://wirecell.github.io/doxy/html/">Doxygen</a></li>
+                                <li><a href="https://wirecell.github.io/news/">Blog</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="http://bnlif.github.io/wire-cell-docs/">Prototype (WCP)</a></li>
+                              </ul>
+                            </div></li>
+                            <li><div class="btn-group">
+                              <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span>
+                                <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="https://github.com/wirecell/">Toolkit (WCT)</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="https://github.com/BNLIF/wire-cell">Prototype (WCP)</a></li>
+                              </ul>
+                            </div></li>
                         </ul>
                     </div>
                 </div>
