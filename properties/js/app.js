@@ -42,7 +42,7 @@ var vm = new Vue({
         plane_gap: 3,
         perm_free_space: 8.85,
         dielec: 1.505,
-        E_ratio: 1.5,
+        E_ratio: 1.4,
         tlife: 10, // ms
     },
     computed: {
@@ -85,7 +85,11 @@ var vm = new Vue({
             return this.mu * this.E /1000; // cm / us
         },
         E_ratio_trans: function() {
-            return (1+Math.PI*this.wire_diameter/this.wire_spacing) / (1-Math.PI*this.wire_diameter/this.wire_spacing);
+            // return (1+Math.PI*this.wire_diameter/this.wire_spacing) / (1-Math.PI*this.wire_diameter/this.wire_spacing);
+            var pi = Math.PI;
+            var r = this.wire_diameter/2;
+            var d = this.wire_spacing;
+            return 1+4*pi*r/d*(1+Math.log(d/2/pi/r)/2/pi);
         },
         wire_c_air: function() {
             return 5+2*Math.PI*this.perm_free_space/( (Math.PI*this.plane_gap/this.wire_spacing) - Math.log(Math.PI*this.wire_diameter/this.wire_spacing) );
