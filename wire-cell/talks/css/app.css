@@ -1,0 +1,10 @@
+/* app css stylesheet */
+body {margin: 20px;}
+
+h1 {font-family: 'Sarpanch', serif; color: #3b8378; margin-bottom: 15px;}
+
+a {color: #CC6699;}
+.title {color: #CC6699;}
+.speaker {color: #279B61; font-weight: bold;}
+a.NA {color: #999; }
+.current {border-bottom: 1px solid red;}

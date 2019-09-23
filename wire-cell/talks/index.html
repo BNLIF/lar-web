@@ -1,0 +1,55 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <meta charset="utf-8">
+    <title>Wire-Cell Talks</title>
+    <link href="https://fonts.googleapis.com/css?family=Sarpanch&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="../../journal-club/bower_components/jquery-ui/themes/redmond/jquery-ui.min.css">
+  </head>
+
+  <body ng-controller="DocDBCtrl">
+
+    <div class="row-fluid">
+      <div class="span4">
+        <form class="form-search" ng-submit ="redirect()">
+          <div class="input-append">
+            <input type="text" placeholder="Search ..." ng-model="query" class="input-medium search-query">
+            <button type="submit" class="btn btn-primary"><i class="icon-play"></i></button>
+          </div>
+        </form>
+      </div>      
+      <div class="span8">
+        <h1>Wire-Cell Talks</h1>
+      </div>
+    </div>
+
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <th>ID</td>
+        <th>Title</th>
+        <th>Speaker</th>
+        <th>Date</th>
+        <th>Conference</th>
+        <th>Location</th>
+      </thead>
+      <tr ng-repeat="file in filtered = (files | filter:query) | orderBy: '-date'">
+        <!-- <td ng-class="{'past': file.date<'2017'}">{{nFiles-$index}}</td> -->
+        <td ng-class="{'current': file.date>'2017'}">{{nFiles-$index}}</td>
+        <td class="title"><a ng-class="file.docid" href="{{file.link}}">{{file.title}}</a></td>
+        <td class="speaker" >{{file.author}}</td>
+        <td>{{file.date | date:mediumDate}}</td>
+        <td>{{file.conference}}</td>
+        <td>{{file.location}}</td>
+      </tr>
+    </table>
+
+    <script type="text/javascript" src="../../journal-club/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../../journal-club/bower_components/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../journal-club/bower_components/angular/angular.min.js"></script>
+
+    <script src="docdb.js"></script>
+  </body>
+
+</html>
