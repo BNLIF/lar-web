@@ -3,7 +3,7 @@
         "date": "2019-09-16",
         "author": "Hanyu Wei",
         "title": "TPC Simulation and Signal Processing for LArTPCs",
-        "link" : "https://indico.desy.de/indico/event/21853/session/2/contribution/29/material/slides/0.pdf",
+        "link" : "https://indico.desy.de/indico/event/21853/session/2/contribution/29",
         "conference": "Reconstruction and Machine Learning in Neutrino Experiments",
         "location": "DESY Hamburg, Germany"
     },
@@ -11,7 +11,7 @@
         "date": "2019-09-16",
         "author": "Chao Zhang",
         "title": "Application of Linear system in LArTPC reconstruction",
-        "link" : "https://indico.desy.de/indico/event/21853/session/2/contribution/30/material/slides/0.pdf",
+        "link" : "https://indico.desy.de/indico/event/21853/session/2/contribution/30",
         "conference": "Reconstruction and Machine Learning in Neutrino Experiments",
         "location": "DESY Hamburg, Germany"
     },
@@ -19,7 +19,7 @@
         "date": "2019-09-16",
         "author": "Xin Qian",
         "title": "LArTPC Charge-Light Matching and PID with Wire-Cell",
-        "link" : "https://indico.desy.de/indico/event/21853/session/2/contribution/31/material/slides/0.pptx",
+        "link" : "https://indico.desy.de/indico/event/21853/session/2/contribution/31",
         "conference": "Reconstruction and Machine Learning in Neutrino Experiments",
         "location": "DESY Hamburg, Germany"
     }
