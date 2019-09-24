@@ -29,6 +29,14 @@
         "title": "Recent progress on Wire-Cell 3D imaging and tracking for LArTPC",
         "link" : "https://indico.cern.ch/event/782953/contributions/3464899/attachments/1888370/3114422/DPF2019_WireCell_imaging_tracking_20190731.pdf",
         "conference": "DPF 2019 APS",
-        "location": "Boston, US"
+        "location": "Boston"
+    },
+    {
+        "date": "2019-03-19",
+        "author": "Xin Qian",
+        "title": "Development of LArTPCs for Neutrino Physics",
+        "link" : "https://indico.bnl.gov/event/5441/",
+        "conference": "BNL Physics Colloquium",
+        "location": "BNL"
     }
 ]
