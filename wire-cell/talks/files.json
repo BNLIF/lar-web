@@ -38,5 +38,13 @@
         "link" : "https://indico.bnl.gov/event/5441/",
         "conference": "BNL Physics Colloquium",
         "location": "BNL"
+    },
+    {
+        "date": "2019-01-04",
+        "author": "Brett Viren",
+        "title": "The WireCell Software Package",
+        "link" : "https://indico.bnl.gov/event/5527/contributions/25812/",
+        "conference": "BNL DUNE Computing Workshop",
+        "location": "BNL"
     }
 ]
