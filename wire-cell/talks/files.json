@@ -40,6 +40,14 @@
         "location": "Boston"
     },
     {
+        "date": "2019-03-22",
+        "author": "Brett Viren",
+        "title": "Progress adding 3D imaging to the Wire-Cell Toolkit",
+        "link" : "https://github.com/WireCell/wire-cell-docs/blob/master/presentations/updates/20190321/latexmk-out/img.pdf",
+        "conference": "Local Meeting",
+        "location": "BNL"
+    },
+    {
         "date": "2019-03-19",
         "author": "Xin Qian",
         "title": "Development of LArTPCs for Neutrino Physics",
