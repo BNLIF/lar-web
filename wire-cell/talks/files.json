@@ -24,6 +24,14 @@
         "location": "DESY Hamburg, Germany"
     },
     {
+        "date": "2019-09-09",
+        "author": "Xin Qian",
+        "title": "Development of LArTPCs for Neutrino Physics",
+        "link" : "https://github.com/WireCell/wire-cell-docs/blob/master/presentations/algs/SBU_Seminar_LArTPC.pptx",
+        "conference": "SBU Seminar",
+        "location": "Stony Brook"
+    },
+    {
         "date": "2019-07-31",
         "author": "Hanyu Wei",
         "title": "Recent progress on Wire-Cell 3D imaging and tracking for LArTPC",
