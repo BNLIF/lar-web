@@ -1,5 +1,13 @@
 [
     {
+        "date": "2019-09-26",
+        "author": "Haiwang Yu",
+        "title": "Wire-cell - A Software Effort on Liquid Argon TPC Event Reconstruction",
+        "link" : "https://indico.bnl.gov/event/5911/contributions/31422/",
+        "conference": "Brookhaven Forum 2019: Particle Physics and Cosmology in the 2020's",
+        "location": "BNL, US"
+    },
+    {
         "date": "2019-09-16",
         "author": "Hanyu Wei",
         "title": "TPC Simulation and Signal Processing for LArTPCs",
