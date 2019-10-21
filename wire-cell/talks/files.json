@@ -48,6 +48,14 @@
         "location": "Boston"
     },
     {
+        "date": "2019-04-07",
+        "author": "Wenqiang Gu",
+        "title": "Signal Processing in the ProtoDUNE-SP LArTPC",
+        "link" : "https://docs.dunescience.org/cgi-bin/private/ShowDocument?docid=13861",
+        "conference": "APS April Meeting 2019",
+        "location": "Denver"
+    },
+    {
         "date": "2019-03-22",
         "author": "Brett Viren",
         "title": "Progress adding 3D imaging to the Wire-Cell Toolkit",
