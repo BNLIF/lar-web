@@ -1,5 +1,13 @@
 [
     {
+        "date": "2020-04-21",
+        "author": "Wenqiang Gu",
+        "title": "Recent Progress on Wire-Cell 3D Event Reconstruction in MicroBooNE",
+        "link" : "https://github.com/wenqiang-gu/public-talks/blob/master/2020-APS_April/WireCell_APS_April_GU.pdf",
+        "conference": "APS April Virtual Meeting, Apr, 2020",
+        "location": "Washington DC"
+    },
+    {
         "date": "2020-01-29",
         "author": "Haiwang Yu",
         "title": "Signal processing with deep learning",
