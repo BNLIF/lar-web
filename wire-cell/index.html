@@ -118,8 +118,8 @@
                                 <span class="caret"></span>
                               </button>
                               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="https://wirecell.github.io/manual.html">Manual</a></li>
-                                <li><a href="https://wirecell.github.io/doxy/html/">Doxygen</a></li>
+                                <li><a href="https://wirecell.github.io/manual.html">Toolkit Manual</a></li>
+                                <li><a href="https://wirecell.github.io/doxy/html/">Toolkit Doxygen</a></li>
                                 <li><a href="https://wirecell.github.io/news/">Blog</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="http://bnlif.github.io/wire-cell-docs/">Prototype (WCP)</a></li>
@@ -178,26 +178,92 @@
                 <div class="col-lg-6 col-lg-offset-1 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Signals in LArTPC</h2>
+                    <h2 class="section-heading">Signals in Single-Phase LArTPC with Projection Readout</h2>
                     <p class="lead">
                      <!-- The principle of the single-phase LArTPC is shown in the left.  -->
-                     When energetic charged particles pass through the detector medium, they will ionize argon atoms. These ionization electrons are effectively a record of the locations and amount of energy deposited in liquid argon. This record can be extracted from the detector volume by applying an electric field, which will make these electrons drift until they pass through a series of three planes of parallel readout wires. Each plane is oriented at a different angle with respect to the others.
+                     When energetic charged particles pass through the detector medium, they will ionize argon atoms.
+		     These ionization electrons are effectively a record of the locations and amount of energy deposited
+		     in liquid argon. This record can be extracted from the detector volume by applying an electric field,
+		     which will make these electrons drift until they pass through a series of three planes of parallel
+		     readout wires. Each plane is oriented at a different angle with respect to the others.
                     </p>
                     <p class="lead">
-                     As the charge drifts past the first two planes and is collected on the last plane it produces electrical signals on the nearby wires.  These signals are then digitized and recorded.  The wire pitch and the sampling frequency coupled with the electron drift velocity give a fine spatial resolution at the scale of a few millimeters.
+                      As the charge drifts past the first two planes and is collected on the last plane it produces
+		      electrical signals on the nearby wires.  These signals, which are long-range and position dependent,
+		      are then digitized and recorded.  The wire
+		      pitch and the sampling frequency coupled with the electron drift velocity give a fine spatial
+		      resolution at the scale of a few millimeters. Detailed description of the TPC signal simulation
+		      can be found in <a href="https://arxiv.org/abs/1802.08709"> this paper</a>.
                     </p>
                 </div>
             </div>
         </div>
     </div>
 
+     <div class="content-section-a">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Cold Electronics</h2>
+                    <p class="lead">
+                      <a href ="https://www.bnl.gov/newsroom/news.php?a=25916">Cold electronics</a>, a custom designed
+		      complementary metal-oxide-semiconductor (CMOS) analog front-end
+		      cold application-specfic integrated circuit (ASIC) operated in the LAr temperature, is
+		      <a href="https://doi.org/10.1088/1742-6596/308/1/012021"> an enabling technology for large LArTPCs </a>
+		      that significantly reduces the intrinsic electronics noise so that TPC signals can be clearly observed.
+                    </p>
+                    <p class="lead">
+                      The superior sensitivity of cold electronics makes it also receptive to excess electronics noise.
+		      A set of algorithm filtering out the excess noise seen by the <a href = "https://www.bnl.gov/newsroom/news.php?a=25763">cold electronics in MicroBooNE</a> is
+		      documented in <a href="http://arxiv.org/abs/1705.07341"> this paper</a>.
+                    </p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-1 col-sm-6">
+                    <img class="img-responsive" src="../home/img/ENC.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <div class="content-section-b">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <img class="img-responsive" src="../home/img/signal_processing.png" alt="">
+                </div>
+                <div class="col-lg-6 col-lg-offset-1 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">TPC Signal Processing</h2>
+                    <p class="lead">
+                      The goal of TPC signal processing is to reconstruct the distribution of ionization
+		      electrons arriving at wire planes from the digitized TPC waveform. Build upon the
+		      <a href="https://iopscience.iop.org/article/10.1088/1748-0221/12/07/P07010"> earlier work</a>,
+		      we introduced the <a href = "http://arxiv.org/abs/1802.08709">"2D deconvolution"</a> method,
+		      which signficantly <a href="https://www.bnl.gov/newsroom/news.php?a=212846">improved the quality</a>
+		      of recosntructed ionization electron distributions. 
+                    </p>
+                    <p class="lead">
+                      Most recently, by introducing <a href="https://arxiv.org/abs/2007.12743" > the deep neutral
+			network to the signal region of interest detection</a>, we further improved the TPC signal
+		      processing. 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     
+     
     <div class="content-section-a">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">The Wire-Cell Reconstruction</h2>
+                    <h2 class="section-heading">3D Image Reconstruction</h2>
                     <p class="lead">
                     Event reconstruction is one of the most challenging tasks in analyzing the data from current and future large liquid argon time projection chambers (LArTPCs). The performance of the event reconstruction holds the key to many potential future discoveries with the LArTPC technology including i) searching for new CP violation in the leptonic sector, ii) determining the neutrino mass hierarchy, and iii) searching for additional light (sterile) neutrino species.
                     </p>
@@ -211,6 +277,8 @@
             </div>
         </div>
     </div>
+
+    
 
     <div class="content-section-b">
         <div class="container">
