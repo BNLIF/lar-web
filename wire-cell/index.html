@@ -156,10 +156,13 @@
                 <div class="col-lg-12 col-sm-12">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">The LArTPC Detetors</h2>
+                    <h2 class="section-heading">The LArTPC Detetors and Event Reconstruction</h2>
                     <p class="lead">
                     The development of the liquid argon (LAr) ionization chamber, pioneered by <a href="http://physics.columbia.edu/william-bill-j-willis-1932-2012">Wills</a> and <a href="https://www.bnl.gov/newsroom/news.php?a=11440">Radeka</a> was an important advance in high energy calorimetry, and was quickly followed by the <a href="https://en.wikipedia.org/wiki/Carlo_Rubbia">Rubbia</a>'s proposal of using LAr time projection chamber (LArTPC) for neutrino physics. At present, there are two LArTPCs constructed and operated for neutrino physics measurements: the <a href="http://icarus.lngs.infn.it/">ICARUS</a> detector in Italy and the <a href="http://t962.fnal.gov/">ArgoNeut</a> detector in the US.  For the near-term, a three-LArTPC configuration with <a href="http://www-microboone.fnal.gov/">MicroBooNE</a> detector being the first will be implemented at <a href="http://www-boone.fnal.gov/">Fermilab Booster Neutrino beamline</a> to search for a light sterile neutrino and to precisely measure neutrino-argon interaction cross section. In the future, a set of LArTPCs will be installed at <a href="http://sanfordlab.org/">Sanford Underground Research Facility</a> (SURF) for <a href="http://www.dunescience.org/">Deep Underground Neutrino Experiment</a> (DUNE) to search for CP violation in the lepton sector and determine the neutrino mass hierarchy.
                     </p>
+		    <p class="lead">
+Event reconstruction is one of the most challenging tasks in analyzing the data from current and future large liquid argon time projection chambers (LArTPCs). The performance of the event reconstruction holds the key to many potential future discoveries with the LArTPC technology including i) searching for new CP violation in the leptonic sector, ii) determining the neutrino mass hierarchy, and iii) searching for additional light (sterile) neutrino species.
+		    </p>
                 </div>
 <!--                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
                     <img class="img-responsive" src="../home/img/ipad.png" alt="">
@@ -265,19 +268,81 @@
                     <div class="clearfix"></div>
                     <h2 class="section-heading">3D Image Reconstruction</h2>
                     <p class="lead">
-                    Event reconstruction is one of the most challenging tasks in analyzing the data from current and future large liquid argon time projection chambers (LArTPCs). The performance of the event reconstruction holds the key to many potential future discoveries with the LArTPC technology including i) searching for new CP violation in the leptonic sector, ii) determining the neutrino mass hierarchy, and iii) searching for additional light (sterile) neutrino species.
-                    </p>
-                    <p class="lead">
-                    Wire-Cell is a novel tomographic event reconstruction method, which is being developed aiming to solve the long-standing problem of automated 3D neutrino event reconstruction in LArTPC. Taking the simulation results from <a href="https://cdcvs.fnal.gov/redmine/projects/larsoftsvn/wiki">LArSoft</a>, the <a href="https://arxiv.org/abs/1803.04850">principle of Wire-Cell</a> strictly follows the principle of LArTPC, that is, the same amount of ionization electrons are observed by all the wire-planes. Using both time and charge information, 3D image of the event topologies are firstly obtained. Further reconstruction steps including the clustering, tracking, and particle identifications (PID) are then directly applied to the 3D image.
+                      Wire-Cell is a novel tomographic event reconstruction method, which is being developed aiming to
+		      solve the long-standing problem of automated 3D neutrino event reconstruction in LArTPC.  The
+		      <a href="https://arxiv.org/abs/1803.04850">principle of Wire-Cell</a> strictly follows the
+		      principle of LArTPC, that is, the same amount of ionization electrons are observed by all the
+		      wire-planes. Using both time and charge information, 3D image of the event topologies are firstly
+		      obtained. Further reconstruction steps including the clustering, tracking, and particle
+		      identifications (PID) are then directly applied to the 3D image. The application of Wire-Cell
+		      3D image reconstruction on MicroBooNE can be found in
+		      <a href="http://microboone.fnal.gov/wp-content/uploads/MICROBOONE-NOTE-1083-PUB.pdf"> this paper</a>.
                     </p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-1 col-sm-6">
-                    <img class="img-responsive" src="../home/img/wirecell.png" alt="">
+                    <img class="img-responsive" src="../home/img/imaging.png" alt="">
                 </div>
             </div>
         </div>
     </div>
 
+
+       <div class="content-section-b">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <img class="img-responsive" src="../home/img/matching.png" alt="">
+                </div>
+                <div class="col-lg-6 col-lg-offset-1 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Charge-Light Matching</h2>
+                    <p class="lead">
+		      Beside TPC ionization charge signal, LArTPCs also provide scintillation light signal, which
+		      can be used to determine the event time (also called t0). Together with the measured
+		      arrival time of the charge signal, the position of the TPC activities along the electric
+		      field can be reconstructed. For a LArTPC operating near surface that is bombarded by the
+		      cosmic-ray activities, multiple TPC charge clusters and light flashes are recorded. Since
+		      the charge and light signals are typically recorded by separate detectors, the matching of
+		      the charge and light signals are crucial to select rare neutrino activities from the sea of
+		      cosmic activities.
+                    </p>
+                    <p class="lead">
+		      We developed a novel <a href = "http://microboone.fnal.gov/wp-content/uploads/MICROBOONE-NOTE-1083-PUB.pdf">many-to-many TPC-charge/PMT-light matching algorithm</a>, which aims at matching all light signals with all charge
+		      signals. This technique is crucial in achieving the 
+		      <a href = "http://microboone.fnal.gov/wp-content/uploads/MICROBOONE-NOTE-1084-PUB.pdf"> high-performance
+		      generic neutrino detection</a> in MicroBooNE. 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     
+     
+    <div class="content-section-a">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">3D Pattern Recognitions</h2>
+                    <p class="lead">
+                      With the reconstructed 3D image and the associated 2D projective charge measurements, pattern
+		      recognition techniques can be applied. The current functionalities inside the Wire-Cell 3D
+		      pattern recognitions include i) particle-level sub-clustering, ii) track and EM shower separation,
+		      iii) 3D track trajectory and dQ/dx fitting and associated particle identification capabilities,
+		      iv) primary neutrino vertex identification and the particle flow reconstruction, and iv) EM shower
+		      and neutral pion reconstruction. Most recently, we apply the deep learning techniques to enhance
+		      the accuracy of the primary neutrino vertex identification. 
+                    </p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-1 col-sm-6">
+                    <img class="img-responsive" src="../home/img/pattern_recognition.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
     
 
     <div class="content-section-b">
