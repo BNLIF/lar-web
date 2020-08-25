@@ -101,13 +101,13 @@
                         <hr class="intro-divider">
                             <li><div class="btn-group">
                               <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-book fa-fw"></i> <span class="network-name">Documentation</span>
+                                <i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span>
                                 <span class="caret"></span>
                               </button>
                               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="https://wirecell.github.io/manual.html">Manual</a></li>
+                                <li><a href="https://github.com/wirecell/">Toolkit (WCT)</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="http://bnlif.github.io/wire-cell-docs/">Prototype (WCP)</a></li>
+                                <li><a href="https://github.com/BNLIF/wire-cell">Prototype (WCP)</a></li>
                               </ul>
                             </div></li>
                         </ul>
@@ -147,18 +147,22 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-sm-6">
-                    <img class="img-responsive" src="../home/img/signal.gif" alt="">
+                    <img class="img-responsive" src="./img/dnn-sp-net.png" alt="">
+                    <hr>
+                    <img class="img-responsive" src="./img/dnn-sp-disp.png" alt="">
+                </div>
+                <div class="col-lg-5 col-sm-6">
                 </div>
                 <div class="col-lg-6 col-lg-offset-1 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Augmented Signal Processing with Deep Neural Network</h2>
                     <p class="lead">
-                     <!-- The principle of the single-phase LArTPC is shown in the left.  -->
-                     When energetic charged particles pass through the detector medium, they will ionize argon atoms. These ionization electrons are effectively a record of the locations and amount of energy deposited in liquid argon. This record can be extracted from the detector volume by applying an electric field, which will make these electrons drift until they pass through a series of three planes of parallel readout wires. Each plane is oriented at a different angle with respect to the others.
+                        <!-- The principle of the single-phase LArTPC is shown in the left.  -->
+                        Copied the <a href="https://arxiv.org/abs/2007.12743">arxiv</a> abstract here for now.
                     </p>
                     <p class="lead">
-                     As the charge drifts past the first two planes and is collected on the last plane it produces electrical signals on the nearby wires.  These signals are then digitized and recorded.  The wire pitch and the sampling frequency coupled with the electron drift velocity give a fine spatial resolution at the scale of a few millimeters.
+                        The Liquid Argon Time Projection Chamber (LArTPC) is an advanced neutrino detector technology widely used in recent and upcoming accelerator neutrino experiments. It features a low energy threshold and high spatial resolution that allow for comprehensive reconstruction of event topology. In current-generation LArTPCs, the recorded data consist of digitized waveforms on wires produced by induced signal of drifting ionization electrons, which can also be viewed as two-dimensional (2D) (time versus wire) projection images of charged-particle trajectories. For such an imaging detector, one critical step is the signal processing that reconstructs the original charge projections from the recorded 2D images. For the first time, we introduce a deep neural network in LArTPC signal processing to improve the signal region of interest detection. By combining domain knowledge (e.g., matching information from multiple wire planes) and deep learning, this method shows significant improvements over traditional methods. This work details the method, software tools, and performance evaluated with realistic detector simulation.
                     </p>
                 </div>
             </div>
@@ -168,44 +172,26 @@
     <div class="content-section-a">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-sm-6">
+                <div class="col-lg-5 col-sm-5">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">The Wire-Cell Reconstruction</h2>
+                    <h2 class="section-heading">Neutrino Vertex Identification with 3D Sparse DNN</h2>
                     <p class="lead">
-                    Event reconstruction is one of the most challenging tasks in analyzing the data from current and future large liquid argon time projection chambers (LArTPCs). The performance of the event reconstruction holds the key to many potential future discoveries with the LArTPC technology including i) searching for new CP violation in the leptonic sector, ii) determining the neutrino mass hierarchy, and iii) searching for additional light (sterile) neutrino species.
+                        Introduction to dnn-vertex.
                     </p>
                     <p class="lead">
-                    Wire-Cell is a novel tomographic event reconstruction method, which is being developed aiming to solve the long-standing problem of automated 3D neutrino event reconstruction in LArTPC. Taking the simulation results from <a href="https://cdcvs.fnal.gov/redmine/projects/larsoftsvn/wiki">LArSoft</a>, the <a href="https://arxiv.org/abs/1803.04850">principle of Wire-Cell</a> strictly follows the principle of LArTPC, that is, the same amount of ionization electrons are observed by all the wire-planes. Using both time and charge information, 3D image of the event topologies are firstly obtained. Further reconstruction steps including the clustering, tracking, and particle identifications (PID) are then directly applied to the 3D image.
+                        More refer to this <a href="https://microboone-docdb.fnal.gov/cgi-bin/private/ShowDocument?docid=31844">talk</a> at the 2020 July MicroBooNE Collaboration Meeting.
                     </p>
                 </div>
-                <div class="col-lg-5 col-lg-offset-1 col-sm-6">
-                    <img class="img-responsive" src="../home/img/wirecell.png" alt="">
+                <div class="col-lg-6 col-lg-offset-1 col-sm-6">
+                    <img class="img-responsive" src="./img/dnn-vertex-demo.png" alt="">
+                    <hr>
+                    <img class="img-responsive" src="./img/dnn-vertex-nuecc-eff.png" alt="">
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="content-section-b">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-sm-6">
-                    <img class="img-responsive" src="../home/img/bee-white.png" alt="">
-                </div>
-                <div class="col-lg-6 col-lg-offset-1 col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">The Bee Event Display</h2>
-                    <p class="lead">
-                    A novel web-based event display <span class="text-success">Bee</span> (<a href="" data-toggle="modal" data-target="#myModal">why the name?</a>) is being developed to visualize <a href="http://www.phy.bnl.gov/wire-cell/examples/list/">different types of LArTPC events</a> reconstructed by Wire-Cell. <span class="text-success">Bee</span> uses <a href="https://en.wikipedia.org/wiki/WebGL">WebGL</a> to draw interactive 3D graphics in the browser through the <a href="http://threejs.org/">three.js</a> JavaScript library. The list of compatible browsers can be found <a href="http://caniuse.com/#feat=webgl">here</a>.
-                    </p>
-                    <p class="lead">
-                    With the <span class="text-success">Bee</span> event display, users can freely examine the details of event topology in the 3D space, compare the performance of different reconstruction results, show the true Monte-Carlo trajectories, enter the sliced mode to view the development of tomographic images, and even play the animations in fullscreen.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog">
       <div class="modal-dialog">
@@ -281,7 +267,7 @@
                             <a href="#contact">Contact</a>
                         </li>
                     </ul> -->
-                    <p class="copyright text-muted small">Contact: <a href="https://github.com/czczc">Chao Zhang</a>, <a href="http://www.phy.bnl.gov/xqian/">Xin Qian</a>, <a href="http://www.phy.bnl.gov/~bviren/">Brett Viren</a> &nbsp;|&nbsp; Copyright &copy; BNL. All Rights Reserved </p>
+                    <p class="copyright text-muted small">Contact: <a href="https://github.com/czczc">Chao Zhang</a>, <a href="http://www.phy.bnl.gov/xqian/">Xin Qian</a>, <a href="http://www.phy.bnl.gov/~bviren/">Brett Viren</a>, <a href="https://github.com/haiwangYu/">Haiwang Yu</a> &nbsp;|&nbsp; Copyright &copy; BNL. All Rights Reserved </p>
                 </div>
             </div>
         </div>
