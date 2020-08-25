@@ -67,7 +67,7 @@
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Statistical Methods and Algorithm</h2>
                     <p class="lead">
-		      Statistcal methods and algorithm play important roles in the analysis of
+		      Statistical methods and algorithm play important roles in the analysis of
 		      experimental data. Our group has special interests in this area. Through
 		      our experience in various experiments (Daya Bay, MicroBooNE, DUNE ...),
 		      we come up many techniques, which are summarized here. 
@@ -115,12 +115,12 @@
                 <div class="col-lg-6 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Gauss CLs Method</h2>
+                    <h2 class="section-heading">Gaussian CLs Method</h2>
                     <p class="lead">
                       In a counting experiment, the likelihood-ratio test statistics in a simple vs.
 		      simple hypothesis testing approaches to a normal distribution at large statistics.
 		      This mean and variance of this normal distribution is connected and can be
-		      categorized by the value of the test stistics of Azimov data set. We propose to
+		      categorized by the value of the test statistics of Asimov data set. We propose to
 		      utilize this feature with the standard CLs method to present searches of new
 		      physics. More details of this method can be found in
 		      <a href = "http://arxiv.org/abs/1407.5052">this paper</a>.
@@ -200,8 +200,8 @@
 		      electrons arriving at wire planes from the digitized TPC waveform. Build upon the
 		      <a href="https://iopscience.iop.org/article/10.1088/1748-0221/12/07/P07010"> earlier work</a>,
 		      we introduced the <a href = "http://arxiv.org/abs/1802.08709">"2D deconvolution"</a> method,
-		      which signficantly <a href="https://www.bnl.gov/newsroom/news.php?a=212846">improved the quality</a>
-		      of recosntructed ionization electron distributions. 
+		      which significantly <a href="https://www.bnl.gov/newsroom/news.php?a=212846">improved the quality</a>
+		      of reconstructed ionization electron distributions. 
                     </p>
                 </div>
             </div>
@@ -310,15 +310,22 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-sm-6">
-                    <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading"> 3D track trajectory and dQ/dx fitting </h2>
                     <p class="lead">
-                     
+                      In a single-phase LArTPC with wire readouts, the fundamental data are multiple 2D
+		      projection measurements. We constructed a fitting procedure to determine the 3D
+		      track trajectory and its associated dQ/dx (four unknown variables for a 3D point:
+		      3 for position and 1 for dQ/dx). The fitting procedure consists of two parts i)
+		      determination of track trajectory and ii) determination of dQ/dx, so that each
+		      part can utilize the linear algebra to ensure the stability of the fit. This technique
+		      is crucial in achieving good particle identification for any track direction.
+		      More details can be found in  <a href = "http://microboone.fnal.gov/wp-content/uploads/MICROBOONE-NOTE-1084-PUB.pdf"> MicroBooNE high-performance
+		      generic neutrino detection technote </a>. 
                     </p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-1 col-sm-6">
-                    <img class="img-responsive" src="../home/img/imaging.png" alt="">
+                    <img class="img-responsive" src="../home/img/pid.jpg" alt="">
                 </div>
             </div>
         </div>
