@@ -184,17 +184,21 @@
                     <p class="lead">
                     Whether data is simulated or from the real detectors, BNL is
                     developing a novel tomographic 3D LArTPC activity imaging software called
-                    <a href="wire-cell/">Wire-Cell</a> from which the
-                    software gets its name. The principle of Wire-Cell
-                    strictly follows the principle of LArTPC, that is,
-                    the same amount of ionization electrons are
-                    observed by all the wire-planes. Using both time
-                    and charge information, 3D image of the event
-                    topologies are firstly obtained. Further
-                    reconstruction steps including the clustering,
-                    tracking, and particle identifications (PID) are
-                    then directly applied to the 3D image.
-                    </p>
+                    <a href="wire-cell/">Wire-Cell</a> from which the software gets its name.
+		    The original Wire-Cell concept lies on the reconstruction of 3D images
+		    from the multiple 2D projections. With the continuous development efforts,
+		    Wire-Cell now includes many aspect of LArTPC event reconstruction and data
+		    analysis including i) excess noise filtering, ii) TPC signal processing,
+		    iii) 3D image reconstruction, iv) 3D activity clustering, v)
+		    ionization-charge/scintillation-light matching, 
+		    vi) 3D pattern recognition, vii) track trajectory and
+		    dQ/dx fitting for particle identification, and viii) neutrino flavor
+		    identification and kinematics reconstruction. Beside traditional approaches,
+		    we are actively incorporating
+		    <a href="machine-learning"> machine learning techniques</a> into Wire-Cell.
+		    Furthermore, the Wire-Cell group also has special interests in
+		    <a href="methods">statistical methods and algorithms</a>.
+		    </p>
                     <p class="lead">
                     The high level of complex information produced by LArTPC field calculations, simulations
                     and reconstruction requires equally sophisticated visualization
@@ -208,9 +212,7 @@
                     <a href="http://www.paraview.org/">ParaView</a> application.
                     </p>
 
-                    <p class="lead">
-                        The goal of the TPC signal processing is to convert the raw digitized TPC waveform to the number of ionized electrons passing through the wire plane at a given time. The proper recovery of the number of ionized electrons from both induction and collection anode wire planes is important to the success of the subsequent reconstruction algorithms. Owing to the ultra-low noise with the cold electronics inside LAr, we successfully extract the ionization from the induction wire planes with the 2D deconvolution as well as the Region of Interest (ROI) selection techniques in the MicroBooNE experiment.
-                    </p>
+                    
 
                     <p class="lead">
                     Even modest sized LArTPC detectors such as the single-phase protoDUNE
