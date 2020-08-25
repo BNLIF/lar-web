@@ -216,7 +216,16 @@
                     <div class="clearfix"></div>
                     <h2 class="section-heading"> TPC Signal Processing: L1SP</h2>
                     <p class="lead">
-                   
+                      In a section of the MicroBooNE LArTPC detector, the wire bias voltages
+		      were distorted. The result of this distortion is that two type of signals (bipolar
+		      and unipolar shapes) can show up on the same channel. Compared to the standard
+		      signal processing problem where the dimension of unknowns (ionization electron
+		      distributions) is the same as the dimension of measurements (TPC waveform),
+		      the number of unknowns is twice of the that of measurements in this case. We
+		      solved this problem by implementing the
+		      <a href="https://en.wikipedia.org/wiki/Compressed_sensing">compressed sensing </a>
+		      technique. More
+		      details can be found in <a href = "http://arxiv.org/abs/1804.02583">this paper</a>.
                     </p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-1 col-sm-6">
