@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Wire-Cell</title>
+    <title>Machine Learning with Wire-Cell</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../home/css/bootstrap.min.css" rel="stylesheet">
@@ -100,7 +100,7 @@
 <body>
 
     <!-- Navigation -->
-<!--
+
     <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
         <div class="container topnav">
 
@@ -111,37 +111,39 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand topnav" href="#">Start Bootstrap</a>
+                <a class="navbar-brand topnav" href="../">LAr@BNL</a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#about">About</a>
+                        <a href="#top">Top</a>
                     </li>
                     <li>
-                        <a href="#services">Services</a>
+                        <a href="#intro">Intro</a>
                     </li>
                     <li>
-                        <a href="#contact">Contact</a>
+                        <a href="#dnn-sp">DNN-SP</a>
+                    </li>
+                    <li>
+                        <a href="#dnn-vertex">DNN-Vertex</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
- -->
+
     <!-- Header -->
-    <a name="about"></a>
-    <div class="intro-header">
+    <div class="intro-header"> <a name="Top"></a>
         <div class="frosted-glass2">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="intro-message">
                             <h1>Machine Learning with Wire-Cell</h1>
-                            <h2>Software Package for Liquid Argon TPC</h2>
-                            <h3>Simulation, Signal Processing, Reconstruction and Visualization</h3>
+                            <!-- <h2>Machine Learning with Domain Knowledge for LArTCP</h2> -->
+                            <!-- <h3>Simulation, Signal Processing, Reconstruction and Visualization</h3> -->
                             <hr class="intro-divider">
                             <ul class="list-inline intro-social-buttons">
                                 <li><div class="btn-group">
@@ -167,8 +169,7 @@
 
     <!-- Page Content -->
 
-	<!-- <a  name="services"></a> -->
-     <div class="content-section-a">
+     <div class="content-section-a"> <a name="intro"></a>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-sm-12">
@@ -187,7 +188,7 @@
         </div>
     </div>
 
-    <div class="content-section-b">
+    <div class="content-section-b"> <a name="dnn-sp"></a>
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-sm-6">
@@ -205,14 +206,14 @@
                         The Liquid Argon Time Projection Chamber (LArTPC) is an advanced neutrino detector technology widely used in recent and upcoming accelerator neutrino experiments. It features a low energy threshold and high spatial resolution that allow for comprehensive reconstruction of event topology. In current-generation LArTPCs, the recorded data consist of digitized waveforms on wires produced by induced signal of drifting ionization electrons, which can also be viewed as two-dimensional (2D) (time versus wire) projection images of charged-particle trajectories. For such an imaging detector, one critical step is the signal processing that reconstructs the original charge projections from the recorded 2D images. Refer to <a href="https://arxiv.org/abs/1802.08709"> this article </a> for more on LArTCP signal processing.
                     </p>
                     <p class="lead">
-                        For the first time, we introduce a deep neural network (DNN) in LArTPC signal processing to improve the signal region of interest (ROI) detection. By combining domain knowledge (e.g., matching information from multiple wire planes) and deep learning, this method shows significant improvements over traditional methods. The top plot on the left shows the workflow of this algorithm. We used <a href="https://arxiv.org/abs/1505.04597">U-Net</a> as the network structure. We engineered the input single channel 2D image into 3 channels, one processed with filtered deconvoultion, two with geometry information baked in. The bottom on the left shows several ROI detection event displays comparing 3 algorithms, traditional algorithm as reference, DNN without geometry information and DNN with geometry information. We can see the DNN with geometry information yields the best results. Refer to <a href="https://arxiv.org/abs/2007.12743"> this article </a> for more on the DNN LArTCP signal processing.
+                        For the first time, we introduce a deep neural network (DNN) in LArTPC signal processing to improve the signal region of interest (ROI) detection. By combining domain knowledge (e.g., matching information from multiple wire planes) and deep learning, this method shows significant improvements over traditional methods. The top plot on the left shows the workflow of this algorithm. We used <a href="https://arxiv.org/abs/1505.04597">U-Net</a> as the network structure. We engineered the input single channel 2D image into 3 channels, one processed with filtered deconvoultion, two with geometry information baked in. The bottom on the left shows several ROI detection event displays comparing 3 algorithms, traditional algorithm as reference, DNN without geometry information and DNN with geometry information. We can see the DNN with geometry information yields the best results. The inferencing utilities are available in <a href="https://github.com/wirecell/">Wire-Cell Toolkit</a>. Refer to <a href="https://arxiv.org/abs/2007.12743"> this article </a> for more on the DNN LArTCP signal processing.
                     </p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="content-section-a">
+    <div class="content-section-a"> <a name="dnn-vertex"></a>
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-sm-4">
@@ -220,10 +221,10 @@
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Neutrino Vertex Identification with 3D Sparse DNN</h2>
                     <p class="lead">
-                        Introduction to dnn-vertex.
+                        Accurate identification of the neutrino interaction position provides important information for downstream pattern recognition algorithms. It helps improve space charge clustering and overall track/shower seperation. This task could be chalenging for traditional heuristic logic type algorithms as the recorded patterns in LArTPC of neutrino interactions are numerous. It is hard to exhaust the solution phase space for "Human Learning".
                     </p>
                     <p class="lead">
-                        More refer to this <a href="https://microboone-docdb.fnal.gov/cgi-bin/private/ShowDocument?docid=31844">talk</a> at the 2020 July MicroBooNE Collaboration Meeting.
+                        This neutrino vertex identification problem could be considered as a special case of object detection task in computer vision. Object detection usually taks 3 steps, region proposal, object type identification and object segmentation. In the vertex identification case, we are targeting on only one type of object (the neutrino vertex) and the region of the object is one voxel. So we focus on the region proposal step. We used a novel regressional segmentation network to predict the distance map of each voxel to the neutrino vertex. Which significantly increases the training efficiency. We also used <a href="https://github.com/facebookresearch/SparseConvNet">SparseConvNet</a> which makes the training and inferencing much faster and more scalable. The inferencing utilities are available in the <a href="https://github.com/BNLIF/wire-cell">Wire-Cell Prototype</a>. Refer to <a href="https://microboone-docdb.fnal.gov/cgi-bin/private/ShowDocument?docid=31844">this talk</a> for more.
                     </p>
                 </div>
                 <div class="col-lg-7 col-lg-offset-1 col-sm-7">
