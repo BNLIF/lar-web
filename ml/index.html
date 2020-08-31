@@ -177,7 +177,14 @@
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Machine Learning with Wire-Cell</h2>
                     <p class="lead">
-                    General introduction to be added here.
+		      The Wire-Cell team is actively incorporating machine learning techniques into the Wire-Cell event reconstruction paradigm
+		      to pursue better physics performance in LArTPC experiments. The stringent requirements of scientific research
+		      commonly demand thorough understanding of detector performance and data analysis methods. Therefore, we view
+		      machine learning not only as an advanced technique to be incorporated, but also a process to go through in Wire-Cell.
+		      Built upon the solid domain knowledge of LArTPC as well as the extensive experience gained in developing Wire-Cell event
+		      reconstruction and performing data analysis in LArTPC experiments, we identified several areas (TPC signal processing,
+		      neutrino vertex identification, and electron neutrino flavor identification) in which the incorporation
+		      of machine learning techniques led to immediate and significant impacts. 
                     </p>
                 </div>
 <!--                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
@@ -203,10 +210,26 @@
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Augmented LArTPC Signal Processing with Deep Neural Network</h2>
                     <p class="lead">
-                        The Liquid Argon Time Projection Chamber (LArTPC) is an advanced neutrino detector technology widely used in recent and upcoming accelerator neutrino experiments. It features a low energy threshold and high spatial resolution that allow for comprehensive reconstruction of event topology. In current-generation LArTPCs, the recorded data consist of digitized waveforms on wires produced by induced signal of drifting ionization electrons, which can also be viewed as two-dimensional (2D) (time versus wire) projection images of charged-particle trajectories. For such an imaging detector, one critical step is the signal processing that reconstructs the original charge projections from the recorded 2D images. Refer to <a href="https://arxiv.org/abs/1802.08709"> this article </a> for more on LArTCP signal processing.
+                      The Liquid Argon Time Projection Chamber (LArTPC) is an advanced neutrino detector technology widely used in recent
+		      and upcoming accelerator neutrino experiments. It features a low energy threshold and high spatial resolution that
+		      allow for comprehensive reconstruction of event topology. In current-generation LArTPCs, the recorded data consist
+		      of digitized waveforms on wires produced by induced signal of drifting ionization electrons, which can also be viewed
+		      as two-dimensional (2D) (time versus wire) projection images of charged-particle trajectories. For such an imaging
+		      detector, one critical step is the signal processing that reconstructs the original charge projections from the
+		      recorded 2D images. Refer to <a href="https://arxiv.org/abs/1802.08709"> this article </a> for more on LArTCP signal
+		      processing.
                     </p>
                     <p class="lead">
-                        For the first time, we introduce a deep neural network (DNN) in LArTPC signal processing to improve the signal region of interest (ROI) detection. By combining domain knowledge (e.g., matching information from multiple wire planes) and deep learning, this method shows significant improvements over traditional methods. The top plot on the left shows the workflow of this algorithm. We used <a href="https://arxiv.org/abs/1505.04597">U-Net</a> as the network structure. We engineered the input single channel 2D image into 3 channels, one processed with filtered deconvoultion, two with geometry information baked in. The bottom on the left shows several ROI detection event displays comparing 3 algorithms, traditional algorithm as reference, DNN without geometry information and DNN with geometry information. We can see the DNN with geometry information yields the best results. The inferencing utilities are available in <a href="https://github.com/wirecell/">Wire-Cell Toolkit</a>. Refer to <a href="https://arxiv.org/abs/2007.12743"> this article </a> for more on the DNN LArTCP signal processing.
+                      We introduce a deep neural network (DNN) in LArTPC signal processing to improve the signal region
+		      of interest (ROI) detection. By combining domain knowledge (e.g., matching information from multiple wire planes) and
+		      deep learning, this method shows significant improvements over traditional methods. The top plot on the left shows the
+		      workflow of this algorithm. We used <a href="https://arxiv.org/abs/1505.04597">U-Net</a> as the network structure. We
+		      engineered the input single channel 2D image into 3 channels, one processed with filtered deconvolution, two with geometry
+		      information baked in. The bottom on the left shows several ROI detection event displays comparing 3 algorithms,
+		      traditional algorithm as reference, DNN without geometry information and DNN with geometry information. We can see the
+		      DNN with geometry information yields the best results. The inferencing utilities are available in
+		      <a href="https://github.com/wirecell/">Wire-Cell Toolkit</a>. Refer to <a href="https://arxiv.org/abs/2007.12743"> this article
+		      </a> for more on the DNN LArTCP signal processing.
                     </p>
                 </div>
             </div>
@@ -221,10 +244,19 @@
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Neutrino Vertex Identification with 3D Sparse DNN</h2>
                     <p class="lead">
-                        Accurate identification of the neutrino interaction position provides important information for downstream pattern recognition algorithms. It helps improve space charge clustering and overall track/shower seperation. This task could be chalenging for traditional heuristic logic type algorithms as the recorded patterns in LArTPC of neutrino interactions are numerous. It is hard to exhaust the solution phase space for "Human Learning".
+                      Accurate identification of the primary neutrino-interaction vertex in LArTPCs is critical for the neutrino flavor identification
+		      in the charge-current interactions, which is one of the keys to measure the muon neutrino to electron neutrino oscillations.
+		      This task is challenging for traditional heuristic logic type algorithms ("Human Learning") because of the wide variety and
+		      complexity of neutrino interactions.
                     </p>
                     <p class="lead">
-                        This neutrino vertex identification problem could be considered as a special case of object detection task in computer vision. Object detection usually taks 3 steps, region proposal, object type identification and object segmentation. In the vertex identification case, we are targeting on only one type of object (the neutrino vertex) and the region of the object is one voxel. So we focus on the region proposal step. We used a novel regressional segmentation network to predict the distance map of each voxel to the neutrino vertex. Which significantly increases the training efficiency. We also used <a href="https://github.com/facebookresearch/SparseConvNet">SparseConvNet</a> which makes the training and inferencing much faster and more scalable. The inferencing utilities are available in the <a href="https://github.com/BNLIF/wire-cell">Wire-Cell Prototype</a>. Refer to <a href="https://microboone-docdb.fnal.gov/cgi-bin/private/ShowDocument?docid=31844">this talk</a> for more.
+                      This neutrino vertex identification problem can be viewed as a special case of the object detection task in computer vision:
+		      region proposal. We utilized a novel regressional segmentation network to predict the distance map of each Wire-Cell 3D space
+		      point to the neutrino vertex with <a href="https://github.com/facebookresearch/SparseConvNet">SparseConvNet</a>.
+		      While the regressional segmentation network increases the training efficiency, the SparseConvNet makes the training and
+		      inferencing much faster and more scalable. The DNN neutrino vertex identification leads to a 30% increase in the electron
+		      neutrino identification efficiency with Wire-Cell in MicroBooNE.
+		      The inferencing utilities are available in the <a href="https://github.com/BNLIF/wire-cell">Wire-Cell Prototype</a>.		      
                     </p>
                 </div>
                 <div class="col-lg-7 col-lg-offset-1 col-sm-7">
