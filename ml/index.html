@@ -268,26 +268,28 @@
         </div>
     </div>
 
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Why the name "Bee"?</h4>
-          </div>
-          <div class="modal-body">
-            <ul>
-                <li>Bees are known to make <a href="https://en.wikipedia.org/wiki/Honeycomb">cells</a>.</li>
-                <li>Bees <a href=" http://www.nature.com/news/bumblebees-sense-electric-fields-in-flowers-1.12480">sense electric fields</a>  by building up electric charges.</li>
-            </ul>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
+    <div class="content-section-b"> <a name="bdt"></a>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Electron Neutrino Identification with Boosted Decision Trees</h2>
+                    <p class="lead">
+                        In MicroBooNE, the original neutrino-to-cosmic ratio is about 1:20k, and only about 0.5% neutrino interactions originate from electron (anti-)neutrinos. A high-performance neutrino flavor identification, e.g. electron neutrino identification, plays an important role in probing the existence of sterile neutrinos in short-baseline neutrino experiments.
+                    </p>
+                    <p class="lead">
+                        Based on “human learning” algorithms, hundreds of kinematic, topological, and calorimetric variables are developed and derived to separate different flavors of neutrino events, while the performance is unstable since the optimization of the cuts on hundreds of variables is fairly inefficient using “human learning” method, e.g. hand-scanning. In order to rapidly and robustly “learn” the features (input variables) of these final state particles from different flavors of neutrino interactions and cosmic-ray muons, the machine learning method – <a href="https://en.wikipedia.org/wiki/Gradient_boosting">boosted decision trees (BDT)</a> – are utilized to take a set of the input features and split input data recursively based on these features. BDT is a much more robust method combining many weak learners (trees) into a strong classifier by maximizing the information gain on a training sample. The neutrino flavor identification is a typical classification problem of BDT. The right plot shows a comparison of the ROC curves from various implemented BDTs in Wire-Cell with the original cut-based (box cut from “human learning”) result. The “Sig Efficiency” is for good reconstructed electron neutrino charged-current events, and “bkg rejection” is for all the other background from neutral-current interactions, muon neutrino charged-current interactions, and cosmic-ray muons. It is obvious the BDT introduces a significant reduction of background events. With <a href="https://xgboost.readthedocs.io/en/latest/">XGBoost (eXtreme Gradient Boosting)</a>, the BDT achieves a 99.9% background rejection rate which corresponds to a 30-fold reduction compared to the cut-based result. This enables a state-of-art electron neutrino identification in MicroBooNE with a purity of about 80%.
+
+                    </p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-1 col-sm-5">
+                    <img class="img-responsive" src="./img/bdt-score.png" alt="">
+                    <hr>
+                    <img class="img-responsive" src="./img/bdt-perf.png" alt="">
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
     <!-- Footer -->
