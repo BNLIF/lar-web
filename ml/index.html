@@ -128,6 +128,12 @@
                     <li>
                         <a href="#dnn-vertex">DNN-Vertex</a>
                     </li>
+                    <li>
+                        <a href="#bdt">BDT</a>
+                    </li>
+                    <li>
+                        <a href="#zio">ZIO</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -154,7 +160,8 @@
                                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                     <li><a href="https://github.com/wirecell/">Toolkit (WCT)</a></li>
                                     <li><a href="https://github.com/BNLIF/wire-cell">Prototype (WCP)</a></li>
-                                    <!-- <li role="separator" class="divider"></li> -->
+                                    <li><a href="https://brettviren.github.io/zio/">ZIO</a></li>
+                                    <li role="separator" class="divider"></li>
                                     <li><a href="https://github.com/HaiwangYu/Pytorch-UNet">DNN-SP</a></li>
                                     <li><a href="https://github.com/HaiwangYu/nue-cc">DNN-Vertex</a></li>
                                   </ul>
@@ -266,7 +273,7 @@
                     <p style="text-align:left">Fig. 1 illustration of the neutrino vertex identification from 3D points.</p>
                     <hr>
                     <img class="img-responsive" src="./img/dnn-vertex-nuecc-disp.png" alt="">
-                    <p style="text-align:left">Fig. 2 Bee event display demonstrating with improved vertex identification using DNN, the connected physics object are better segmented.</p>
+                    <p style="text-align:left">Fig. 2 <a href="https://www.phy.bnl.gov/twister/bee/set/a7bf9060-d6bd-4172-b9c0-b0604daa28e9/event/0/">Bee event display</a> demonstrating with improved vertex identification using DNN, the connected physics object are better segmented.</p>
                 </div>
             </div>
         </div>
@@ -275,6 +282,13 @@
     <div class="content-section-b"> <a name="bdt"></a>
         <div class="container">
             <div class="row">
+                <div class="col-lg-5 col-lg-offset-1 col-sm-6">
+                    <img class="img-responsive" src="./img/bdt-demo.png" alt="">
+                    <p style="text-align:left">Fig. 1 illustration of the boosted decision trees.</p>
+                    <hr>
+                    <img class="img-responsive" src="./img/bdt-perf.png" alt="">
+                    <p style="text-align:left">Fig. 2 Background rejection vs. signal efficiency using three algorithms: 1) traditional box cut; 2) BDT from ROOT TMVA; 3) BDT from XGBoost.</p>
+                </div>
                 <div class="col-lg-6 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
@@ -287,16 +301,29 @@
 
                     </p>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section-a"> <a name="zio"></a>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">WireCell with ZIO: framework for distributed heterogeneous computing</h2>
+                    <p class="lead">
+                        To be added by Brett.
+                    </p>
+                </div>
                 <div class="col-lg-5 col-lg-offset-1 col-sm-6">
-                    <img class="img-responsive" src="./img/bdt-demo.png" alt="">
-                    <p style="text-align:left">Fig. 1 illustration of the boosted decision trees.</p>
-                    <hr>
-                    <img class="img-responsive" src="./img/bdt-perf.png" alt="">
-                    <p style="text-align:left">Fig. 2 Background rejection vs. signal efficiency using three algorithms: 1) traditional box cut; 2) BDT from ROOT TMVA; 3) BDT from XGBoost.</p>
+                    <img class="img-responsive" src="./img/zio-big-picture.svg" alt="">
+                    <p style="text-align:left">Fig. 1 ZIO big picture.</p>
                 </div>
             </div>
         </div>
     </div>
+
 
     <!-- Footer -->
     <footer>
