@@ -200,8 +200,10 @@
             <div class="row">
                 <div class="col-lg-5 col-sm-6">
                     <img class="img-responsive" src="./img/dnn-sp-net.png" alt="">
+                    <p style="text-align:left">Fig. 1 workflow of the DNN signal processing algorithm.</p>
                     <hr>
                     <img class="img-responsive" src="./img/dnn-sp-disp.png" alt="">
+                    <p style="text-align:left">Fig. 2 event displays comparing 3 signal processing algorithms.</p>
                 </div>
                 <div class="col-lg-5 col-sm-6">
                 </div>
@@ -222,7 +224,7 @@
                     <p class="lead">
                       We introduce a deep neural network (DNN) in LArTPC signal processing to improve the signal region
 		      of interest (ROI) detection. By combining domain knowledge (e.g., matching information from multiple wire planes) and
-		      deep learning, this method shows significant improvements over traditional methods. The top plot on the left shows the
+		      deep learning, this method shows significant improvements over traditional methods. Fig. 1 shows the
 		      workflow of this algorithm. We used <a href="https://arxiv.org/abs/1505.04597">U-Net</a> as the network structure. We
 		      engineered the input single channel 2D image into 3 channels, one processed with filtered deconvolution, two with geometry
 		      information baked in. The bottom on the left shows several ROI detection event displays comparing 3 algorithms,
@@ -261,8 +263,10 @@
                 </div>
                 <div class="col-lg-7 col-lg-offset-1 col-sm-7">
                     <img class="img-responsive" src="./img/dnn-vertex-demo.png" alt="">
+                    <p style="text-align:left">Fig. 1 illustration of the neutrino vertex identification from 3D points.</p>
                     <hr>
                     <img class="img-responsive" src="./img/dnn-vertex-nuecc-disp.png" alt="">
+                    <p style="text-align:left">Fig. 2 Bee event display demonstrating with improved vertex identification using DNN, the connected physics object are better segmented.</p>
                 </div>
             </div>
         </div>
@@ -279,14 +283,16 @@
                         In MicroBooNE, the original neutrino-to-cosmic ratio is about 1:20k, and only about 0.5% neutrino interactions originate from electron (anti-)neutrinos. A high-performance neutrino flavor identification, e.g. electron neutrino identification, plays an important role in probing the existence of sterile neutrinos in short-baseline neutrino experiments.
                     </p>
                     <p class="lead">
-                        Based on “human learning” algorithms, hundreds of kinematic, topological, and calorimetric variables are developed and derived to separate different flavors of neutrino events, while the performance is unstable since the optimization of the cuts on hundreds of variables is fairly inefficient using “human learning” method, e.g. hand-scanning. In order to rapidly and robustly “learn” the features (input variables) of these final state particles from different flavors of neutrino interactions and cosmic-ray muons, the machine learning method – <a href="https://en.wikipedia.org/wiki/Gradient_boosting">boosted decision trees (BDT)</a> – are utilized to take a set of the input features and split input data recursively based on these features. BDT is a much more robust method combining many weak learners (trees) into a strong classifier by maximizing the information gain on a training sample. The neutrino flavor identification is a typical classification problem of BDT. The right plot shows a comparison of the ROC curves from various implemented BDTs in Wire-Cell with the original cut-based (box cut from “human learning”) result. The “Sig Efficiency” is for good reconstructed electron neutrino charged-current events, and “bkg rejection” is for all the other background from neutral-current interactions, muon neutrino charged-current interactions, and cosmic-ray muons. It is obvious the BDT introduces a significant reduction of background events. With <a href="https://xgboost.readthedocs.io/en/latest/">XGBoost (eXtreme Gradient Boosting)</a>, the BDT achieves a 99.9% background rejection rate which corresponds to a 30-fold reduction compared to the cut-based result. This enables a state-of-art electron neutrino identification in MicroBooNE with a purity of about 80%.
+                        Based on “human learning” algorithms, hundreds of kinematic, topological, and calorimetric variables are developed and derived to separate different flavors of neutrino events, while the performance is unstable since the optimization of the cuts on hundreds of variables is fairly inefficient using “human learning” method, e.g. hand-scanning. In order to rapidly and robustly “learn” the features (input variables) of these final state particles from different flavors of neutrino interactions and cosmic-ray muons, the machine learning method – <a href="https://en.wikipedia.org/wiki/Gradient_boosting">boosted decision trees (BDT)</a> – are utilized to take a set of the input features and split input data recursively based on these features. BDT is a much more robust method combining many weak learners (trees) into a strong classifier by maximizing the information gain on a training sample. The neutrino flavor identification is a typical classification problem of BDT. Fig. 2 shows a comparison of the ROC curves from various implemented BDTs in Wire-Cell with the original cut-based (box cut from “human learning”) result. The “Sig Efficiency” is for good reconstructed electron neutrino charged-current events, and “bkg rejection” is for all the other background from neutral-current interactions, muon neutrino charged-current interactions, and cosmic-ray muons. It is obvious the BDT introduces a significant reduction of background events. With <a href="https://xgboost.readthedocs.io/en/latest/">XGBoost (eXtreme Gradient Boosting)</a>, the BDT achieves a 99.9% background rejection rate which corresponds to a 30-fold reduction compared to the cut-based result. This enables a state-of-art electron neutrino identification in MicroBooNE with a purity of about 80%.
 
                     </p>
                 </div>
-                <div class="col-lg-5 col-lg-offset-1 col-sm-5">
-                    <img class="img-responsive" src="./img/bdt-score.png" alt="">
+                <div class="col-lg-5 col-lg-offset-1 col-sm-6">
+                    <img class="img-responsive" src="./img/bdt-demo.png" alt="">
+                    <p style="text-align:left">Fig. 1 illustration of the boosted decision trees.</p>
                     <hr>
                     <img class="img-responsive" src="./img/bdt-perf.png" alt="">
+                    <p style="text-align:left">Fig. 2 Background rejection vs. signal efficiency using three algorithms: 1) traditional box cut; 2) BDT from ROOT TMVA; 3) BDT from XGBoost.</p>
                 </div>
             </div>
         </div>
