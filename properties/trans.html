@@ -61,7 +61,7 @@
   </div>
   <div class="panel-body">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-12">
       Electron drift velocity is a product of electron mobility and the electric field.
       \[
         v = \mu E
@@ -106,25 +106,71 @@
   </div>
   <div class="panel-body">
   <div class="row">
-    <div class="col-md-8">
-    The longitudinal diffusion coefficients $D_L$ in the range of 0.1 to 1.5 kV/cm can be expressed as
-    defined by the Einstein relation
-    \[
-    D_L=\frac{\mu\epsilon_L}{e}=\left(\frac{a_0+a_1E+a_2E^{3/2}+a_3E^{5/2}}{1+(a_1/a_0)E+a_4E^2+a_5E^3}\right)\left(\frac{b_0+b_1E+b_2E^2}{1+(b_1/b_0)E+b_3E^2}\right)\left(\frac{T}{T_0}\right)^{-3/2}\left(\frac{T}{T_1}\right),
-    \]
-    with the parameters given previously.
-    </div>
-    <div class="col-md-8">
-    The transverse diffusion coefficients $D_T$ is related to $D_L$ by:
-    \[
-    \frac{D_L}{D_T} = 1+ \frac{E}{\mu}\frac{\partial \mu}{\partial E}
-    \]
-    The corresponding diffusion length can be calculated from the drift time $t$ by:
-    \[
-    \sigma = \sqrt{2Dt}
-    \]
+    <div class="col-md-12">
+      <p>
+        The longitudinal diffusion coefficients $D_L$ in the range of 0.1 to 1.5 kV/cm can be expressed as
+        defined by the Einstein relation
+        \[
+        D_L=\frac{\mu\epsilon_L}{e}=\left(\frac{a_0+a_1E+a_2E^{3/2}+a_3E^{5/2}}{1+(a_1/a_0)E+a_4E^2+a_5E^3}\right)\left(\frac{b_0+b_1E+b_2E^2}{1+(b_1/b_0)E+b_3E^2}\right)\left(\frac{T}{T_0}\right)^{-3/2}\left(\frac{T}{T_1}\right),
+        \]
+        with the parameters given previously.
+      </p>
+      <p>
+        The transverse diffusion coefficients $D_T$ is related to $D_L$ by:
+        \[
+        \frac{D_L}{D_T} = 1+ \frac{E}{\mu}\frac{\partial \mu}{\partial E}
+        \]
+        The corresponding diffusion length can be calculated from the drift time $t$ by:
+        \[
+        \sigma = \sqrt{2Dt}
+        \]
+      </p>
     </div>
   </div>
+
+  <div class="panel panel-primary"><a name="attachment"></a>
+    <div class="panel-heading">
+      <h3 class="panel-title">Electron Attachment</h3>
+    </div>
+    <div class="panel-body">
+    <div class="row">
+      <div class="col-md-7">
+        <p>
+          For the detection of the ionization charge in LArTPCs, electron attachment to impurities in
+LAr (such as water or oxygen) is a source of signal attenuation, given that the drift velocity of ions
+is about five orders of magnitude lower than that of electrons. The mean lifetime ($\tau_A$) of electron cluster is given by:
+\[
+          \tau_A = \frac{1}{k_A n},
+\]
+where $k_A$ is the attachment rate constant and $n$ is the concentration of the impurity.
+        </p>
+        <p>
+          The electron attachment rate constant ($k_A$) is an integral over energy of the product of the drifting
+election energy distribution function and the cross section for the attachment of the electron to an
+impurity molecule, both of which are functions of the drifting electron energy. Therefore, $k_A$ is a
+function of the external electric field. For electric fields below ~100 V/cm, the electrons are
+in thermal equilibrium with the liquid and in this region the attachment rate is independent of the electric
+field .
+        </p>
+        <p>
+          In Ref <a href="#ref2">[2]</a>, the electron attachment rate data is fit with a constrained rational polynomial:
+          \[
+          k_A=10^p \frac{a_1/b_1+a_1E+a_2E^{2}+a_3E^{3}+a_4E^{4}}{1+b_1E+b_2E^{2}+b_3E^{3}+b_4E^{4}},
+          \]
+          where E is the electric field in units of kV/cm and $k_A$ is the attachment rate constant in units of s$^{-1}$.
+          The best-fit parameters for common impurities can be found in Table 2 of <a href="#ref2">[2]</a>.
+
+        </p>
+
+
+      </div>
+      <div class="col-md-5">
+        <img src="img/e-attachment.png" alt="" width="100%">
+        Figure taken from <a href="#ref2">[2]</a>. The electron attachment rate constant as a function of the applied electric field for six impurities
+in LAr at 90K.
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -138,6 +184,8 @@
                 <li><a name="ref1"></a> Y. Li, et al., "Measurement of Longitudinal Electron Diffusion in Liquid Argon",
                   <a href="http://www.sciencedirect.com/science/article/pii/S0168900216001443">NIMA 816, 160 (2016)</a>.
                    [<a href="http://arxiv.org/abs/1508.07059">arXiv</a>]</li>
+                <li><a name="ref2"></a> Y. Li, et al., "Parameterization of Electron Attachment Rate Constants for Common Impurities in LArTPC Detectors",
+                  <a href="http://arxiv.org/abs/2205.06888">arXiv:2205.06888</a></li>
               </ol>
             </div>
           </div>
