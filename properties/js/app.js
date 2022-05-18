@@ -77,6 +77,8 @@ var vm = new Vue({
         },
         D_T: function() {
             // D_L/D_T = 1+ E/mu*(dmu/dE)
+            if (this.E < 1e-4) return this.D_L;
+
             var dmu_dE = (this.mobility(this.E*1.001) - this.mu)/(0.001*this.E);
             // console.log(dmu_dE, this.E/this.mu)
             return this.D_L/(1+this.E/this.mu*dmu_dE);
@@ -139,6 +141,9 @@ var vm = new Vue({
         },
         R_L: function() { // light recombination
             return 1 - 0.803* this.Rc_birks;
+        },
+        ka_O2: function() { // rate constant in s^-1 
+            return this.attachment(this.E, 11, 39.4, 1.20062, 0, 0, 0.925794, 1.63816, 0, 0);
         },
         mpv: function() {
             var       fZ = 18;                ///< Ar atomic number
@@ -220,6 +225,10 @@ var vm = new Vue({
     methods: {
         mobility: function(E) {
             return (this.a0 + this.a1*E + this.a2*Math.pow(E, 1.5) + this.a3*Math.pow(E, 2.5)) / (1 + this.a1/this.a0*E + this.a4*Math.pow(E, 2) + this.a5*Math.pow(E, 3)) * Math.pow(this.T/this.T0, -1.5);
+        },
+        attachment: function(E, p, a1, a2, a3, a4, b1, b2, b3, b4) { 
+            // arXiv:2205.06888
+            return Math.pow(10, p) * (a1/b1 + a1*E +  a2*Math.pow(E, 2) + a3*Math.pow(E, 3) + a4*Math.pow(E, 4) ) / (1 + b1*E +  b2*Math.pow(E, 2) + b3*Math.pow(E, 3) + b4*Math.pow(E, 4) );
         },
         iof_g: function(lambda) {
             // gas index of refraction

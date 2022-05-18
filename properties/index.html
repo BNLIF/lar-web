@@ -339,6 +339,18 @@
                 <td>{{ D_T | trunc }}</td>
                 <td>cm$^2$/s</td>
               </tr>
+              <tr>
+                <td>Attachment rate constant (O$_2$)</td>
+                <td>$k_A$</td>
+                <td>{{ ka_O2/1e12 | trunc }}</td>
+                <td>$10^{12}$ s$^{-1}$</td>
+              </tr>
+              <tr>
+                <td>Electron lifetime (for 0.1 ppb O$_2$)</td>
+                <td>$\tau$</td>
+                <td>{{ 1/(ka_O2*0.1*1e-9)*1e3 | trunc }}</td>
+                <td>ms</td>
+              </tr>
             </tbody>
           </table>
 
