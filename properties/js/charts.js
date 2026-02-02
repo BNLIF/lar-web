@@ -1,6 +1,9 @@
 var all_charts= {};
 
 Highcharts.setOptions({
+    global: {
+        canvasToolsURL: 'js/highcharts/modules/canvas-tools.js'
+    },
     chart: {zoomType: 'xy', animation: false,
         style: {
             fontFamily: 'Arial, Helvetica, sans-serif',
@@ -9,8 +12,22 @@ Highcharts.setOptions({
         alignTicks: false,
     },
     exporting: {
+        url: 'about:blank',
         buttons: {
-            contextButton: {x: 5}
+            contextButton: {
+                x: 5,
+                menuItems: [
+                    { textKey: 'printChart', onclick: function () { this.print(); } },
+                    { separator: true },
+                    { textKey: 'downloadPNG', onclick: function () { this.exportChartLocal(); } },
+                    { textKey: 'downloadSVG', onclick: function () { this.exportChartLocal({ type: 'image/svg+xml' }); } }
+                ]
+            }
+        },
+        fallbackToExportServer: false,         
+        error: function (options, err) {
+            console.error("Offline export failed:", err);
+            alert("Export failed locally. Check console for details.");
         }
     },
     credits: { enabled: false },

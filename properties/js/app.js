@@ -273,6 +273,10 @@ var vm = new Vue({
                 xAxis: {title: {text: options.xTitle}},
                 yAxis: {title: {text: options.yTitle}},
                 legend: {enabled: false},
+                exporting: {
+                    fallbackToExportServer: false,
+                    url: 'about:blank'
+                },
                 series: [{
                     // name: 'Test',
                     data: options.data
