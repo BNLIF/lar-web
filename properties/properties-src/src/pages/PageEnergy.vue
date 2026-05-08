@@ -37,7 +37,7 @@
         </div>
         <div class="img-col">
           <div class="symbol-table-wrap">
-            <p class="tbl-caption">Key symbols</p>
+            <p class="tbl-caption">Key symbols — equation numbers refer to <a href="#refs">[4]</a></p>
             <table class="data sym-tbl">
               <thead><tr><th>Symbol</th><th>Value</th><th>Description</th></tr></thead>
               <tbody>

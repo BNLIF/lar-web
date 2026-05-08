@@ -61,10 +61,7 @@ header.topbar {
 .topbar-inner { display: flex; align-items: center; height: 56px; padding: 0 24px; gap: 28px; }
 .brand { display: flex; align-items: baseline; gap: 10px; text-decoration: none; color: inherit; }
 .brand:hover { text-decoration: none; }
-.brand-mark {
-  width: 18px; height: 18px; border-radius: 50%; align-self: center;
-  background: radial-gradient(circle at 35% 30%, #d8eaf3 0%, #6fa1bd 40%, #1e4258 100%);
-}
+.brand-mark { align-self: center; flex-shrink: 0; }
 .brand-name { font-weight: 600; letter-spacing: -0.01em; }
 .brand-sub  { font-family: var(--mono); font-size: 11px; color: var(--ink-3); }
 .topnav { display: flex; gap: 4px; margin-left: 8px; }

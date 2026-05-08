@@ -1,152 +1,166 @@
-# Everything You Need to Know About Liquid Argon Properties
+# LAr Properties Website
 
-This website is constructed using the [Twitter Bootstrap](http://getbootstrap.com/) framework to make it [responsive](https://en.wikipedia.org/wiki/Responsive_web_design) across a wide range of devices. 
+Reference tables and live calculators for the thermophysical, electrical, and optical properties of liquid argon, used in LArTPC detectors.
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+## Stack
 
+| Layer | Tool |
+|---|---|
+| Framework | Vue 3 (Composition API, `<script setup>`) |
+| Build | Vite 5 — multi-page, one entry per HTML file |
+| Math | KaTeX (server-side render via `useKaTeX` composable) |
+| Plots | Highcharts |
+| Styling | Plain CSS with design tokens (`tokens.css`) |
 
-- [Download and Set Up a Webserver](#download-and-set-up-a-webserver)
-- [Add Static Contents](#add-static-contents)
-  - [Table](#table)
-  - [Panel](#panel)
-  - [Panel Title](#panel-title)
-  - [Simple paragraph](#simple-paragraph)
-  - [Two-column text + image](#two-column-text--image)
-  - [Math formula](#math-formula)
-- [Add Interactive Plots](#add-interactive-plots)
-  - [Prepare data](#prepare-data)
-  - [Convert to JSON format](#convert-to-json-format)
-  - [Load into webpage](#load-into-webpage)
-- [Add Dynamic Contents](#add-dynamic-contents)
+No Bootstrap. No jQuery. No MathJax.
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-## Download and Set Up a Webserver
+## Development
 
 ```bash
-git clone https://github.com/BNLIF/lar-web.git
-cd lar-web/properties
-python -m SimpleHTTPServer
+cd properties/properties-src
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # outputs to properties/ (the parent directory)
 ```
 
-Now open a web browser and go to <http://localhost:8000>
+The build writes compiled assets into `properties/assets/` and the HTML entry points directly into `properties/`. The source lives entirely inside `properties-src/`.
 
-## Add Static Contents
+## Project layout
 
-The static contents can be directly added to the [index.html](index.html) file inside the corresponding `<section></section>` tag. To make the format consistent, please use the following guidelines:
+```
+properties/
+├── index.html          ← built output (do not edit directly)
+├── basic.html
+├── energy.html
+├── electronics.html
+├── pass.html
+├── scint.html
+├── spacecharge.html
+├── trans.html
+├── assets/             ← compiled JS/CSS (do not edit directly)
+├── img/                ← static images referenced by pages
+├── data/               ← JSON data files for Highcharts plots
+└── properties-src/     ← all source code lives here
+    ├── vite.config.js
+    ├── *.html          ← HTML entry points (one per page)
+    └── src/
+        ├── pages/          ← one .vue + one .js per page
+        ├── components/     ← TheShell, TheHeader, PlotChart, …
+        ├── composables/    ← useParams, usePhysics, useKaTeX, useTheme, lar.js
+        └── styles/
+            └── tokens.css  ← all design tokens and shared CSS
+```
 
-### Table
+## Pages
+
+| File | URL | Content |
+|---|---|---|
+| `PageIndex.vue` | `index.html` | Overview — all properties with live calculators |
+| `PageBasic.vue` | `basic.html` | Phase diagram, vapor pressure, density |
+| `PagePass.vue` | `pass.html` | Stopping power, Landau MPV, recombination |
+| `PageEnergy.vue` | `energy.html` | Quanta creation, Q+L calorimetry |
+| `PageTrans.vue` | `trans.html` | Drift velocity, diffusion, electron lifetime |
+| `PageScint.vue` | `scint.html` | Scintillation yield, optical constants |
+| `PageSpacecharge.vue` | `spacecharge.html` | Ion drift, space charge effects |
+| `PageElectronics.vue` | `electronics.html` | ENC, wire planes, field responses |
+
+## Adding a new page
+
+1. **Create the Vue component** `src/pages/PageFoo.vue` — wrap content in `<TheShell>`.
+
+2. **Create the JS entry** `src/pages/foo.js`:
+   ```js
+   import { createApp } from 'vue'
+   import '../styles/tokens.css'
+   import PageFoo from './PageFoo.vue'
+   createApp(PageFoo).mount('#app')
+   ```
+
+3. **Create the HTML entry** `properties-src/foo.html` — copy any existing `.html` and update the `<title>` and the `<script src>`.
+
+4. **Register in `vite.config.js`** under `rollupOptions.input`:
+   ```js
+   foo: resolve(__dirname, 'foo.html'),
+   ```
+
+5. **Add to the nav** in `src/components/TheHeader.vue` `links` array:
+   ```js
+   { href: 'foo.html', label: 'Foo' },
+   ```
+
+## Adding content
+
+### Static table
+
 ```html
-<table class="table table-bordered table-striped">
-  <caption>Caption</caption>
-  <thead>
-    <tr>
-      <th>field1</th>
-      <th>field2</th>
-    </tr>
-  </thead>
+<table class="data">
+  <thead><tr><th>Property</th><th>Symbol</th><th class="num">Value</th><th>Unit</th></tr></thead>
   <tbody>
-    <tr>
-      <td>value1</td>
-      <td>value2</td>
-    </tr>
+    <tr><td>Boiling point</td><td>$T_\text{NBP}$</td><td class="num">87.3</td><td class="units">K</td></tr>
   </tbody>
 </table>
 ```
 
-### Panel
+Use `class="num"` on cells that contain numbers (right-aligns them). Wrap wide tables in `<div class="table-scroll">` for horizontal scroll on mobile.
+
+### Math (KaTeX)
+
+Call `useKaTeX()` in `<script setup>` — it post-processes the rendered HTML and replaces all `$…$` and `\[…\]` with KaTeX output.
+
+```vue
+<script setup>
+import { useKaTeX } from '../composables/useKaTeX.js'
+useKaTeX()
+</script>
+```
+
+Inline: `$\rho = 1.396\,\text{g/mL}$`
+
+Block (use `.eq` wrapper for consistent centering):
 ```html
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h3 class="panel-title">Panel Title</h3>
-  </div>
-  <div class="panel-body">
-    Panel text.
-  </div>
+<div class="eq">
+  <span class="expr">\[ E = mc^2 \]</span>
 </div>
 ```
 
-### Simple paragraph
-```html
-<div class="row">
-  <div class="col-md-12">
-    Text.
-  </div>
-</div>
+### Highcharts plot
+
+Load data from `data/myplot.json` and pass options to `<PlotChart>`:
+
+```vue
+<PlotChart :options="chartOptions" />
 ```
 
-### Two-column text + image
-```html
-<div class="row">
-  <div class="col-md-8">
-    Text.
-  </div>
-  <div class="col-md-4">
-    <img src="img/xxx.xxx" alt="" width="100%">
-  </div>
-</div>
+```js
+import PlotChart from '../components/PlotChart.vue'
+
+const chartOptions = computed(() => ({
+  xAxis: { title: { text: 'x label' } },
+  yAxis: { title: { text: 'y label' } },
+  series: [{ name: 'curve', data: [[x1, y1], [x2, y2], …] }],
+}))
 ```
 
-### Math formula
-Latex math formula can be inserted into the html directly. It is then automatically rendered by [MathJax](https://www.mathjax.org/).
-- Inline: wrap latex formula in `$ ... $`
-- Block: wrap latex formula in `\[ ... \]`
+### Live (reactive) rows
 
+Bind computed values from `usePhysics()` and mark the row with `class="is-live"` for the accent tint:
 
-## Add Interactive Plots
-Interactive plots can be added as shown in [this example](http://lar.bnl.gov/properties/#particle-pass). The plots are rendered by the [Highchharts](http://lar.bnl.gov/properties/#particle-pass) library.
-
-### Prepare data
-Suppose you want to overlay three curves with the names: `data-1`, `data-2`, `data-3`, respectively. Suppose you name this plot `myplot`. You should then create a text file `myplot.txt` with the following content:
+```vue
+<tr class="is-live" :class="{ live: flashing.mu }">
+  <td>Electron mobility</td>
+  <td class="num">{{ trunc(physics.mu.value) }}</td>
+  <td class="units">cm² V⁻¹ s⁻¹</td>
+</tr>
 ```
-# data-1 data-2 data-3
-data-1-x1 data-1-x2 data-1-x3 data-1-x4 ...
-data-1-y1 data-1-y2 data-1-y3 data-1-y4 ...
-data-2-x1 data-2-x2 data-2-x3 data-2-x4 ...
-data-2-y1 data-2-y2 data-2-y3 data-2-y4 ...
-data-3-x1 data-3-x2 data-3-x3 data-3-x4 ...
-data-3-y1 data-3-y2 data-3-y3 data-3-y4 ...
-```
-Note that `data-1`, `data-2` and `data-3` don't need to have the same number of points, but within each curve, the `x` and `y` array must have the same length.
 
-To reduce the size of the data to be transfered, one should consider use less number of points when possible. In general, ~200 data points is enough. For the same reason, one should print out less significant digits when possible.
+The `live` class triggers a brief flash animation when the value changes (wired via `watch` + `flash()` in `PageIndex.vue`).
 
-### Convert to JSON format
-Use the [data/convert.py](data/convert.py) script to convert your `myplot.txt` file into a JSON format that [Highcharts](http://api.highcharts.com/highcharts#series<line>.data) understands.
-```bash
-cd data/
-python convert.py path/to/myplot.txt
-```
-This will then create a `myplot.json` file inside the `data/` directory.
+## Tunable parameters
 
-### Load into webpage
-Finally, we need to load the data into the webpage.
-First, add a place to host the plot in [index.html](index.html)
-```html
-<div class="list-group">
-  <a href="" class="list-group-item list-group-item-success">Plot Description</a>
-  <div id="myplot" class='plot'></div>
-</div>
-```
-Make sure that the `id` attribute in `<div id="myplot" class='plot'></div>` is the same as the name of the `.json` file. The structure is set up such that this `<div>` tag to host the plot must be inside a `<div.list-group>` tag and preceded by an `<a>` tag. Multiple plots inside the list-group are allowed.
+`useParams()` returns a singleton reactive `state` shared across all components on a page. Persisted to `localStorage` (T and E are intentionally excluded — they reset to defaults on each visit).
 
-Then, add an entry to configure the properties of the plot, such as axis title, axis range, etc., to the `plot_dispatcher` object in the [js/plot-dispacher.js](js/plot-dispacher.js) file:
-```javascript
-var plot_dispatcher = {
-  ...
+`config` (exported from `usePhysics.js`) holds detector and particle parameters (wire geometry, particle momentum, electron lifetime, etc.) that are tunable via inline sliders on the overview page.
 
-  'myplot' : {
-    xAxis: {title: {text: 'xxx'}, min: xxx, max: xxx},
-    yAxis: {title: {text: 'xxx'}, min: xxx, max: xxx}
-  },
-  
-  ...
-}
-```
-Please refer to the [Highcharts API](http://api.highcharts.com/highcharts) for the full configurable properties of the plots.
+## Theming
 
-## Add Dynamic Contents
-Dynamic contents (content changes with inputs) can be added as shown in [this example](http://lar.bnl.gov/properties/#e-trans).
-The dynamic contents are added using the [Vue.js](http://vuejs.org/) framework. Please follow the [example](js/app.js) to add your own `Vue` models.
-
+`useTheme()` toggles a `data-theme="dark"` attribute on `<html>`. All colors are CSS custom properties in `tokens.css` — adding a new color means adding one token, not changing every component.

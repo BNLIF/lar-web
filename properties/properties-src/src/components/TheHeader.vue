@@ -2,9 +2,11 @@
   <header class="topbar">
     <div class="topbar-inner">
       <a class="brand" href="index.html">
-        <span class="brand-mark"></span>
+        <svg class="brand-mark" width="32" height="18" viewBox="0 0 32 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="18" rx="3" fill="var(--accent-soft)"/>
+          <text x="16" y="13" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10.5" font-weight="600" fill="var(--accent)" letter-spacing="0.3">LAr</text>
+        </svg>
         <span class="brand-name">Liquid Argon Properties</span>
-        <span class="brand-sub">/lar.properties</span>
       </a>
       <nav class="topnav">
         <a v-for="link in links" :key="link.href"
