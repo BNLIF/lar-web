@@ -12,7 +12,8 @@ const DEFAULTS = {
 function load() {
   try {
     const saved = JSON.parse(localStorage.getItem('lar-params') || '{}')
-    return { ...DEFAULTS, ...saved }
+    const { T: _T, E: _E, ...rest } = saved
+    return { ...DEFAULTS, ...rest }
   } catch {
     return { ...DEFAULTS }
   }
@@ -21,7 +22,8 @@ function load() {
 const state = reactive(load())
 
 watchEffect(() => {
-  localStorage.setItem('lar-params', JSON.stringify({ ...state }))
+  const { T, E, ...rest } = state
+  localStorage.setItem('lar-params', JSON.stringify(rest))
 })
 
 export function useParams() {

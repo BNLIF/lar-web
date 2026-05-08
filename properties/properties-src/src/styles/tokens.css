@@ -81,6 +81,24 @@ header.topbar {
   display: inline-flex; align-items: center; justify-content: center;
 }
 .iconbtn:hover { background: var(--paper-2); color: var(--ink); }
+.menu-btn { display: none; }
+
+/* Mobile nav dropdown */
+.mobile-menu {
+  position: absolute; top: 100%; left: 0; right: 0;
+  background: color-mix(in oklab, var(--paper) 97%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+  box-shadow: 0 6px 20px rgba(0,0,0,.10);
+  z-index: 49;
+  padding: 6px 0 10px;
+}
+.mobile-menu a {
+  display: block; padding: 10px 24px;
+  color: var(--ink-2); font-size: 14px; font-weight: 500;
+}
+.mobile-menu a:hover { background: var(--paper-2); color: var(--ink); text-decoration: none; }
+.mobile-menu a.active { color: var(--accent); background: var(--accent-soft); }
 
 /* ─── Layout grid ────────────────────────────────────────────────────────── */
 
@@ -199,8 +217,13 @@ table.data tbody tr:hover td { background: var(--paper-2); }
 table.data .num   { font-family: var(--mono); white-space: nowrap; text-align: right; }
 table.data .units { font-family: var(--mono); color: var(--ink-3); font-size: 12px; }
 table.data .ref   { font-family: var(--mono); font-size: 11px; color: var(--accent); }
-table.data .live  {
-  background: color-mix(in oklab, var(--accent-soft) 60%, transparent) !important;
+/* Persistent live-row indicator — mixed against --paper so it works in both themes */
+table.data tr.is-live {
+  background: color-mix(in oklab, var(--accent) 7%, var(--paper));
+}
+/* Flash on parameter change — fades back to the persistent tint */
+table.data .live {
+  background: color-mix(in oklab, var(--accent) 22%, var(--paper)) !important;
   transition: background 0.4s;
 }
 
@@ -311,6 +334,13 @@ input[type="range"].param-slider::-moz-range-thumb {
   main    { padding: 36px 32px 80px; }
 }
 @media (max-width: 960px) {
-  .layout { grid-template-columns: 1fr; }
-  .left-col { position: static; height: auto; border: 0; border-bottom: 1px solid var(--rule); }
+  .layout    { grid-template-columns: 1fr; }
+  .left-col  { position: static; height: auto; border: 0; border-bottom: 1px solid var(--rule); }
+  .topnav    { display: none; }
+  .menu-btn  { display: inline-flex; }
+  .brand-sub { display: none; }
+}
+@media (max-width: 600px) {
+  main { padding: 24px 16px 64px; }
+  .topbar-inner { padding: 0 16px; gap: 16px; }
 }

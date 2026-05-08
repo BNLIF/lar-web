@@ -2,8 +2,8 @@
   <TheShell>
     <div class="doc-head">
       <p class="doc-eyebrow">BNL Detector R&amp;D · Liquid Argon</p>
-      <h1 class="doc-title">Electronics &amp; TPC</h1>
-      <p class="doc-lede">Cold electronics, equivalent noise charge, and LArTPC wire-plane geometry.</p>
+      <h1 class="doc-title">Noise, Electronics and Field Responses</h1>
+      <p class="doc-lede">Equivalent noise charge for cold ASIC electronics, wire-plane analytic calculations, and field response tools for LArTPC detectors.</p>
       <div class="doc-meta"><span><a href="index.html#elec-tpc">← Back to overview</a></span></div>
     </div>
 
@@ -53,12 +53,44 @@
       </div>
     </section>
 
-    <!-- ── 3. References ─────────────────────────────────────────── -->
+    <!-- ── 3. Field Responses ─────────────────────────────────────── -->
+    <section class="doc-section" id="field-responses">
+      <h2 class="sec-title"><span class="num">03</span>Field Responses</h2>
+      <p class="sec-sub">Induced current responses on wire planes from drifting charge, required for LArTPC signal deconvolution.</p>
+
+      <p class="body">
+        The field response function describes the induced current signal on a wire (or pixel) as a point charge drifts past it. Accurate field responses are essential input to signal processing and deconvolution in LArTPC reconstruction. Several tools are available for computing them:
+      </p>
+      <ul class="field-resp-list">
+        <li>
+          <strong>Garfield simulations</strong> — a curated collection of Garfield field simulations for Wire-Cell based LArTPC detectors.
+          <a href="https://github.com/Ningclover/wirecell-field-sim">github.com/Ningclover/wirecell-field-sim</a>
+        </li>
+        <li>
+          <strong>Pochoir</strong> — finite-difference method (FDM) calculator for pixel and strip geometries.
+          <a href="https://github.com/brettviren/pochoir">github.com/brettviren/pochoir</a>
+        </li>
+        <li>
+          <strong>Drifires</strong> — Garfield++ finite-element method (FEM) for wire-based LArTPC field responses.
+          <a href="https://github.com/brettviren/drifires">github.com/brettviren/drifires</a>
+        </li>
+      </ul>
+      <p class="body">
+        An example of computed field responses for the ProtoDUNE-SP detector is available as a
+        <a href="https://github.com/LS4GAN/toyzero/blob/master/plots/real-resps-diagnostic.png">diagnostic plot</a>
+        showing the full set of per-wire-plane response functions.
+      </p>
+    </section>
+
+    <!-- ── 4. References ─────────────────────────────────────────── -->
     <section class="doc-section" id="refs">
-      <h2 class="sec-title"><span class="num">03</span>References</h2>
+      <h2 class="sec-title"><span class="num">04</span>References</h2>
       <ol class="references">
         <li><span class="ttl">Veljko Radeka et al., "Cold electronics for Giant Liquid Argon Time Projection Chambers"</span>, J. Phys. Conf. Ser., 308:012021, 2011.</li>
         <li><span class="ttl">G. Horton-Smith, "Wire Plane Analytic Calculations"</span>, <a href="http://microboone-docdb.fnal.gov:8080/cgi-bin/RetrieveFile?docid=4708&filename=wire-plane-calcs.pdf&version=1">MicroBooNE doc:4708</a></li>
+        <li><span class="ttl">"WireCell Field Simulations"</span>, <a href="https://github.com/Ningclover/wirecell-field-sim">github.com/Ningclover/wirecell-field-sim</a></li>
+        <li><span class="ttl">B. Viren, "Pochoir: FDM field response calculator"</span>, <a href="https://github.com/brettviren/pochoir">github.com/brettviren/pochoir</a></li>
+        <li><span class="ttl">B. Viren, "Drifires: Garfield++ FEM field responses"</span>, <a href="https://github.com/brettviren/drifires">github.com/brettviren/drifires</a></li>
       </ol>
     </section>
   </TheShell>
@@ -73,5 +105,12 @@ useKaTeX()
 <style scoped>
 .content-cols { display: grid; grid-template-columns: 1fr 400px; gap: 32px; align-items: start; margin: 8px 0; }
 .img-col { padding-top: 28px; }
+.field-resp-list {
+  margin: 0 0 16px; padding-left: 20px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.field-resp-list li { font-size: 14px; color: var(--ink-2); }
+.field-resp-list li strong { color: var(--ink); }
+.field-resp-list li a { margin-left: 4px; font-family: var(--mono); font-size: 12px; }
 @media (max-width: 960px) { .content-cols { grid-template-columns: 1fr; } }
 </style>

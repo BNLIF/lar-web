@@ -14,6 +14,17 @@
         </a>
       </nav>
       <div class="topbar-tail">
+        <button class="menu-btn iconbtn" @click.stop="menuOpen = !menuOpen"
+                :title="menuOpen ? 'Close menu' : 'Open menu'">
+          <!-- hamburger -->
+          <svg v-if="!menuOpen" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+          <!-- X -->
+          <svg v-else xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
         <button class="iconbtn" @click="toggle" :title="state.theme === 'dark' ? 'Light mode' : 'Dark mode'">
           <!-- moon: shown in light mode → click to go dark -->
           <svg v-if="state.theme !== 'dark'" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -30,22 +41,40 @@
         </button>
       </div>
     </div>
+    <!-- Mobile nav dropdown -->
+    <nav class="mobile-menu" v-show="menuOpen">
+      <a v-for="link in links" :key="link.href"
+         :href="link.href"
+         :class="{ active: isActive(link.href) }"
+         @click="menuOpen = false">
+        {{ link.label }}
+      </a>
+    </nav>
   </header>
 </template>
 
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
 import { useTheme } from '../composables/useTheme.js'
 
 const { state, toggle } = useTheme()
+const menuOpen = ref(false)
+
+function handleClickOutside(e) {
+  if (!e.target.closest('header.topbar')) menuOpen.value = false
+}
+onMounted(() => document.addEventListener('click', handleClickOutside))
+onUnmounted(() => document.removeEventListener('click', handleClickOutside))
 
 const links = [
   { href: 'index.html',       label: 'Overview' },
   { href: 'basic.html',       label: 'Basic' },
-  { href: 'pass.html',        label: 'Particle Passage' },
-  { href: 'trans.html',       label: 'Transport' },
-  { href: 'electronics.html', label: 'Electronics' },
+  { href: 'pass.html',        label: 'Passage' },
+  { href: 'energy.html',      label: 'Deposition' },
+  { href: 'trans.html',       label: 'Ionization' },
   { href: 'scint.html',       label: 'Scintillation' },
   { href: 'spacecharge.html', label: 'Space Charge' },
+  { href: 'electronics.html', label: 'Electronics' },
 ]
 
 function isActive(href) {

@@ -4,6 +4,17 @@
       <p class="doc-eyebrow">BNL Detector R&amp;D · Liquid Argon</p>
       <h1 class="doc-title">Liquid Argon Properties</h1>
       <p class="doc-lede">Tables and calculators for the thermophysical, electrical, and optical properties of liquid argon</p>
+      <div class="legend-bar">
+        <p class="live-legend"><span class="live-swatch"></span>Highlighted rows are calculated live — values update when you adjust the parameters above each table.</p>
+        <button class="export-btn" @click="exportCSV">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Export CSV
+        </button>
+      </div>
     </div>
 
     <!-- ── 1. Basic Properties ─────────────────────────────────────── -->
@@ -49,10 +60,33 @@
       </table>
 
       <h3 class="subhead" id="basic-density">Density (live)</h3>
+      <div class="inline-params">
+        <div class="param-block">
+          <div class="param-row">
+            <div class="param-label">
+              <span class="name">Temperature <em>T</em></span>
+              <span class="param-value">
+                <input type="number" class="param-num" v-model.number="params.T"
+                       min="75" max="100" step="0.1"
+                       @change="params.T = clamp(params.T, 75, 100)">
+                <span class="u">K</span>
+              </span>
+            </div>
+            <input type="range" class="param-slider" v-model.number="params.T"
+                   min="75" max="100" step="0.1">
+            <div class="param-marks">
+              <span style="left:0%">75</span>
+              <span style="left:35.2%">83.8</span>
+              <span style="left:49.2%">87.3</span>
+              <span style="left:100%">100</span>
+            </div>
+          </div>
+        </div>
+      </div>
       <table class="data">
         <thead><tr><th>Property</th><th>Symbol</th><th class="num">Value</th><th>Unit</th></tr></thead>
         <tbody>
-          <tr :class="{ live: flashing.rho }"><td>Density at T = {{ params.T.toFixed(2) }} K</td><td>$\rho$</td><td class="num">{{ trunc(physics.rho.value) }}</td><td class="units">g/cm³</td></tr>
+          <tr class="is-live" :class="{ live: flashing.rho }"><td>Density at T = {{ params.T.toFixed(2) }} K</td><td>$\rho$</td><td class="num">{{ trunc(physics.rho.value) }}</td><td class="units">g/cm³</td></tr>
         </tbody>
       </table>
     </section>
@@ -62,16 +96,60 @@
       <h2 class="sec-title"><span class="num">02</span>Electron Transportation</h2>
       <p class="sec-sub">Drift velocity, diffusion, and O₂ attachment as a function of field and temperature. <a href="trans.html">Full details →</a></p>
 
+      <div class="inline-params">
+        <div class="param-block">
+          <div class="param-row">
+            <div class="param-label">
+              <span class="name">Temperature <em>T</em></span>
+              <span class="param-value">
+                <input type="number" class="param-num" v-model.number="params.T"
+                       min="75" max="100" step="0.1"
+                       @change="params.T = clamp(params.T, 75, 100)">
+                <span class="u">K</span>
+              </span>
+            </div>
+            <input type="range" class="param-slider" v-model.number="params.T"
+                   min="75" max="100" step="0.1">
+            <div class="param-marks">
+              <span style="left:0%">75</span>
+              <span style="left:35.2%">83.8</span>
+              <span style="left:49.2%">87.3</span>
+              <span style="left:100%">100</span>
+            </div>
+          </div>
+        </div>
+        <div class="param-block">
+          <div class="param-row">
+            <div class="param-label">
+              <span class="name">Drift field <em>E</em></span>
+              <span class="param-value">
+                <input type="number" class="param-num" v-model.number="params.E"
+                       min="50" max="1500" step="10"
+                       @change="params.E = clamp(params.E, 50, 1500)">
+                <span class="u">V/cm</span>
+              </span>
+            </div>
+            <input type="range" class="param-slider" v-model.number="params.E"
+                   min="50" max="1500" step="10">
+            <div class="param-marks">
+              <span style="left:0%">50</span>
+              <span style="left:31%">500</span>
+              <span style="left:65.5%">1k</span>
+              <span style="left:100%">1.5k</span>
+            </div>
+          </div>
+        </div>
+      </div>
       <table class="data">
         <thead><tr><th>Property</th><th>Symbol</th><th class="num">Value</th><th>Unit</th></tr></thead>
         <tbody>
-          <tr :class="{ live: flashing.mu }"><td>Electron mobility</td><td>$\mu$</td><td class="num">{{ trunc(physics.mu.value) }}</td><td class="units">cm² V⁻¹ s⁻¹</td></tr>
-          <tr :class="{ live: flashing.vd }"><td>Drift velocity</td><td>$v$</td><td class="num">{{ trunc(physics.v.value) }}</td><td class="units">cm/μs</td></tr>
-          <tr :class="{ live: flashing.epsl }"><td>Longitudinal electron energy</td><td>$\epsilon_L$</td><td class="num">{{ trunc(physics.epsl.value) }}</td><td class="units">eV</td></tr>
-          <tr :class="{ live: flashing.DL }"><td>Longitudinal diffusion</td><td>$D_L$</td><td class="num">{{ trunc(physics.DL.value) }}</td><td class="units">cm²/s</td></tr>
-          <tr :class="{ live: flashing.DT }"><td>Transverse diffusion</td><td>$D_T$</td><td class="num">{{ trunc(physics.DT.value) }}</td><td class="units">cm²/s</td></tr>
-          <tr :class="{ live: flashing.kaO2 }"><td>Attachment rate constant (O₂)</td><td>$k_A$</td><td class="num">{{ trunc(physics.kaO2.value / 1e12) }}</td><td class="units">10¹² s⁻¹M⁻¹</td></tr>
-          <tr :class="{ live: flashing.kaO2 }"><td>Electron lifetime (0.1 ppb O₂)</td><td>$\tau$</td><td class="num">{{ trunc(1 / (physics.kaO2.value * 0.1e-9) * 1e3) }}</td><td class="units">ms</td></tr>
+          <tr class="is-live" :class="{ live: flashing.mu }"><td>Electron mobility</td><td>$\mu$</td><td class="num">{{ trunc(physics.mu.value) }}</td><td class="units">cm² V⁻¹ s⁻¹</td></tr>
+          <tr class="is-live" :class="{ live: flashing.vd }"><td>Drift velocity</td><td>$v$</td><td class="num">{{ trunc(physics.v.value) }}</td><td class="units">cm/μs</td></tr>
+          <tr class="is-live" :class="{ live: flashing.epsl }"><td>Longitudinal electron energy</td><td>$\epsilon_L$</td><td class="num">{{ trunc(physics.epsl.value) }}</td><td class="units">eV</td></tr>
+          <tr class="is-live" :class="{ live: flashing.DL }"><td>Longitudinal diffusion</td><td>$D_L$</td><td class="num">{{ trunc(physics.DL.value) }}</td><td class="units">cm²/s</td></tr>
+          <tr class="is-live" :class="{ live: flashing.DT }"><td>Transverse diffusion</td><td>$D_T$</td><td class="num">{{ trunc(physics.DT.value) }}</td><td class="units">cm²/s</td></tr>
+          <tr class="is-live" :class="{ live: flashing.kaO2 }"><td>Attachment rate constant (O₂)</td><td>$k_A$</td><td class="num">{{ trunc(physics.kaO2.value / 1e12) }}</td><td class="units">10¹² s⁻¹M⁻¹</td></tr>
+          <tr class="is-live" :class="{ live: flashing.kaO2 }"><td>Electron lifetime (0.1 ppb O₂)</td><td>$\tau$</td><td class="num">{{ trunc(1 / (physics.kaO2.value * 0.1e-9) * 1e3) }}</td><td class="units">ms</td></tr>
         </tbody>
       </table>
     </section>
@@ -106,8 +184,50 @@
         </tbody>
       </table>
 
-      <h3 class="subhead" id="pass-recomb">Recombination &amp; attenuation (live)</h3>
+      <h3 class="subhead" id="pass-recomb">Recombination (live)</h3>
       <div class="inline-params">
+        <div class="param-block">
+          <div class="param-row">
+            <div class="param-label">
+              <span class="name">Temperature <em>T</em></span>
+              <span class="param-value">
+                <input type="number" class="param-num" v-model.number="params.T"
+                       min="75" max="100" step="0.1"
+                       @change="params.T = clamp(params.T, 75, 100)">
+                <span class="u">K</span>
+              </span>
+            </div>
+            <input type="range" class="param-slider" v-model.number="params.T"
+                   min="75" max="100" step="0.1">
+            <div class="param-marks">
+              <span style="left:0%">75</span>
+              <span style="left:35.2%">83.8</span>
+              <span style="left:49.2%">87.3</span>
+              <span style="left:100%">100</span>
+            </div>
+          </div>
+        </div>
+        <div class="param-block">
+          <div class="param-row">
+            <div class="param-label">
+              <span class="name">Drift field <em>E</em></span>
+              <span class="param-value">
+                <input type="number" class="param-num" v-model.number="params.E"
+                       min="50" max="1500" step="10"
+                       @change="params.E = clamp(params.E, 50, 1500)">
+                <span class="u">V/cm</span>
+              </span>
+            </div>
+            <input type="range" class="param-slider" v-model.number="params.E"
+                   min="50" max="1500" step="10">
+            <div class="param-marks">
+              <span style="left:0%">50</span>
+              <span style="left:31%">500</span>
+              <span style="left:65.5%">1k</span>
+              <span style="left:100%">1.5k</span>
+            </div>
+          </div>
+        </div>
         <div class="param-block">
           <div class="param-row">
             <div class="param-label">
@@ -156,15 +276,36 @@
       <table class="data">
         <thead><tr><th>Property</th><th>Symbol</th><th class="num">Value</th><th>Unit</th></tr></thead>
         <tbody>
-          <tr :class="{ live: flashing.Rc }"><td>Recombination factor (Birks)</td><td>$R_c$</td><td class="num">{{ trunc(physics.Rc_birks.value) }}</td><td class="units">—</td></tr>
-          <tr :class="{ live: flashing.atten }"><td>Attachment factor</td><td>$R_a$</td><td class="num">{{ trunc(physics.atten.value) }}</td><td class="units">—</td></tr>
-          <tr :class="{ live: flashing.atten }"><td>Total electron reduction</td><td>$R_c \cdot R_a$</td><td class="num">{{ trunc(physics.atten.value * physics.Rc_birks.value) }}</td><td class="units">—</td></tr>
-          <tr :class="{ live: flashing.RL }"><td>Light recombination factor</td><td>$R_L$</td><td class="num">{{ trunc(physics.R_L.value) }}</td><td class="units">—</td></tr>
+          <tr class="is-live" :class="{ live: flashing.Rc }"><td>Recombination factor (Birks)</td><td>$R_c$</td><td class="num">{{ trunc(physics.Rc_birks.value) }}</td><td class="units">—</td></tr>
+          <tr class="is-live" :class="{ live: flashing.atten }"><td>Attachment factor</td><td>$R_a$</td><td class="num">{{ trunc(physics.atten.value) }}</td><td class="units">—</td></tr>
+          <tr class="is-live" :class="{ live: flashing.atten }"><td>Total electron reduction</td><td>$R_c \cdot R_a$</td><td class="num">{{ trunc(physics.atten.value * physics.Rc_birks.value) }}</td><td class="units">—</td></tr>
+          <tr class="is-live" :class="{ live: flashing.RL }"><td>Light recombination factor</td><td>$R_L$</td><td class="num">{{ trunc(physics.R_L.value) }}</td><td class="units">—</td></tr>
         </tbody>
       </table>
 
       <h3 class="subhead" id="pass-eloss">Energy loss (live)</h3>
       <div class="inline-params">
+        <div class="param-block">
+          <div class="param-row">
+            <div class="param-label">
+              <span class="name">Temperature <em>T</em></span>
+              <span class="param-value">
+                <input type="number" class="param-num" v-model.number="params.T"
+                       min="75" max="100" step="0.1"
+                       @change="params.T = clamp(params.T, 75, 100)">
+                <span class="u">K</span>
+              </span>
+            </div>
+            <input type="range" class="param-slider" v-model.number="params.T"
+                   min="75" max="100" step="0.1">
+            <div class="param-marks">
+              <span style="left:0%">75</span>
+              <span style="left:35.2%">83.8</span>
+              <span style="left:49.2%">87.3</span>
+              <span style="left:100%">100</span>
+            </div>
+          </div>
+        </div>
         <div class="param-block">
           <div class="param-row">
             <div class="param-label">
@@ -229,8 +370,8 @@
       <table class="data">
         <thead><tr><th>Property</th><th>Symbol</th><th class="num">Value</th><th>Unit</th></tr></thead>
         <tbody>
-          <tr :class="{ live: flashing.mpv }"><td>Most probable energy loss</td><td>$(dE/dx)_\text{MPV}$</td><td class="num">{{ trunc(physics.mpvVal.value) }}</td><td class="units">MeV/cm</td></tr>
-          <tr :class="{ live: flashing.eloss }"><td>Mean energy loss</td><td>$(dE/dx)_\text{mean}$</td><td class="num">{{ trunc(physics.elossVal.value.eloss) }}</td><td class="units">MeV/cm</td></tr>
+          <tr class="is-live" :class="{ live: flashing.mpv }"><td>Most probable energy loss</td><td>$(dE/dx)_\text{MPV}$</td><td class="num">{{ trunc(physics.mpvVal.value) }}</td><td class="units">MeV/cm</td></tr>
+          <tr class="is-live" :class="{ live: flashing.eloss }"><td>Mean energy loss</td><td>$(dE/dx)_\text{mean}$</td><td class="num">{{ trunc(physics.elossVal.value.eloss) }}</td><td class="units">MeV/cm</td></tr>
         </tbody>
       </table>
     </section>
@@ -275,14 +416,14 @@
       <table class="data">
         <thead><tr><th>Property</th><th>Symbol</th><th class="num">Value</th><th>Unit</th></tr></thead>
         <tbody>
-          <tr :class="{ live: flashing.iof }">
+          <tr class="is-live" :class="{ live: flashing.iof }">
             <td>Index of refraction <button class="plot-btn" @click="togglePlot('iof_l')">{{ openPlots.iof_l ? 'Hide' : 'Plot' }}</button></td>
             <td>$n$</td>
             <td class="num">{{ trunc(physics.iof.value) }}</td>
             <td class="units">—</td>
           </tr>
           <tr v-if="openPlots.iof_l"><td colspan="4"><PlotChart :options="iofChartOptions" /></td></tr>
-          <tr :class="{ live: flashing.vg }">
+          <tr class="is-live" :class="{ live: flashing.vg }">
             <td>Photon group velocity <button class="plot-btn" @click="togglePlot('vg')">{{ openPlots.vg ? 'Hide' : 'Plot' }}</button></td>
             <td>$v_g$</td>
             <td class="num">{{ trunc(physics.vg.value) }}</td>
@@ -299,6 +440,48 @@
       <p class="sec-sub">Wire geometry, capacitance, and multi-plane drift. <a href="electronics.html">Full details →</a></p>
 
       <div class="inline-params">
+        <div class="param-block">
+          <div class="param-row">
+            <div class="param-label">
+              <span class="name">Temperature <em>T</em></span>
+              <span class="param-value">
+                <input type="number" class="param-num" v-model.number="params.T"
+                       min="75" max="100" step="0.1"
+                       @change="params.T = clamp(params.T, 75, 100)">
+                <span class="u">K</span>
+              </span>
+            </div>
+            <input type="range" class="param-slider" v-model.number="params.T"
+                   min="75" max="100" step="0.1">
+            <div class="param-marks">
+              <span style="left:0%">75</span>
+              <span style="left:35.2%">83.8</span>
+              <span style="left:49.2%">87.3</span>
+              <span style="left:100%">100</span>
+            </div>
+          </div>
+        </div>
+        <div class="param-block">
+          <div class="param-row">
+            <div class="param-label">
+              <span class="name">Drift field <em>E</em></span>
+              <span class="param-value">
+                <input type="number" class="param-num" v-model.number="params.E"
+                       min="50" max="1500" step="10"
+                       @change="params.E = clamp(params.E, 50, 1500)">
+                <span class="u">V/cm</span>
+              </span>
+            </div>
+            <input type="range" class="param-slider" v-model.number="params.E"
+                   min="50" max="1500" step="10">
+            <div class="param-marks">
+              <span style="left:0%">50</span>
+              <span style="left:31%">500</span>
+              <span style="left:65.5%">1k</span>
+              <span style="left:100%">1.5k</span>
+            </div>
+          </div>
+        </div>
         <div class="param-block">
           <div class="param-row">
             <div class="param-label">
@@ -376,13 +559,13 @@
       <table class="data">
         <thead><tr><th>Property</th><th class="num">Value</th><th>Unit</th></tr></thead>
         <tbody>
-          <tr :class="{ live: flashing.elec }"><td>Min E-field ratio for 100% transparency</td><td class="num">{{ trunc(physics.E_ratio_trans.value) }}</td><td class="units">—</td></tr>
-          <tr :class="{ live: flashing.elec }"><td>Wire capacitance in air</td><td class="num">{{ trunc(physics.wire_c_air.value) }}</td><td class="units">pF/m</td></tr>
-          <tr :class="{ live: flashing.elec }"><td>Wire capacitance in LAr</td><td class="num">{{ trunc(physics.wire_c_lar.value) }}</td><td class="units">pF/m</td></tr>
-          <tr :class="{ live: flashing.elec }"><td>Cathode high voltage</td><td class="num">{{ trunc(physics.cathod_hv.value) }}</td><td class="units">kV</td></tr>
-          <tr :class="{ live: flashing.vd }"><td>E fields — bulk, plane 2, plane 3</td><td class="num">{{ trunc(physics.E.value, 3) }}, {{ trunc(physics.E2.value, 3) }}, {{ trunc(physics.E3.value, 3) }}</td><td class="units">kV/cm</td></tr>
-          <tr :class="{ live: flashing.vd }"><td>Drift velocities — bulk, plane 2, plane 3</td><td class="num">{{ trunc(physics.v.value) }}, {{ trunc(physics.v2.value) }}, {{ trunc(physics.v3.value) }}</td><td class="units">cm/μs</td></tr>
-          <tr :class="{ live: flashing.vd }"><td>Drift times — bulk, plane 2, plane 3</td><td class="num">{{ trunc(physics.driftTime.value) }}, {{ trunc(physics.driftTime2.value) }}, {{ trunc(physics.driftTime3.value) }}</td><td class="units">μs</td></tr>
+          <tr class="is-live" :class="{ live: flashing.elec }"><td>Min E-field ratio for 100% transparency</td><td class="num">{{ trunc(physics.E_ratio_trans.value) }}</td><td class="units">—</td></tr>
+          <tr class="is-live" :class="{ live: flashing.elec }"><td>Wire capacitance in air</td><td class="num">{{ trunc(physics.wire_c_air.value) }}</td><td class="units">pF/m</td></tr>
+          <tr class="is-live" :class="{ live: flashing.elec }"><td>Wire capacitance in LAr</td><td class="num">{{ trunc(physics.wire_c_lar.value) }}</td><td class="units">pF/m</td></tr>
+          <tr class="is-live" :class="{ live: flashing.elec }"><td>Cathode high voltage</td><td class="num">{{ trunc(physics.cathod_hv.value) }}</td><td class="units">kV</td></tr>
+          <tr class="is-live" :class="{ live: flashing.vd }"><td>E fields — bulk, plane 2, plane 3</td><td class="num">{{ trunc(physics.E.value, 3) }}, {{ trunc(physics.E2.value, 3) }}, {{ trunc(physics.E3.value, 3) }}</td><td class="units">kV/cm</td></tr>
+          <tr class="is-live" :class="{ live: flashing.vd }"><td>Drift velocities — bulk, plane 2, plane 3</td><td class="num">{{ trunc(physics.v.value) }}, {{ trunc(physics.v2.value) }}, {{ trunc(physics.v3.value) }}</td><td class="units">cm/μs</td></tr>
+          <tr class="is-live" :class="{ live: flashing.vd }"><td>Drift times — bulk, plane 2, plane 3</td><td class="num">{{ trunc(physics.driftTime.value) }}, {{ trunc(physics.driftTime2.value) }}, {{ trunc(physics.driftTime3.value) }}</td><td class="units">μs</td></tr>
         </tbody>
       </table>
     </section>
@@ -410,6 +593,7 @@ import { useKaTeX } from '../composables/useKaTeX.js'
 
 const params  = useParams().state
 const physics = usePhysics()
+const clamp = (v, min, max) => Math.max(min, Math.min(max, v))
 
 const tcutVal = computed({
   get: () => config.particle_tcut ?? physics.elossVal.value.tmax,
@@ -468,11 +652,89 @@ const vgChartOptions = computed(() => {
   }
 })
 
+// ── Export CSV ────────────────────────────────────────────────────
+function cellText(el) {
+  if (!el) return ''
+  const c = el.cloneNode(true)
+  c.querySelectorAll('button').forEach(b => b.remove())
+  c.querySelectorAll('.katex-mathml').forEach(m => m.remove())
+  // strip zero-width / invisible chars KaTeX injects for spacing
+  return c.textContent.trim()
+    .replace(/[­​-‏⁠﻿]/g, '')
+    .replace(/\s+/g, ' ')
+}
+function csvEsc(v) {
+  const s = String(v)
+  return /[,"\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s
+}
+function exportCSV() {
+  const lines = []
+  const ts = new Date().toISOString().slice(0, 16).replace('T', ' ')
+  lines.push(`# LAr Properties — ${ts}`)
+  lines.push(`# T = ${params.T.toFixed(2)} K,  E = ${params.E} V/cm`)
+  lines.push(`# dE/dx = ${config.dEdx} MeV/cm,  e- lifetime = ${config.tlife} ms,  drift dist = ${config.drift_dist_max} m`)
+  lines.push(`# particle momentum = ${config.particle_mom} GeV/c,  mass = ${config.particle_mass} MeV,  thickness = ${config.pass_thickness} cm,  Tcut = ${config.particle_tcut ?? 'tmax'} MeV`)
+  lines.push(`# optical wavelength = ${config.wl} nm`)
+  lines.push(`# wire spacing = ${config.wire_spacing} mm,  wire diameter = ${config.wire_diameter} mm,  plane gap = ${config.plane_gap} mm,  E-field ratio = ${config.E_ratio}`)
+  lines.push('')
+  document.querySelectorAll('section.doc-section').forEach(section => {
+    const secTitle = cellText(section.querySelector('h2.sec-title'))
+    section.querySelectorAll('table.data').forEach(table => {
+      let label = secTitle
+      let node = table.previousElementSibling
+      while (node) {
+        if (node.matches('h3.subhead')) { label = cellText(node); break }
+        node = node.previousElementSibling
+      }
+      const headers = [...table.querySelectorAll('thead th')].map(th => cellText(th))
+      if (!headers.length) return
+      const rows = [...table.querySelectorAll('tbody tr')]
+        .filter(tr => !tr.querySelector('td[colspan]'))
+        .map(tr => [...tr.querySelectorAll('td')].map(td => cellText(td)))
+        .filter(r => r.length)
+      if (!rows.length) return
+      lines.push(`# ${label}`)
+      lines.push(headers.map(csvEsc).join(','))
+      rows.forEach(r => lines.push(r.map(csvEsc).join(',')))
+      lines.push('')
+    })
+  })
+  const filename = `lar-properties-T${params.T.toFixed(1)}K-E${params.E}Vcm.csv`
+  const blob = new Blob(['﻿' + lines.join('\n')], { type: 'text/csv;charset=utf-8;' })
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url; a.download = filename; a.click()
+  URL.revokeObjectURL(url)
+}
+
 // ── KaTeX ─────────────────────────────────────────────────────────
 useKaTeX()
 </script>
 
 <style scoped>
+.legend-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  margin: 14px 0 0; gap: 16px;
+}
+.live-legend {
+  display: flex; align-items: center; gap: 8px;
+  margin: 0;
+  font-size: 12px; color: var(--ink-3);
+}
+.export-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 11px; border: 1px solid var(--rule); border-radius: 4px;
+  background: var(--paper); color: var(--ink-2);
+  font-family: var(--mono); font-size: 11px; cursor: pointer; white-space: nowrap;
+  flex-shrink: 0;
+}
+.export-btn:hover { background: var(--paper-2); color: var(--ink); }
+.live-swatch {
+  width: 30px; height: 15px; border-radius: 2px; flex-shrink: 0;
+  background: color-mix(in oklab, var(--accent) 7%, var(--paper));
+  border: 1px solid var(--rule);
+}
+
 .plot-btn {
   font-size: 11px; font-family: var(--mono); padding: 2px 7px;
   border: 1px solid var(--rule); border-radius: 3px;

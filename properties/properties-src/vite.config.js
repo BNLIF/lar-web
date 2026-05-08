@@ -58,6 +58,7 @@ export default defineConfig({
         index:       resolve(__dirname, 'index.html'),
         basic:       resolve(__dirname, 'basic.html'),
         electronics: resolve(__dirname, 'electronics.html'),
+        energy:      resolve(__dirname, 'energy.html'),
         pass:        resolve(__dirname, 'pass.html'),
         scint:       resolve(__dirname, 'scint.html'),
         spacecharge: resolve(__dirname, 'spacecharge.html'),
