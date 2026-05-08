@@ -2,4 +2,8 @@
 *.db
 tmp/
 venv
-.vscode
+.vscode/
+.design/
+.claude/
+properties/properties-src/node_modules/
+properties/old/
