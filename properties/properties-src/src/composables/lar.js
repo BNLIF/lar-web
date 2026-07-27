@@ -37,7 +37,7 @@ export function mobility(E, T,
 // Longitudinal characteristic energy.  E in kV/cm, T in K.  Returns eV.
 export function epsL(E, T,
   T1 = 87.0,
-  b0 = 0.0075, b1 = 742.9, b2 = 3269.6, b3 = 31678.2,
+  b0 = 0.0075, b1 = -13.376, b2 = -10.9568, b3 = 646.523,
 ) {
   return (b0 + b1 * E + b2 * E * E)
     / (1 + (b1 / b0) * E + b3 * E * E)

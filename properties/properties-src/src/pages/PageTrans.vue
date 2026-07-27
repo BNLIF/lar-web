@@ -59,10 +59,16 @@
             <span class="expr">$\epsilon_L = \dfrac{b_0 + b_1 E + b_2 E^2}{1 + (b_1/b_0)E + b_3 E^2}\left(\dfrac{T}{T_1}\right)$</span>
           </div>
           <p class="body">
-            where $E$ is in kV/cm, $T$ is in K, and $b_0 = 0.0075\ \text{eV}$ is the electron energy at $T_1 = 87\ \text{K}$ under zero field. The temperature dependence is linear in $T$. Best-fit parameters:
+            where $E$ is in kV/cm, $T$ is in K, and $b_0 = 0.0075\ \text{eV}$ is the electron energy at $T_1 = 87\ \text{K}$ under zero field. The temperature dependence is linear in $T$. Best-fit parameters from Ref. [1]:
           </p>
           <div class="eq">
             <span class="expr">$b_0 = 0.0075,\quad b_1 = 742.9,\quad b_2 = 3269.6,\quad b_3 = 31678.2$</span>
+          </div>
+          <p class="body">
+            Updated values from a 2026 global fit that adds recent longitudinal diffusion measurements from DarkSide [5], MicroBooNE [6], and ProtoDUNE-SP [7]; the new data points lower the fitted $\epsilon_L$. These updated values are used in the calculations on this site:
+          </p>
+          <div class="eq">
+            <span class="expr">$b_0 = 0.0075,\quad b_1 = -13.376,\quad b_2 = -10.9568,\quad b_3 = 646.523$</span>
           </div>
         </div>
         <div class="img-col">
@@ -142,6 +148,9 @@
         <li><span class="ttl">Y. Li et al., "Parameterization of Electron Attachment Rate Constants for Common Impurities in LArTPC Detectors"</span>, <a href="http://arxiv.org/abs/2205.06888">arXiv:2205.06888</a></li>
         <li><span class="ttl">MicroBooNE Collaboration, "Measurement of the electron drift velocity and attenuation in liquid argon using MicroBooNE's time projection chamber"</span>, <a href="https://arxiv.org/abs/2101.05076">arXiv:2101.05076</a></li>
         <li><span class="ttl">A. Paudel (ProtoDUNE-SP), "Drift Velocity Measurement"</span>, <a href="https://indico.fnal.gov/event/23110/contributions/191646/">New Perspectives 2020</a></li>
+        <li><span class="ttl">DarkSide Collaboration, "Electroluminescence pulse shape and electron diffusion in liquid argon measured in a dual-phase TPC"</span>, <a href="https://arxiv.org/abs/1802.01427">arXiv:1802.01427</a></li>
+        <li><span class="ttl">MicroBooNE Collaboration, "Measurement of the Longitudinal Diffusion of Ionization Electrons in the MicroBooNE Detector"</span>, <a href="https://arxiv.org/abs/2104.06551">arXiv:2104.06551</a></li>
+        <li><span class="ttl">"Electron Diffusion in the ProtoDUNE-SP LArTPC"</span>, <a href="https://indico.fnal.gov/event/44492/contributions/214335/">ProtoDUNE 2021</a></li>
       </ol>
     </section>
   </TheShell>
